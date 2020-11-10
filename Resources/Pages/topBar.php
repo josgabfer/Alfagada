@@ -1,5 +1,3 @@
-<div class="navbar navbar-default">
-    <div class="container-fluid">
+<div class="main_header">
 
-    </div>
 </div>

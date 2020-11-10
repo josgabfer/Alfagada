@@ -1,3 +1,24 @@
-.asoidjaosidj{
-    
+.top_bar{
+    background-color: #2E3D59;
+}
+.barra_busqueda{
+    vertical-align: middle;
+}
+.logo{
+    width: 10rem;
+    height: 2rem;
+}
+.fas{
+    color: white;
+}
+.fa-phone-alt{
+    color: white;
+}
+.circle{
+    background: #85D3F2;
+    padding: 15px;
+    border-radius: 50%;
+}
+.footer_bg{
+    background-color: #2E3D59;
 }

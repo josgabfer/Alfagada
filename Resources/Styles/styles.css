@@ -19,6 +19,17 @@
     padding: 15px;
     border-radius: 50%;
 }
-.footer_bg{
+.footer{
     background-color: #2E3D59;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+.bottom{
+    text-align: center;
+
+}
+p{
+    color: white;
 }

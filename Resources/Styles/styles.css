@@ -8,14 +8,8 @@
     width: 10rem;
     height: 2rem;
 }
-.fas{
-    color: white;
-}
-.fa-phone-alt{
-    color: white;
-}
 .circle{
-    background: #85D3F2;
+    background: white;
     padding: 15px;
     border-radius: 50%;
 }
@@ -26,10 +20,20 @@
     bottom: 0;
     width: 100%;
 }
+
 .bottom{
     text-align: center;
 
 }
 p{
     color: white;
+}
+.bottom-font{
+    color: white;
+}
+.solid-line{
+    border-bottom: 1px solid grey;
+}
+.bottom-icons{
+    color: #BAF266;
 }

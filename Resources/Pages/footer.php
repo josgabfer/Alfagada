@@ -25,32 +25,25 @@
                 </div>
             </div>
         </div>
-
     </div>
         <div class="container my-3">
             <div class="row">
                 <div class="col-lg-4 cold-md-4">
-                    <div class="footer-info">
-                    <h2 class="bottom-font">Contactanos Ahora!</h2>
-                    <p>Nos gustaria escuchar tus comentarios</p>
-                        <ul>
-                            <li>
-                            <i class="fas fa-map-signs fa-2x bottom-icons"></i>
-                            </li>
-                            <li>
-                            <p> 200 metros norte del palo de mangos</p>
-                            </li>
-                        </ul>
-
+                    <div class="footer-info" id="div-list">
+                            <ul id="ul-list">
+                                <li><h2 class="bottom-font">Contactanos Ahora!</h2>
+                                <p>Nos gustaria escuchar tus comentarios</p></li>
+                                <li class="bottom-font"><i class="fas fa-map-signs fa-2x bottom-icons"></i> 200 metros norte del palo de mangos</li>
+                            </ul>
                     </div>
                 </div>
             </div>
-            <div class="bottom container">
+        </div>
+        <div class="bottom container">
                 <div class="pr-xl-4">
                     <p class="rights">
                         <span>@ </span><span class="copyright-year">2020 </span><span>GoodSoft.com</span><span> All Rights Reserved</span>
                     </p>
                 </div>
             </div>
-        </div>
 </footer>

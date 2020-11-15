@@ -43,7 +43,7 @@
                             <dt class="col-md-2">
                                 <i class="fas fa-phone-alt bottom-icons"></i>
                             </dt>
-                            <dd class="col-md-10 bottom-font">(506) 2222-2222</dd>
+                            <dd class="col-md-10 bottom-font">(506)  2546 8402</dd>
                         </dl>
                 </div>
                 <div class="col">

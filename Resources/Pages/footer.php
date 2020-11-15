@@ -63,6 +63,8 @@
                     <ul class="ul-list">
                         <li><a class="footer-links" href="#">Sobre Nosotros</a></li>
                         <li><a class="footer-links" href="#">Contacto</a></li>
+                        <li><a class="footer-links" href="#">Ubicaciones</a></li>
+
                     </ul>
                 </div>           
             </div> 

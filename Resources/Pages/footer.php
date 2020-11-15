@@ -28,16 +28,44 @@
     </div>
         <div class="container my-3">
             <div class="row">
-                <div class="col-lg-4 cold-md-4">
-                    <div class="footer-info" id="div-list">
-                            <ul id="ul-list">
-                                <li><h2 class="bottom-font">Contactanos Ahora!</h2>
-                                <p>Nos gustaria escuchar tus comentarios</p></li>
-                                <li class="bottom-font"><i class="fas fa-map-signs fa-2x bottom-icons"></i> 200 metros norte del palo de mangos</li>
-                            </ul>
+                <div class="col">
+                    <div class="footer-info">
+                        <h2 class="bottom-font">Contactanos Ahora!</h2>
+                        <p>Nos gustaria escuchar tus comentarios</p>
                     </div>
+                    <dl class="row">
+                            <dt class="col-md-2">
+                                <i class="fas fa-map-signs fa-2x bottom-icons"></i>
+                            </dt>
+                            <dd class="col-md-10 bottom-font">
+                             200 Metros del Palo de mangos
+                            </dd>
+                            <dt class="col-md-2">
+                                <i class="fas fa-phone-alt bottom-icons"></i>
+                            </dt>
+                            <dd class="col-md-10 bottom-font">(506) 2222-2222</dd>
+                        </dl>
                 </div>
-            </div>
+                <div class="col">
+                    <div class="footer-info col-md-4">
+                        <h2 class="bottom-font">Categorias</h2>
+                    </div>
+                    <ul class="ul-list">
+                        <li><a class="footer-links" href="#">Abarrotes</a></li>
+                        <li><a class="footer-links" href="#">Lacteos</a></li>
+                        <li><a class="footer-links" href="#">Granos</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <div class="footer-info col-md-11">
+                        <h2 class="bottom-font">Nuestra Compañia</h2>
+                    </div>
+                    <ul class="ul-list">
+                        <li><a class="footer-links" href="#">Sobre Nosotros</a></li>
+                        <li><a class="footer-links" href="#">Contacto</a></li>
+                    </ul>
+                </div>           
+            </div> 
         </div>
         <div class="bottom container">
                 <div class="pr-xl-4">

@@ -39,15 +39,10 @@ p{
 .bottom-icons{
     color: #BAF266;
 }
-#div-list{
-    display: inline;
-    list-style: none;
-}
-#ul-list{
-    display: inline;
-    list-style: none;
+.ul-list li{
     list-style-type: none;
+    font-size: 20px;
 }
-ul li::before{
-    list-style-type: none; 
+.footer-links{
+    color: white;
 }

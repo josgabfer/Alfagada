@@ -1,0 +1,48 @@
+.top_bar{
+    background-color: #2E3D59;
+}
+.barra_busqueda{
+    vertical-align: middle;
+}
+.logo{
+    width: 10rem;
+    height: 2rem;
+}
+.circle{
+    background: white;
+    padding: 15px;
+    border-radius: 50%;
+}
+.footer{
+    background-color: #2E3D59;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.bottom{
+    text-align: center;
+}
+p{
+    color: white;
+}
+#footer-font-list{
+    font-size: small;
+}
+.bottom-font{
+    color: white;
+}
+.solid-line{
+    border-bottom: 1px solid grey;
+}
+.bottom-icons{
+    color: #BAF266;
+}
+.ul-list li{
+    list-style-type: none;
+    font-size: 20px;
+}
+.footer-links{
+    color: white;
+}

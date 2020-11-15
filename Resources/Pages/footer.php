@@ -20,7 +20,7 @@
                 <i class="fas fa-clock fa-2x bottom-icons"></i>
                     <div>
                     <h2 class="bottom-font">Servicio 24/7</h2>
-                        <p>Estamos disponibles en cuelquier momento!</p>
+                        <p>Estamos disponibsles en cuelquier momento!</p>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,4 @@
-<footer class="section footer">
-    <div class="before-footer bottom solid-line">
+    <div class="bottom solid-line">
         <div class="container-lg my-5 mx-2">
             <div class="row">
                 <div class="col-sm">
@@ -44,7 +43,7 @@
                                 <i class="fas fa-phone-alt bottom-icons"></i>
                             </dt>
                             <dd class="col-md-10 bottom-font">(506)  2546 8402</dd>
-                        </dl>
+                    </dl>
                 </div>
                 <div class="col">
                     <div class="footer-info col-md-4">
@@ -76,4 +75,3 @@
                     </p>
                 </div>
             </div>
-</footer>

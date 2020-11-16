@@ -1,6 +1,5 @@
 /**Colors: #B8C0D9 #2E3D59 #85D3F2 #76BF41 #BAF266 **/
 
-@import "../Resources/Styles/bootstrap.css";
  
 html, body {
     font-size: 100%;
@@ -28,7 +27,8 @@ a {
 
 .header{
     background: #2E3D59;
-    padding: 25px 0;
+    padding: 50px 0;
+    margin-top: -20px;
 }
 
 .header_logo{

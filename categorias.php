@@ -15,41 +15,9 @@
 <!-- Top Bar Section (Search)-->
 <?php include('Resources/Pages/topBar.php');?>
 
-<div id="content">'
-    <div id="content-wrap">
-    <div class="float-left">Float left on all viewport sizes</div><br>
-<div class="float-right">Float right on all viewport sizes</div><br>
-<div class="float-none">Don't float on all viewport sizes</div>
-<div class="float-left">Float left on all viewport sizes</div><br>
-<div class="float-right">Float right on all viewport sizes</div><br>
-<div class="float-none">Don't float on all viewport sizes</div>
-<div class="float-left">Float left on all viewport sizes</div><br>
-<div class="float-right">Float right on all viewport sizes</div><br>
-<div class="float-none">Don't float on all viewport sizes</div>
-<div class="float-left">Float left on all viewport sizes</div><br>
-<div class="float-right">Float right on all viewport sizes</div><br>
-<div class="float-none">Don't float on all viewport sizes</div>
-<div class="float-left">Float left on all viewport sizes</div><br>
-<div class="float-right">Float right on all viewport sizes</div><br>
-<div class="float-none">Don't float on all viewport sizes</div>
-<div class="float-left">Float left on all viewport sizes</div><br>
-<div class="float-right">Float right on all viewport sizes</div><br>
-<div class="float-none">Don't float on all viewport sizes</div>
-<div class="float-left">Float left on all viewport sizes</div><br>
-<div class="float-right">Float right on all viewport sizes</div><br>
-<div class="float-none">Don't float on all viewport sizes</div>
-<div class="float-left">Float left on all viewport sizes</div><br>
-<div class="float-right">Float right on all viewport sizes</div><br>
-<div class="float-none">Don't float on all viewport sizes</div>
-<div class="float-left">Float left on all viewport sizes</div><br>
-<div class="float-right">Float right on all viewport sizes</div><br>
-<div class="float-none">Don't float on all viewport sizes</div>
-    </div>
-
-</div>
 
 <!-- Footer-->
-<footer class="footer" id="page-footer">
+<footer class="footer pt-1" id="page-footer">
     <?php include('Resources/Pages/footer.php');?>
 </footer>
 

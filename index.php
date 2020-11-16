@@ -13,9 +13,9 @@
 <body>
 
 <!-- Top Bar Section (Search)-->
-<?php include('Resources/Pages/topBar.php');?>
-
-
+<footer class="footer pt-1" id="page-footer">
+    <?php include('Resources/Pages/footer.php');?>
+</footer>
 <!-- Footer-->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

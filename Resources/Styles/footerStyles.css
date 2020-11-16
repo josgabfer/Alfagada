@@ -1,26 +1,12 @@
-.top_bar{
-    background-color: #2E3D59;
-}
-.barra_busqueda{
-    vertical-align: middle;
-    
-}
-.logo{
-    width: 10rem;
-    height: 2rem;
-}
-.circle{
-    background: white;
-    padding: 15px;
-    border-radius: 50%;
-}
 .footer{
     background-color: #2E3D59;
     position: relative;
     min-height: 100vh;
     width: 100%;
 }
-
+body{
+    overflow: hidden;
+}
 .bottom{
     text-align: center;
 }

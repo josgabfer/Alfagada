@@ -19,30 +19,30 @@
                 <i class="fas fa-clock fa-2x bottom-icons"></i>
                     <div>
                     <h2 class="bottom-font">Servicio 24/7</h2>
-                        <p>Estamos disponibsles en cuelquier momento!</p>
+                        <p>Estamos disponibles en cualquier momento!</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-        <div class="container my-3">
-            <div class="row">
-                <div class="col">
-                    <div class="footer-info">
-                        <h2 class="bottom-font">Contactanos Ahora!</h2>
-                        <p>Nos gustaria escuchar tus comentarios</p>
-                    </div>
-                    <dl class="row">
-                            <dt class="col-md-2">
-                                <i class="fas fa-map-signs fa-2x bottom-icons"></i>
-                            </dt>
-                            <dd class="col-md-10 bottom-font">
-                             200 Metros del Palo de mangos
-                            </dd>
+    <div class="container my-3">
+        <div class="row">
+            <div class="col">
+                <div class="footer-info">
+                    <h2 class="bottom-font">Contactanos Ahora!</h2>
+                    <p>Nos gustaria escuchar tus comentarios</p>
+                </div>
+                <dl class="row">
+                        <dt class="col-md-2">
+                            <i class="fas fa-map-signs fa-2x bottom-icons"></i>
+                        </dt>
+                        <dd class="col-md-10 bottom-font">
+                            200 Metros del Palo de mangos
+                        </dd>
                             <dt class="col-md-2">
                                 <i class="fas fa-phone-alt bottom-icons"></i>
                             </dt>
-                            <dd class="col-md-10 bottom-font">(506)  2546 8402</dd>
+                        <dd class="col-md-10 bottom-font">(506)  2546 8402</dd>
                     </dl>
                 </div>
                 <div class="col">
@@ -69,9 +69,9 @@
             </div> 
         </div>
         <div class="bottom container">
-                <div class="pr-xl-4">
-                    <p class="rights">
-                        <span>@ </span><span class="copyright-year">2020 </span><span>GoodSoft.com</span><span> All Rights Reserved</span>
-                    </p>
-                </div>
+            <div class="pr-xl-4">
+                <p>
+                    <span>@ </span><span>2020 </span><span>GoodSoft.com</span><span> All Rights Reserved</span>
+                </p>
             </div>
+        </div>

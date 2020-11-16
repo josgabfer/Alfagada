@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>ALFAGADA</title>
     <link rel="stylesheet" href="Resources/Styles/styles.css">
+    <link rel="stylesheet" href="Resources/Styles/bootstrap.css" media="all" type="text/css">
+    <link rel="stylesheet" href="Resources/Styles/styles_top_bar.css" media="all" type="text/css">
+    <link rel="stylesheet" href="Resources/Styles/styles_menu_bar.css" media="all" type="text/css">
     <link rel="stylesheet" href="Resources/Styles/footerStyles.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
+    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">  
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 </head>
 <body>
 
-<!-- Top Bar Section (Search)-->
-<?php include('Resources/Pages/topBar.php');?>
-
+ <!-- Top Bar Section (Search)-->
+ <div>
+    <?php include 'Resources/Pages/topBar.php';?> 
+</div>
+<div>
+    <?php include 'Resources/Pages/menuBar.php';?> 
+</div>
 
 <!-- Footer-->
 <footer class="footer pt-1" id="page-footer">

@@ -1,0 +1,146 @@
+/**Colors: #B8C0D9 #2E3D59 #85D3F2 #76BF41 #BAF266 **/
+
+@import "../Resources/Styles/bootstrap.css";
+ 
+html, body {
+    font-size: 100%;
+	font-family: 'Open Sans', sans-serif;
+	background:#ffffff;
+}
+
+p {
+    margin: 0;
+}
+
+ul li, ol li {
+    font-size: 14px;
+}
+
+ul,label{
+	margin:0;
+	padding:0;
+}
+
+a {
+	margin:0;
+	font-weight:700;
+}
+
+.header{
+    background: #2E3D59;
+    padding: 25px 0;
+}
+
+.header_logo{
+    float: left;
+    width: 25%;
+    margin-right: -50px;
+}
+
+.nav-brand{
+    font-size: 24px;
+    margin-right: 1rem;
+    padding-left: 0;
+    text-decoration: none !important;
+}
+
+.nav-brand img{
+    max-height: 75%;
+    max-width: 75%;
+}
+
+.header_search {
+    float: left;
+    text-align: center;
+    width: 45%;
+    margin-right: 15px;
+    margin-top: 3px;
+}
+
+.header_search .form-control{
+    border: none;
+}
+
+
+button.btn.search_btn {
+    border: none;
+    background: #76BF41;
+    color: #fff;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 6px 6px 0;
+}
+
+.header_login{
+    float: left;
+    width: 30%;
+    padding: 9px 0;
+    margin-right: -140px;
+}
+
+.header_login ul li{
+    display: inline-block;
+    padding: 0em 0.5em;
+}
+
+.header_login ul li a{
+    font-size: 1em;
+    text-transform: capitalize;
+    color: #fff;
+    text-decoration: none;
+}
+
+.header_shop_cart{
+    display: flex;
+    float: left;
+    margin-right: 1.5rem;
+    align-items: center;
+}
+.ss_right {
+    margin-right: 15px;
+}
+
+.ss_right .cart_icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.075);
+    border: 1px solid rgba(118, 191, 65, 0.2);
+    color: #76BF41 !important;
+    position: relative;
+}
+
+span.qut_counter {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    background: #fff;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    top: -6px;
+    right: -6px;
+    color: #2E3D59;
+}
+
+.ss_cart_content {
+    flex: 1;
+}
+
+.ss_cart_content strong {
+    display: block;
+    color: #76BF41;
+}
+
+.ss_cart_content span {
+    color: #fff;
+}
+
+

@@ -12,7 +12,7 @@
                             </a>
                         </li>
                         <li class="dd active">
-                            <a href="contact.php" class="act">CONTACTO</a>
+                            <a href="#contact.php" class="act">CONTACTO</a>
                         </li>
                         <li class="dd active">
                             <a href="index.php" class="act">UBICACION</a>

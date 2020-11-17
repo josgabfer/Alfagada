@@ -18,7 +18,8 @@
         <div class="header_login">
             <ul>
                 <li><a href="">Crear Cuenta</a></li>
-                <li><a href="">Login</a></li>
+                <li><a href="">|</a></li>
+                <li><a href="">Ingresar</a></li>
             </ul>
         </div>
         <div class="header_shop_cart">

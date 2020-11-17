@@ -26,9 +26,7 @@
 <div>
     <?php include 'Resources/Pages/menuBar.php';?> 
 </div>
-<div>
-    <?php include 'Resources/Pages/slider.php';?> 
-</div>
+
 
 
 

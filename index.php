@@ -29,14 +29,6 @@
 
 
 
-<<<<<<< HEAD
-=======
-
-
-
-
-
->>>>>>> origin/master
 <!-- Footer-->
 <footer class="footer pt-1" id="page-footer">
     <?php include('Resources/Pages/footer.php');?>

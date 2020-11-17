@@ -1,11 +1,8 @@
-.footer{
+footer{
     background-color: #2E3D59;
-    position: relative;
-    min-height: 100vh;
+    height: 50%;
     width: 100%;
-}
-body{
-    overflow: hidden;
+    position: relative;
 }
 .bottom{
     text-align: center;

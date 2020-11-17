@@ -1,4 +1,4 @@
-    <div class="bottom solid-line">
+<div class="bottom solid-line">
         <div class="my-5 mx-2">
             <div class="row">
                 <div class="col">
@@ -25,7 +25,7 @@
             </div>
         </div>
     </div>
-    <div class="container my-3">
+    <div class="container">
         <div class="row">
             <div class="col">
                 <div class="footer-info">

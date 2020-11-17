@@ -57,7 +57,7 @@
 </div>
 
 <!-- Footer-->
-<footer class="footer pt-1" id="page-footer">
+<footer class="footer pt-1">
     <?php include('Resources/Pages/footer.php');?>
 </footer>
 

@@ -1,6 +1,5 @@
 /**Colors: #B8C0D9 #2E3D59 #85D3F2 #76BF41 #BAF266 **/
 
-@import "../Resources/Styles/bootstrap.css";
  
 html, body {
     font-size: 100%;
@@ -13,7 +12,7 @@ p {
 }
 
 ul li, ol li {
-    font-size: 14px;
+    font-size: 100%;
 }
 
 ul,label{
@@ -28,20 +27,21 @@ a {
 
 .header{
     background: #2E3D59;
-    padding: 25px 0;
+    padding: 3.5rem 0rem;
 }
 
 .header_logo{
     float: left;
     width: 25%;
-    margin-right: -50px;
+    margin-right: -5%;
+    margin-top: -2.0%;
 }
 
 .nav-brand{
     font-size: 24px;
     margin-right: 1rem;
     padding-left: 0;
-    text-decoration: none !important;
+    text-decoration: none !important; max-height: 100%;
 }
 
 .nav-brand img{
@@ -49,12 +49,13 @@ a {
     max-width: 75%;
 }
 
+
 .header_search {
     float: left;
     text-align: center;
     width: 45%;
-    margin-right: 15px;
-    margin-top: 3px;
+    margin-right: 2.5%;
+    margin-top: -1.5%;
 }
 
 .header_search .form-control{
@@ -75,14 +76,14 @@ button.btn.search_btn {
 
 .header_login{
     float: left;
-    width: 30%;
-    padding: 9px 0;
-    margin-right: -140px;
+    width: 32%;
+    padding: 1rem 5rem;
+    margin-top: -2.5%;
 }
 
 .header_login ul li{
     display: inline-block;
-    padding: 0em 0.5em;
+    padding: 0rem 0rem;
 }
 
 .header_login ul li a{
@@ -97,6 +98,8 @@ button.btn.search_btn {
     float: left;
     margin-right: 1.5rem;
     align-items: center;
+    margin-top: -2.3%;
+    margin-right: -20.5rem;
 }
 .ss_right {
     margin-right: 15px;

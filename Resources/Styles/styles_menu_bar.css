@@ -1,6 +1,6 @@
 /**Colors: #B8C0D9 #2E3D59 #85D3F2 #76BF41 #BAF266 **/
 
-@import "../Resources/Styles/bootstrap.css";
+
  
 html, body {
     font-size: 100%;
@@ -13,7 +13,7 @@ p {
 }
 
 ul li, ol li {
-    font-size: 14px;
+    font-size: 100%;
 }
 
 ul,label{
@@ -33,12 +33,8 @@ a {
 .navbar{
     margin-bottom: 0;
     border: none;
-    min-height: 50px;
-    position: relative;
-}
-
-.navbar-default{
-    background: none;
+    min-height: 10%;
+    padding: .5rem 3.2rem;
 }
 
 .navbar-header{
@@ -54,41 +50,22 @@ a {
 .navbar-nav{
     float: left;
     margin: 0;
+    flex-direction: row;
+    
 }
 
 .nav {
   padding-left: 0;
   margin-bottom: 0;
-  list-style: none;
+  flex-wrap: nowrap;
 }
 
 .nav > li {
   position: relative;
-}
-
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    background-color: transparent;
-	 color: #fff !important;
-}
-
-.navbar-nav > li {
-    float: left;
-    margin-left: 20px;
+  margin-right: 45%;
 }
 
 .navbar-default .navbar-nav > li > a {
     color: #fff;
-    font-size: 16px;
-}
-
-ul.nav.navbar-nav {
-    display: inline-block;
-}
-
-.dd.active{
-    margin-right: 25px;
-}
-
-.dd.dropdown{
-    margin-right: 25px;
+    font-size: 105%;
 }

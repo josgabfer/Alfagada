@@ -16,6 +16,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css" type="text/css">
+    <link rel="stylesheet" href="Resources/Styles/styles_login.css" media="all" type="text/css">
 </head>
 <body>
 

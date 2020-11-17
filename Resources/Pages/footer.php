@@ -1,21 +1,21 @@
     <div class="bottom solid-line">
-        <div class="container-lg my-5 mx-2">
+        <div class="my-5 mx-2">
             <div class="row">
-                <div class="col-sm">
+                <div class="col">
                     <i class="fas fa-laptop-house fa-2x bottom-icons"></i>
                     <div>
                         <h2 class="bottom-font">Compra desde la casa!</h2>
                         <p>Ordena desde la comodidad de tu casa!</p>
                     </div>
                 </div>
-                <div class="col-sm">
+                <div class="col">
                 <i class="fas fa-dollar-sign fa-2x bottom-icons"></i>
                     <div>
                     <h2 class="bottom-font">Precios comodos!</h2>
                         <p>Todos nuestros productos estan al mejor precio!</p>
                     </div>
                 </div>
-                <div class="col-sm">
+                <div class="col">
                 <i class="fas fa-clock fa-2x bottom-icons"></i>
                     <div>
                     <h2 class="bottom-font">Servicio 24/7</h2>
@@ -31,6 +31,7 @@
                 <div class="footer-info">
                     <h2 class="bottom-font">Contactanos Ahora!</h2>
                     <p>Nos gustaria escuchar tus comentarios</p>
+                    <br>
                 </div>
                 <dl class="row">
                         <dt class="col-md-2">
@@ -39,9 +40,9 @@
                         <dd class="col-md-10 bottom-font">
                             200 Metros del Palo de mangos
                         </dd>
-                            <dt class="col-md-2">
-                                <i class="fas fa-phone-alt bottom-icons"></i>
-                            </dt>
+                        <dt class="col-md-2">
+                            <i class="fas fa-phone-alt bottom-icons"></i>
+                        </dt>
                         <dd class="col-md-10 bottom-font">(506)  2546 8402</dd>
                     </dl>
                 </div>

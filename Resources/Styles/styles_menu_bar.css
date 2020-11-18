@@ -75,12 +75,18 @@ a {
     font-weight:700;
     margin:0;
     padding:0;
-    opacity: 0.5;
+    overflow: hidden;
+}
+#dropdownbtn a:hover > div{
+    opacity: 1;
+    visibility: visible;
+    margin: 0;
 }
 #dropdownitem{
     font-family: 'Open Sans', sans-serif;
     color:#ffffff;
-    opacity: 1;
+    transition: all .2s ease-in-out;
 }
+
 
 

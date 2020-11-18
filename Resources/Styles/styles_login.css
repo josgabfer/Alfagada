@@ -24,9 +24,10 @@ h2{
     text-transform: capitalize;  
 }
 
-ul,label{
-	margin:0;
-	padding:0;
+
+label{
+    display: inline-block;
+    margin-bottom: .5rem;
 }
 
 a {
@@ -70,4 +71,96 @@ li.breadcrumb-item a{
 
 nav a{
     display: inline-block;
+}
+
+.login_signup{
+    padding: 1.5rem 1rem;
+    border: 1px solid #e6eaef;
+    border-radius: .4rem;
+}
+
+.login_signup .login_sec_title{
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 24px;
+    color: #76BF41;
+}
+
+section{
+    padding: 80px 0;
+    position: relative;
+}
+
+.sign_up_form{
+    height: 54px;
+    background: #f7f7f9;
+    border-radius: 4px;
+    font-size: 15px;
+    box-shadow: none;
+    padding: .5rem .75rem;
+    border: 1px solid #e6eaf3;
+}
+
+.login_flex{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.login_flex1{
+    flex: 1
+}
+
+.forgot_password{
+    font-weight: 500;
+    color: rgba(46, 61, 89, 0.693)
+}
+
+.btn-theme{
+    background: #76BF41;
+    border-color: #76BF41;
+    color: #fff;
+    transition: all ease .4s;
+}
+
+.btn-md{
+    padding: 1em 1.5em;
+    font-size: 1em;;
+}
+
+.checkbox-newsletter{
+    opacity: 0%;
+    position: absolute;
+    display: inline-block;
+    vertical-align: text-top;
+    margin: 5px 0;
+    
+}
+
+.checkbox-newsletter-label{
+    position: relative;
+    display: inline-block;
+    vertical-align: text-top;
+    margin: 5px 0;
+}
+
+.checkbox-newsletter + .checkbox-newsletter-label:before{
+    content: '';
+    background: #fff;
+    border: 2px solid #d8dfe6;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    padding: 2px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.checkbox-newsletter:checked + .checkbox-newsletter-label:before {
+    background: #76BF41;
+    border-radius: 2px;
+    box-shadow: inset 0 0 0 4px #fff;
 }

@@ -2,16 +2,17 @@
 
     include 'conexionBD.php';
     $abrirCon = OpenCon();
+
     if(isset($_POST['btnRegistrar']))
     {
         $nombre = $_POST['loginNombre'];
         $apellido = $_POST['loginApellido'];
         $correo = $_POST['loginCorreo'];
         $clave = $_POST['loginClave'];
-        
-        $insertarUsuario = "call InsertarUsuario('hola', 'hol1', 'hola', 'holi')";
-        print_r( $abrirCon->query($insertarUsuario));
+    
+        $insertarUsuario = "call InsertarUsuario('$nombre', '$apellido', '$correo', '$clave')";
         $abrirCon -> next_result();
+
         if ($abrirCon -> query($insertarUsuario))
         {
             echo '<script>alert("Datos actualizados con éxito.")</script>'; 
@@ -87,14 +88,14 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12">
                     <div class="login_signup">
-                        <h3 class="login_sec_title">Ingresar</h3>   
+                            <h3 class="login_sec_title">Ingresar</h3>   
                             <div class="form-group">
                                 <label>Correo Electrónico</label>
-                                <input type="text" class="sign_up_form form-control">
+                                <input type="text" autocomplete="new-password" class="sign_up_form form-control">
                             </div>
                             <div class="form-group">
                                 <label>Contraseña</label>
-                                <input type="password" class="sign_up_form form-control">
+                                <input type="password" autocomplete="new-password" class="sign_up_form form-control">
                             </div>
                             <div class="login_flex">
                                 <div class="login_flex1">
@@ -106,42 +107,40 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
                     <div class="login_signup">
                         <h3 class="login_sec_title">Crear Cuenta</h3>
-                        <form>
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>Nombre</label>
-                                        <input type="text" id ="loginNombre" name ="loginNombre" class="sign_up_form form-control">
+                                        <input type="text" autocomplete="new-password" id ="loginNombre" name ="loginNombre" class="sign_up_form form-control">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>Apellido</label>
-                                        <input type="text" id ="loginApellido" name ="loginApellido" class="sign_up_form form-control">
+                                        <input type="text" autocomplete="new-password" id ="loginApellido" name ="loginApellido" class="sign_up_form form-control">
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group">
                                         <label>Correo Electrónico</label>
-                                        <input type="email" id ="loginCorreo" name ="loginCorreo" class="sign_up_form form-control">
+                                        <input type="email"  autocomplete="new-password" id ="loginCorreo" name ="loginCorreo" class="sign_up_form form-control">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>Contraseña</label>
-                                        <input type="password" id ="loginClave" name ="loginClave" class="sign_up_form form-control">
+                                        <input type="password" autocomplete="new-password" id ="loginClave" name ="loginClave" class="sign_up_form form-control">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>Confirmar Contraseña</label>
-                                        <input type="password" id = "confirmarClave" class="sign_up_form form-control">
+                                        <input type="password"  autocomplete="new-password" id = "confirmarClave" class="sign_up_form form-control">
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
@@ -158,7 +157,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -173,5 +171,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </form>
 </body>
-
 </html>

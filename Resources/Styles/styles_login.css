@@ -1,6 +1,6 @@
 html, body {
     font-size: 100%;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Dosis', sans-serif;
 	background:#ffffff;
 }
 
@@ -41,7 +41,9 @@ a {
 }
 
 .login_title{
-    font-size: 32px;
+    font-size: 35px;
+    font-family:  'Dosis', sans-serif;
+    font-weight: 600;
     color: #76BF41;
     margin-bottom: 0;
 }
@@ -66,7 +68,7 @@ li.breadcrumb-item a{
 
 .breadcrumb-item.active{
     color: #fff;
-    font-weight: bold;
+    font-weight: 550;
 }
 
 nav a{
@@ -82,9 +84,10 @@ nav a{
 .login_signup .login_sec_title{
     text-align: center;
     margin-bottom: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 24px;
     color: #76BF41;
+    font-family:  'Dosis', sans-serif;
 }
 
 section{
@@ -113,7 +116,7 @@ section{
 }
 
 .forgot_password{
-    font-weight: 500;
+    font-weight: 600;
     color: rgba(46, 61, 89, 0.693)
 }
 
@@ -126,7 +129,8 @@ section{
 
 .btn-md{
     padding: 1em 1.5em;
-    font-size: 1em;;
+    font-size: 1em;
+    font-weight: 600;
 }
 
 .checkbox-newsletter{

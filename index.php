@@ -39,7 +39,7 @@
     </a>
   </div>
 
-  <footer class="footer pt-1">
+  <footer class="dark-footer skin-dark-footer">
       <?php include('Resources/Sections/footer.php');?>
   </footer>
 

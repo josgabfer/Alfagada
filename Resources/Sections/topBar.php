@@ -18,7 +18,7 @@
         <div class="header_login">
             <ul>
                 <li><a href="login.php">Crear Cuenta</a></li>
-                <li><a href="login.php">|</a></li>
+                <li><a href="login.php">&nbsp | &nbsp</a></li>
                 <li><a href="login.php">Ingresar</a></li>
             </ul>
         </div>

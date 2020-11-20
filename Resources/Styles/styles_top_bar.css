@@ -1,9 +1,9 @@
-/**Colors: #B8C0D9 #2E3D59 #85D3F2 #76BF41 #BAF266 **/
+/**Colors: #B8C0D9 #2E3D59, #212C40 #85D3F2 #76BF41 #BAF266 **/
 
  
 html, body {
     font-size: 100%;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Dosis', sans-serif;
 	background:#ffffff;
 }
 
@@ -53,8 +53,8 @@ a {
 .header_search {
     float: left;
     text-align: center;
-    width: 45%;
-    margin-right: 2.5%;
+    width: 46%;
+    margin-right: .1%;
     margin-top: -1.5%;
 }
 
@@ -79,6 +79,7 @@ button.btn.search_btn {
     width: 32%;
     padding: 1rem 5rem;
     margin-top: -2.5%;
+    
 }
 
 .header_login ul li{
@@ -87,9 +88,10 @@ button.btn.search_btn {
 }
 
 .header_login ul li a{
-    font-size: 1em;
+    font-size: 1.1em;
     text-transform: capitalize;
     color: #fff;
+    font-weight: 600;
     text-decoration: none;
 }
 

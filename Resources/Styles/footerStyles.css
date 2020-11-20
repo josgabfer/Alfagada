@@ -1,10 +1,161 @@
+html, body {
+    font-size: 100%;
+	font-family: 'Dosis', sans-serif;
+	background:#ffffff;
+}
+
+p{
+    margin: 0 0 10px;
+    line-height: 1.8;
+}
+
+footer.dark-footer{
+    background: #2E3D59;
+}
+
 footer{
-    background-color: #2E3D59;
-    height: 50%;
+    z-index: 99;
+    position: relative;
+    padding-top: 0;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+footer.skin-dark-footer 
+.footer_widget ul li a, 
+footer.skin-dark-footer, 
+footer.skin-dark-footer a{
+    color: #8892A6;
+    transition: all ease .4s;
+    font-size: 14px;
+}
+
+.top_footer{
+    margin-bottom: 20px;
+    padding: 1.5rem 0;
+    
+    border-bottom: 1px solid #8892A6;
+}
+
+.single_facts{
+    float: left;
+    align-items: center;
+    position: relative;
+    width: 25%;
+    margin-top: -5px;
+}
+
+.top_footer .single_facts{
+    border: none;
+    padding: 1.5rem 1rem 1.5rem 0;
+}
+
+.facts_icon{
+    display: flex;
+    width: 55px;
+    height: 55px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-right: 1rem;
+    border-radius: 50%;
+    border: 1px dashed #76BF41;
+    color: #76BF41;
+}
+
+.top_footer .facts_icon{
+    background: transparent!important;
+}
+
+.facts_caption{
+    float: 1;
     width: 100%;
     position: relative;
 }
-.bottom{
+
+.facts_caption h4{
+    font-size: 18px;
+    margin-bottom: 5px;
+    line-height: 1;
+    color: #fff;
+    font-weight: 500;
+}
+
+.facts_caption p{
+    font-size: 16px;
+    margin: 0;
+    line-height: 1.8;
+    color: #fff;
+}
+
+.middle_footer{
+
+}
+
+.footer_widget{
+    padding: 0 0 30px;
+}
+
+.footer_widget p{
+    font-size: 16px;
+    color: #A5B2C9;
+}
+
+.footer_widget p a{
+    font-size: 16px;
+}
+
+footer.skin-dark-footer .extream{
+    letter-spacing: 1px;
+    font-weight: 700;
+    line-height: 1.4;
+    font-family: 'Dosis', sans-serif;
+    font-size: 30px;
+    color: #fff;
+}
+
+.theme_g{
+    color: #76BF41;
+    margin-top: 5px;
+}
+
+.address_infos ul{
+    padding: 0;
+    margin: 0;
+}
+
+.address_infos ul li{
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    line-height: 1.7;
+}
+
+.address_infos ul li i{
+    font-size: 18px;
+    color: #A5B2C9;
+    position: absolute;
+    top: 2px;
+    left: 0;
+}
+
+.footer_widget ul li{
+    list-style: none;
+    margin-top: 15px;
+}
+
+#85D3F2
+
+
+
+
+
+/**.bottom{
     text-align: center;
 }
 p{
@@ -28,4 +179,4 @@ p{
 }
 .footer-links{
     color: white;
-}
+}**/

@@ -41,6 +41,7 @@
         {
           session_start();
           $_SESSION["NombreUsuario"] = $row["nombre"];
+          $_SESSION["ApellidoUsuario"] = $row["apellido"];
           header('Location: index.php');
 
         }
@@ -52,6 +53,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Ingresar/Registrarse</title>
     <?php include 'Resources/Sections/head.php';?> 
 </head>
 <body>
@@ -119,58 +121,58 @@
                 <div class="col-lg-6 col-md-12 col-sm-12">
                     <div class="login_signup">
                         <h3 class="login_sec_title">Crear Cuenta</h3>
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="form-group">
-                                        <label>Nombre</label>
-                                        <input type="text" autocomplete="new-password" id ="regNombre" name ="regNombre" class="sign_up_form form-control" oninput="this.setCustomValidity('')">                                          
-                                    </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Nombre</label>
+                                    <input type="text" autocomplete="new-password" id ="regNombre" name ="regNombre" class="sign_up_form form-control" oninput="this.setCustomValidity('')">                                          
                                 </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="form-group">
-                                        <label>Apellido</label>
-                                        <input type="text" autocomplete="new-password" id ="regApellido" name ="regApellido" class="sign_up_form form-control" oninput="this.setCustomValidity('')">
-                                    </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Apellido</label>
+                                    <input type="text" autocomplete="new-password" id ="regApellido" name ="regApellido" class="sign_up_form form-control" oninput="this.setCustomValidity('')">
                                 </div>
-                                <div class="col-lg-12 col-md-12">
-                                    <div class="form-group">
-                                        <label>Correo Electrónico</label>
-                                        <input type="text"  autocomplete="new-password" id ="regCorreo" name ="regCorreo" class="sign_up_form form-control" oninput="this.setCustomValidity('')">
-                                    </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <label>Correo Electrónico</label>
+                                    <input type="text"  autocomplete="new-password" id ="regCorreo" name ="regCorreo" class="sign_up_form form-control" oninput="this.setCustomValidity('')">
                                 </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="form-group">
-                                        <label>Contraseña</label>
-                                        <input type="password" autocomplete="new-password" id ="regClave" name ="regClave" class="sign_up_form form-control" oninput="this.setCustomValidity('')">
-                                    </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Contraseña</label>
+                                    <input type="password" autocomplete="new-password" id ="regClave" name ="regClave" class="sign_up_form form-control" oninput="this.setCustomValidity('')">
                                 </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="form-group">
-                                        <label>Confirmar Contraseña</label>
-                                        <input type="password"  autocomplete="new-password" id = "confirmarClave" class="sign_up_form form-control" oninput="this.setCustomValidity('')">
-                                    </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Confirmar Contraseña</label>
+                                    <input type="password"  autocomplete="new-password" id = "confirmarClave" class="sign_up_form form-control" oninput="this.setCustomValidity('')">
                                 </div>
-                                <div class="col-lg-12 col-md-12">
-                                    <div class="login_flex">
-                                        <div class="login_flex1">
-                                            <input id="news" class="checkbox-newsletter" name="news" type="checkbox">
-                                            <label for="news" class="checkbox-newsletter-label">Subscribirse</label>
-                                        </div>
-                                        <div class="login_flex2">
-                                            <div class="form-group mb-0">
-                                                <input type="submit" id = "btnRegistrar" name = "btnRegistrar" class="btn btn-md btn-theme" value = "Registrarse" onclick="validarRegistro()">
-                                            </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="login_flex">
+                                    <div class="login_flex1">
+                                        <input id="news" class="checkbox-newsletter" name="news" type="checkbox">
+                                        <label for="news" class="checkbox-newsletter-label">Subscribirse</label>
+                                    </div>
+                                    <div class="login_flex2">
+                                        <div class="form-group mb-0">
+                                            <input type="submit" id = "btnRegistrar" name = "btnRegistrar" class="btn btn-md btn-theme" value = "Registrarse" onclick="validarRegistro()">
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <footer class="footer pt-1">
-        <?php include('Resources/Sections/footer.php');?>
+    <footer class="dark-footer skin-dark-footer">
+      <?php include('Resources/Sections/footer.php');?>
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

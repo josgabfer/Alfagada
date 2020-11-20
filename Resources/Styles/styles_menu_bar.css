@@ -55,7 +55,7 @@ a {
 }
 
 .nav {
-  padding-left: 0;
+  padding-left: 50%;
   margin-bottom: 0;
   flex-wrap: nowrap;
 }

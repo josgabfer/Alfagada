@@ -26,7 +26,7 @@
                             <a href="#contact.php" class="act">CONTACTO</a>
                         </li>
                         <li class="dd active">
-                            <a href="index.php" class="act">UBICACION</a>
+                            <a href="ubicacion.php" class="act">UBICACION</a>
                         </li>
                     
                     </ul>

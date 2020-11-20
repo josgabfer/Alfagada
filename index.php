@@ -1,66 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ALFAGADA</title>
-    <link rel="stylesheet" href="Resources/Styles/styles.css">
-    <link rel="stylesheet" href="Resources/Styles/bootstrap.css">
-    <link rel="stylesheet" href="Resources/Styles/bootstrap.min.css">
-    <link rel="stylesheet" href="Resources/Styles/styles_top_bar.css" media="all" type="text/css">
-    <link rel="stylesheet" href="Resources/Styles/styles_menu_bar.css" media="all" type="text/css">
-    <link rel="stylesheet" href="Resources/Styles/slider.css" media="all" type="text/css">
-    <link rel="stylesheet" href="Resources/Styles/footerStyles.css">
-    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css" type="text/css">
-    <link rel="stylesheet" href="Resources/Styles/styles_login.css" media="all" type="text/css">
+    <?php include 'Resources/Sections/head.php';?> 
 </head>
 <body>
-
- <!-- Top Bar Section (Search)-->
-<div>
-    <?php include 'Resources/Pages/topBar.php';?> 
-</div>
-<div>
-    <?php include 'Resources/Pages/menuBar.php';?> 
-</div>
-
-
-<!--slide-->
-<div id="slide" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#" data-slide-to="0" class="active"></li>
-    <li data-target="#" data-slide-to="1"></li>
-    <li data-target="#" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="Resources/imgs/delivery.jpeg" alt="banner">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="Resources/imgs/black friday.jpeg" alt="banner">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="Resources/imgs/navidad.png" alt="banner">
-    </div>
+  <div>
+      <?php include 'Resources/Sections/topBar.php';?> 
   </div>
-  <a class="carousel-control-prev" href="#slide" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#slide" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+  <div>
+      <?php include 'Resources/Sections/menuBar.php';?> 
+  </div>
 
-<!-- Footer-->
-<footer class="footer pt-1">
-    <?php include('Resources/Pages/footer.php');?>
-</footer>
+
+  <div id="slide" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#" data-slide-to="0" class="active"></li>
+      <li data-target="#" data-slide-to="1"></li>
+      <li data-target="#" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="Resources/imgs/delivery.jpeg" alt="banner">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="Resources/imgs/black friday.jpeg" alt="banner">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="Resources/imgs/navidad.png" alt="banner">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#slide" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#slide" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <footer class="footer pt-1">
+      <?php include('Resources/Sections/footer.php');?>
+  </footer>
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

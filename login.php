@@ -1,6 +1,6 @@
 <?php
 
-    include 'conexionBD.php';
+    include 'Resources/Scripts/conexionBD.php';
     $abrirCon = OpenCon();
 
     if(isset($_POST['btnRegistrar']))
@@ -26,36 +26,19 @@
     {
     }
     CloseCon($abrirCon);
-    
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ALFAGADA</title>
-    <link rel="stylesheet" href="Resources/Styles/styles.css">
-    <link rel="stylesheet" href="Resources/Styles/bootstrap.css">
-    <link rel="stylesheet" href="Resources/Styles/bootstrap.min.css">
-    <link rel="stylesheet" href="Resources/Styles/styles_top_bar.css" media="all" type="text/css">
-    <link rel="stylesheet" href="Resources/Styles/styles_menu_bar.css" media="all" type="text/css">
-    <link rel="stylesheet" href="Resources/Styles/footerStyles.css">
-    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css" type="text/css">
-    <link rel="stylesheet" href="Resources/Styles/styles_login.css" media="all" type="text/css">
-    
+    <?php include 'Resources/Sections/head.php';?> 
 </head>
 <body>
-<form action="" method="post">
+<form action="" method="post" onsubmit="return validarClave(this);">
     <div>
-        <?php include 'Resources/Pages/topBar.php';?> 
+        <?php include 'Resources/Sections/topBar.php';?> 
     </div>
     <div>
-        <?php include 'Resources/Pages/menuBar.php';?> 
+        <?php include 'Resources/Sections/menuBar.php';?> 
     </div>
     <div class="login_header">
         <div class="container">
@@ -116,31 +99,35 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>Nombre</label>
-                                        <input type="text" autocomplete="new-password" id ="loginNombre" name ="loginNombre" class="sign_up_form form-control">
+                                        <input type="text" autocomplete="new-password" id ="loginNombre" name ="loginNombre" class="sign_up_form form-control" required oninvalid="this.setCustomValidity('Ingrese el nombre')" 
+                                        oninput="this.setCustomValidity('')" > 
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>Apellido</label>
-                                        <input type="text" autocomplete="new-password" id ="loginApellido" name ="loginApellido" class="sign_up_form form-control">
+                                        <input type="text" autocomplete="new-password" id ="loginApellido" name ="loginApellido" class="sign_up_form form-control" required oninvalid="this.setCustomValidity('Ingrese el apellido')" 
+                                        oninput="this.setCustomValidity('')" >
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group">
                                         <label>Correo Electrónico</label>
-                                        <input type="email"  autocomplete="new-password" id ="loginCorreo" name ="loginCorreo" class="sign_up_form form-control">
+                                        <input type="email"  autocomplete="new-password" id ="loginCorreo" name ="loginCorreo" class="sign_up_form form-control" required oninvalid="this.setCustomValidity('Ingrese un correo electrónico válido')" 
+                                        oninput="this.setCustomValidity('')" >
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>Contraseña</label>
-                                        <input type="password" autocomplete="new-password" id ="loginClave" name ="loginClave" class="sign_up_form form-control">
+                                        <input type="password" autocomplete="new-password" id ="loginClave" name ="loginClave" class="sign_up_form form-control" required oninvalid="this.setCustomValidity('Ingrese la contraseña')" 
+                                        oninput="this.setCustomValidity('')" >
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>Confirmar Contraseña</label>
-                                        <input type="password"  autocomplete="new-password" id = "confirmarClave" class="sign_up_form form-control">
+                                        <input type="password"  autocomplete="new-password" id = "confirmarClave" class="sign_up_form form-control" required oninvalid = "this.setCustomValidity('Las contraseñas no concuerdan')" oninput="this.setCustomValidity('')" >
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
@@ -162,13 +149,27 @@
             </div>
         </div>
     </section>
-
     <footer class="footer pt-1">
-        <?php include('Resources/Pages/footer.php');?>
+        <?php include('Resources/Sections/footer.php');?>
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        function validarClave()
+        {
+            if($("#confirmarClave").val() == $("#loginClave").val())
+            {
+                    
+                return true;
+            }
+            else
+            {
+                $("#confirmarClave")[0].setCustomValidity('Las contraseñas no concuerdan');
+                return false;
+            }
+        }
+    </script>
 </form>
 </body>
 </html>

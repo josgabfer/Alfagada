@@ -1,7 +1,7 @@
 <div class="header">
     <div class="container">
         <div class="header_logo">
-            <a class="nav-brand" href="#">
+            <a class="nav-brand" href="index.php">
                 <img src="Resources/imgs/ALFAGADA.png" class="logo" alt>
             </a>
         </div>

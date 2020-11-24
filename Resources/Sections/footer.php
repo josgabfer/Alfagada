@@ -143,6 +143,82 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-2 col-md-2">
+                <div class="footer_widget">
+                    <h4 class="widget_title">Categorías</h4>
+                    <ul class="footer-menu">
+                        <li>
+                            <a href="#">Abarrotes</a>
+                        </li>
+                        <li>
+                            <a href="#">Lácteos</a>
+                        </li>
+                        <li>
+                            <a href="#">Bebidas y licores</a>
+                        </li>
+                        <li>
+                            <a href="#">Frutas y verduras</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2">
+                <div class="footer_widget">
+                    <h4 class="widget_title">Nuesta Compañia</h4>
+                    <ul class="footer-menu">
+                        <li>
+                            <a href="#">Sobre Nosotros</a>
+                        </li>
+                        <li>
+                            <a href="#">Nuestra Compañia</a>
+                        </li>
+                        <li>
+                            <a href="#">Contacto</a>
+                        </li>
+                        <li>
+                            <a href="#">Sucursales</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2">
+                <div class="footer_widget">
+                    <h4 class="widget_title">Cuenta</h4>
+                    <ul class="footer-menu">
+                        <li>
+                            <a href="#">Ofertas y promociones</a>
+                        </li>
+                        <li>
+                            <a href="#">Mi Cuenta</a>
+                        </li>
+                        <li>
+                            <a href="#">Mis Productos</a>
+                        </li>
+                        <li>
+                            <a href="#">Favoritos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2">
+                <div class="footer_widget">
+                    <h4 class="widget_title">Soporte</h4>
+                    <ul class="footer-menu">
+                        <li>
+                            <a href="#">Condiciones</a>
+                        </li>
+                        <li>
+                            <a href="#">Privacidad</a>
+                        </li>
+                        <li>
+                            <a href="#">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#">FAQs</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>

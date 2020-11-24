@@ -21,13 +21,13 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="Resources/imgs/delivery.jpeg" alt="banner">
+        <img class="d-block w-100" src="Resources/imgs/delivery.jpg" alt="banner">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="Resources/imgs/black friday.jpeg" alt="banner">
+        <img class="d-block w-100" src="Resources/imgs/black_friday.jpeg" alt="banner">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="Resources/imgs/navidad.png" alt="banner">
+        <img class="d-block w-100" src="Resources/imgs/christmas.jpg" alt="banner">
       </div>
     </div>
     <a class="carousel-control-prev" href="#slide" role="button" data-slide="prev">

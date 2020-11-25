@@ -16,7 +16,7 @@
 
         if ($abrirCon -> query($insertarUsuario))
         {
-            echo "<script>test=1</script>";
+            echo "<script>loginInvalido=true</script>";
         }
         else
         {
@@ -39,7 +39,6 @@
         }
         else 
         {
-          session_start();
           $_SESSION["NombreUsuario"] = $row["nombre"];
           $_SESSION["ApellidoUsuario"] = $row["apellido"];
           header('Location: index.php');

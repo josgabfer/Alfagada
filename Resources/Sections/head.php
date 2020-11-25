@@ -3,6 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="Resources/Styles/styles.css">
+    <link rel="stylesheet" href="Resources/Styles/styles_producto.css">
     <link rel="stylesheet" href="Resources/Styles/bootstrap.css">
     <link rel="stylesheet" href="Resources/Styles/bootstrap.min.css">
     <link rel="stylesheet" href="Resources/Styles/styles_top_bar.css" media="all" type="text/css">

@@ -1,0 +1,170 @@
+/**Colors: #B8C0D9 #2E3D59 #85D3F2 #76BF41 #BAF266 **/
+
+h5{
+    color: #2E3D59;
+    line-height: 22px;
+    font-weight: 600;
+    text-transform: capitalize;
+    font-family:  'Dosis', sans-serif;
+}
+
+.cart_header{
+    padding: 2rem 0;
+    background: #2E3D59;
+}
+
+.cart_title{
+    font-size: 35px;
+    font-family:  'Dosis', sans-serif;
+    font-weight: 600;
+    color: #76BF41;
+    margin-bottom: 0;
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+    border-bottom: 1px solid #e8eaf1;
+}
+
+table.table tr th{
+    font-weight: 600;
+}
+
+.table tr th, .table tr td{
+    border-color: #B8C0D9;
+    border-bottom: 1px solid #e8eaf1;
+    padding: 12px 15px;
+    vertical-align: middle;
+}
+
+.table thead th{
+    border-bottom: 1px solid #e8eaf1;
+    border-top: 0!important;
+}
+
+th {
+    text-align: left;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, 
+.table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    border-top: 1px solid #e8eaf1;
+}
+
+.tbl_cart_product{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.tbl_cart_product_thumb{
+    margin-right: 15px;
+    max-width: 70px;
+}
+
+.img-fluid{
+    max-width: 75%;
+    height: auto;
+}
+
+.tbl_cart_product_caption{
+    position: relative;
+    text-align: left;
+    display: inline-block;
+}
+
+.tbl_cart_product_caption .tbl_product_title{
+    font-size: 19px;
+}
+
+.img{
+    vertical-align: middle;
+    border-style: none;
+}
+
+.tbl_price{
+    font-size: 17px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.table{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+.tbl_quantity{
+    max-width: 85px;
+    height: 45px;
+    background: #f4f5f7;
+    font-weight: 600;
+    border-radius: 4px;
+    font-size: 15px;
+    box-shadow: none;
+    padding: .5rem .75rem;
+    border: 1px solid #e6eaf3;
+}
+
+.tbl_total_action{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.tbl_total_action .tbl_total{
+    margin: 0;
+    font-size: 17px;
+    font-weight: 450;
+    margin-right: 15px;
+}
+
+.tbl_total_action .tbl_remove{
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+    background: #edf1f9;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.font-weight-bold{
+    font-weight: 700;
+}
+
+label{
+    display: inline-block;
+    margin-bottom: .5rem;
+    color: #2e3d59cd;
+}
+
+.form-row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+.form-row>.col, .form-row>[class*=col-] {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.form_coupon{
+    height: 54px;
+    border-radius: 4px;
+    font-size: 17px;
+    box-shadow: none;
+    padding: .5rem .75rem;
+    border: 1px solid #e6eaf3;
+    background-clip: initial;
+}

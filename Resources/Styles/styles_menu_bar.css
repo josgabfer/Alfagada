@@ -4,7 +4,7 @@
  
 html, body {
     font-size: 100%;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Dosis', sans-serif;
 	background:#ffffff;
 }
 
@@ -55,7 +55,7 @@ a {
 }
 
 .nav {
-  padding-left: 0;
+  padding-left: 50%;
   margin-bottom: 0;
   flex-wrap: nowrap;
 }

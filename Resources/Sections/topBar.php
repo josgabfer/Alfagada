@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <div class="header">
     <div class="container">
         <div class="header_logo">
@@ -17,9 +23,16 @@
         </div>
         <div class="header_login">
             <ul>
-                <li><a href="login.php">Crear Cuenta</a></li>
-                <li><a href="login.php">|</a></li>
-                <li><a href="login.php">Ingresar</a></li>
+                <?php
+                    if (empty($_SESSION["NombreUsuario"]))
+                    {
+                        echo "<li><a href='login.php'>Ingresar</a></li><li><a href='login.php'>&nbsp|&nbsp</a></li><li><a href='login.php'>Crear Cuenta</a></li>";
+                    }
+                    else
+                    {
+                        echo "<li><a href=''>" . $_SESSION["NombreUsuario"] . $_SESSION["ApellidoUsuario"] . "</a></li><li><a href=''>&nbsp|&nbsp</a></li><li><a href='logout.php'>Cerrar Sesión</a></li>";
+                    }
+                ?>
             </ul>
         </div>
         <div class="header_shop_cart">

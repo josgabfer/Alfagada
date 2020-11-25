@@ -1,26 +1,20 @@
 <div class="menu">
     <div class="container">
         <div class="row align-item-center">
-            <nav class="navbar navbar-expand-lg navbar-default">
+            <nav class="navbar navbar-expand-lg navbar-default minav">
                 <div class="navbar-collapse" id="bs-megadropdown-tabs">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav ml-auto navbar-nav">
                         <li class="dd active">
                             <a href="index.php" class="act">INICIO</a>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Productos</a>
-                            <div class="dropdown-menu" id="dropdownbtn" aria-labelledby="navbarDropdown">
-                                <a href="#" id="dropdownitem" class="dropdown-item">Abarrotes</a>
-                                <a href="#" id="dropdownitem" class="dropdown-item">Abarrotes</a>
-                                <a href="#" id="dropdownitem" class="dropdown-item">Abarrotes</a>
-                                <a href="#" id="dropdownitem" class="dropdown-item">Abarrotes</a>
-                                <a href="#" id="dropdownitem" class="dropdown-item">Abarrotes</a>
-                                <a href="#" id="dropdownitem" class="dropdown-item">Abarrotes</a>
-                                <a href="#" id="dropdownitem" class="dropdown-item">Abarrotes</a>
-                                <a href="#" id="dropdownitem" class="dropdown-item">Abarrotes</a>
-                                <a href="#" id="dropdownitem" class="dropdown-item">Abarrotes</a>
-
-                            </div>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Productos</a>
+                            <ul class="dropdown-menu navbar-default mimenu" aria-labelledby="navbarDropdown">
+                                <a href="#" class="dropdown-item">Abarrotes</a>
+                                <a href="#" class="dropdown-item">Abarrotes</a>
+                                <a href="#" class="dropdown-item">Abarrotes</a>
+                                <a href="#" class="dropdown-item">Abarrotes</a>
+                            </ul>
                         </li>
                         <li class="dd active">
                             <a href="#contact.php" class="act">CONTACTO</a>

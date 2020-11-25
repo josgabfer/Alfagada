@@ -69,24 +69,56 @@ a {
     color: #fff;
     font-size: 105%;
 }
-#dropdownbtn{
-    background-color: #76BF41;
+.minav .nav-link{
+    color: white;
     font-size: 105%;
-    font-weight:700;
-    margin:0;
-    padding:0;
-    overflow: hidden;
 }
-#dropdownbtn a:hover > div{
-    opacity: 1;
-    visibility: visible;
-    margin: 0;
+.mimenu{
+    background-color: transparent;
+
 }
-#dropdownitem{
-    font-family: 'Open Sans', sans-serif;
-    color:#ffffff;
-    transition: all .2s ease-in-out;
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+.dropdown-menu{
+    border: none;
+    background-color: #76BF41;
+}
+.dropdown-item{
+    color: white;
+    font-weight: lighter;
+    transform-origin: center;   
+    animation: rotate  1.5s ease 1;
+}
+@keyframes rotate{
+    0%{transform: perspective(600px) rotatey(90deg);
+    transform-origin:center;}
+    100%{transform: perspective(600px) rotatey(0deg);
+        transform-origin:center;}
+}
+.dropdown-item:nth-of-type(1){
+    animation-delay: 0s;
+}
+.dropdown-item:nth-of-type(2){
+    animation-delay: 0.1s;
 }
 
+.dropdown-item:nth-of-type(3){
+    animation-delay: 0.2s;
+}
 
+.dropdown-item:nth-of-type(4){
+    animation-delay: 0.3s;
+}
 
+.dropdown-item:nth-of-type(5){
+    animation-delay: 0.4s;
+}
+.dropdown-item:hover{
+    background-color: #85D3F2;
+    color: white;
+}
+.navbar-brand{
+    text-transform:uppercase;
+    color: white;
+}

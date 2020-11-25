@@ -175,10 +175,45 @@
                                     <div class="col">
                                         <input class="form_coupon form-control" type="text" placeholder="Ingresar código*">
                                     </div>
+                                    <div class="col-auto">
+                                        <button class="btn btn-md btn-dark" type="submit">Aplicar</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
+                        <div class="col-12 col-md-auto m-full">
+                            <button class="btn btn-md btn-outline-dark">Actualizar Carrito</button>
+                        </div>
                     </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+                    <div class="cart_details">
+                        <div class="cart body">
+                            <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
+                                <li class="list-group-item d-flex">
+                                    <h5 class="mb-0">Resumen del Pedido</h5>
+                                </li>
+                                <li class="list-group-item d-flex">
+                                    <span>Subtotal</span>
+                                    <span class="ml-auto font-size-sm">$89.00</span>
+                                </li>
+                                <li class="list-group-item d-flex">
+                                    <span>Impuestos</span>
+                                    <span class="ml-auto font-size-sm">$0.00</span>
+                                </li>
+                                <li class="list-group-item d-flex font-size-lg font-weight-bold">
+                                    <span>Total</span>
+                                    <span class="ml-auto font-size-sm">$89.00</span>
+                                </li>
+                                <li class="list-group-item font-size-sm text-center text-gray-500">Costo de envio se calculará al concluir el pago*</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a class="btn btn-block-dark mb-2" href="#">Continuar con el Pago</a>
+                    <a class="px-0 text-body" href="#">
+                        <i class="ti-back-left mr-2"></i>
+                        Continuar comprando
+                    </a>
                 </div>
             </div>
         </div>

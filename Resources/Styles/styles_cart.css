@@ -168,3 +168,136 @@ label{
     border: 1px solid #e6eaf3;
     background-clip: initial;
 }
+
+.btn-dark{
+    color: #fff;
+    background-color: #2E3D59;
+    border-color: #2E3D59;
+}
+
+.btn-outline-dark{
+    color: #2E3D59;
+    font-weight: 500;
+    background-color: transparent;
+    border: 1px solid #2E3D59;
+}
+
+.btn-dark:hover{
+    background: #343a40;;
+}
+
+.btn-outline-dark:hover{
+    background: #2E3D59;
+    color: #fff;
+}
+
+.cart_details{
+    background: #f4f5f7;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.cart_details .cart_body{
+    border: none;
+    border-bottom: 0;
+}
+
+.cart_body{
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+.list-group{
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+}
+
+ul:last-child {
+    margin: 0;
+}
+
+ul{
+    padding: 0;
+}
+.menu__list, .nav-dropdown, .nav-menu, ul {
+    list-style: none;
+}
+
+.list-group-flush-y .list-group-item:first-child {
+    padding-top: 0;
+    border-top: none;
+}
+
+.list-group-flush-x .list-group-item {
+    padding-left: 0;
+    padding-right: 0;
+    border-left: none;
+    border-right: none;
+    background: transparent;
+}
+
+.list-group-sm .list-group-item {
+    padding: 1.25rem;
+}
+.list-group-item:first-child {
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+
+.list-group-item {
+    border: 1px solid #e0e4ec;
+    position: relative;
+    margin-bottom: -1px;
+}
+
+.d-flex {
+    display: flex!important;
+}
+
+.mb-0{
+    margin-bottom: 0!important;
+    margin-top: 20px;
+}
+
+.ml-auto {
+    margin-left: auto!important;
+}
+
+.mb-2 {
+    margin-bottom: .5rem!important;
+    margin-top: 20px;
+}
+
+.btn-block-dark{
+    display: block;
+    width: 100%;
+    color: #fff;
+    background-color: #2E3D59;
+    border-color: #2E3D59;
+    padding: 15px 25px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.btn-block-dark:hover{
+    background: #343a40;
+    color: #fff;
+}
+
+.px-0 {
+    padding-right: 0!important;
+    padding-left: 0!important;
+}
+
+a{
+    color: #2E3D59;
+}
+
+.mr-2 {
+    margin-right: .5rem!important;
+}
+    

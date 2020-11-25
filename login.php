@@ -14,15 +14,14 @@
         $insertarUsuario = "call InsertarUsuario('$nombre', '$apellido', '$correo', '$clave')";
         $abrirCon -> next_result();
 
-        if ($abrirCon -> query($insertarUsuario))
+        if($abrirCon -> query($insertarUsuario))
         {
-            echo "<script>loginInvalido=true</script>";
+            echo "<script> registroExitoso=true </script>";
         }
         else
         {
-            echo $abrirCon -> error;
+            echo "<script> registroExitoso=false </script>";
         }
-        CloseCon($abrirCon);
     }
 
     if(isset($_POST['btnIngresar']))
@@ -39,9 +38,10 @@
         }
         else 
         {
-          $_SESSION["NombreUsuario"] = $row["nombre"];
-          $_SESSION["ApellidoUsuario"] = $row["apellido"];
-          header('Location: index.php');
+            session_start();
+            $_SESSION["NombreUsuario"] = $row["nombre"];
+            $_SESSION["ApellidoUsuario"] = $row["apellido"];
+            header('Location: index.php');
 
         }
         CloseCon($abrirCon);
@@ -120,6 +120,8 @@
                 <div class="col-lg-6 col-md-12 col-sm-12">
                     <div class="login_signup">
                         <h3 class="login_sec_title">Crear Cuenta</h3>
+                        <p hidden id = "registroExitoso" style="color: black;">Registro completado correctamente. Por favor ingrese con los nuevos credenciales.</p>
+                        <p hidden id = "errorRegistro" style="color: red;">Hubo en error durante el registro. Por favor intentar nuevamente mas tarde.</p>
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
@@ -178,7 +180,16 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
         var boton;
-        var loginValido;
+        var registroExitoso;
+        var loginInvalido;
+        if(registroExitoso==true)
+        {
+            document.getElementById('registroExitoso').removeAttribute("hidden");
+        }
+        else if(registroExitoso==false)
+        {
+            document.getElementById('errorRegistro').removeAttribute("hidden");
+        }
         if(loginInvalido==true)
         {
             document.getElementById('errorLogin').removeAttribute("hidden");

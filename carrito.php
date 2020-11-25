@@ -1,12 +1,31 @@
+<?php
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    if(isset($_GET["action"]))
+    {
+        if($_GET["action"] == "delete")
+        {
+            foreach($_SESSION["carrito"] as $keys => $values)
+            {
+                if($values["idProducto"] == $_GET["id"])
+                {
+                    unset($_SESSION["carrito"][$keys]);
+                    echo "<script>refrescarPrecio=true</script>";
+                }
+            }
+        }
+     }
+?>      
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Ingresar/Registrarse</title>
+    <title>Head</title>
     <?php include 'Resources/Sections/head.php';?> 
 </head>
 <body>
 
-<form action="" method="post" onsubmit="return validarForm(this);">
+<form action="" method="post">
     <div>
         <?php include 'Resources/Sections/topBar.php';?> 
     </div>
@@ -53,7 +72,14 @@
                                     <th scope="col">Total</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody> 
+                                <?php
+                                    
+                                    if(!empty($_SESSION["carrito"]))
+                                    {
+                                        foreach($_SESSION["carrito"] as $keys => $values)
+                                    {
+                                ?>
                                 <tr>
                                     <td>
                                         <div class="tbl_cart_product">
@@ -61,107 +87,30 @@
                                                 <img src="Resources/imgs/malibu.png" class="img-fluid" alt>
                                             </div>
                                             <div class="tbl_cart_product_caption">
-                                                <h5 class="tbl_product_title">Malibú 1 Litro</h5>
+                                                <h5 class="tbl_product_title"><?php echo $values["nombreProducto"]; ?></h5>
                                             </div>
                                         </div>
                                         
                                     </td>
                                     <td>
-                                        <h4 class="tbl_price">$100.00</h4>
+                                        <h4 class="tbl_price">¢<?php echo $values["precioProducto"];?></h4>
                                     </td>
                                     <td>
-                                        <input type="number" class="tbl_quantity form-control" value="2">
+                                        <input type="number" class="tbl_quantity form-control" value="<?php echo $values["cantidadProducto"];?>">
                                     </td>
                                     <td>
                                         <div class="tbl_total_action">
-                                            <h4 class="tbl_total">$200.00</h4>
-                                            <a href="#" class="tbl_remove">
+                                            <h4 class="tbl_total">¢<?php echo $_SESSION["totalProducto" . $values['idProducto']];?></h4>
+                                            <a href="carrito.php?action=delete&id=<?php echo $values['idProducto'];?>" class="tbl_remove">
                                                 <i class="ti-close"></i>
                                             </a>
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <div class="tbl_cart_product">
-                                            <div class="tbl_cart_product_thumb">
-                                                <img src="Resources/imgs/malibu.png" class="img-fluid" alt>
-                                            </div>
-                                            <div class="tbl_cart_product_caption">
-                                                <h5 class="tbl_product_title">Malibú 1 Litro</h5>
-                                            </div>
-                                        </div>
-                                        
-                                    </td>
-                                    <td>
-                                        <h4 class="tbl_price">$100.00</h4>
-                                    </td>
-                                    <td>
-                                        <input type="number" class="tbl_quantity form-control" value="2">
-                                    </td>
-                                    <td>
-                                        <div class="tbl_total_action">
-                                            <h4 class="tbl_total">$200.00</h4>
-                                            <a href="#" class="tbl_remove">
-                                                <i class="ti-close"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="tbl_cart_product">
-                                            <div class="tbl_cart_product_thumb">
-                                                <img src="Resources/imgs/malibu.png" class="img-fluid" alt>
-                                            </div>
-                                            <div class="tbl_cart_product_caption">
-                                                <h5 class="tbl_product_title">Malibú 1 Litro</h5>
-                                            </div>
-                                        </div>
-                                        
-                                    </td>
-                                    <td>
-                                        <h4 class="tbl_price">$100.00</h4>
-                                    </td>
-                                    <td>
-                                        <input type="number" class="tbl_quantity form-control" value="2">
-                                    </td>
-                                    <td>
-                                        <div class="tbl_total_action">
-                                            <h4 class="tbl_total">$200.00</h4>
-                                            <a href="#" class="tbl_remove">
-                                                <i class="ti-close"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="tbl_cart_product">
-                                            <div class="tbl_cart_product_thumb">
-                                                <img src="Resources/imgs/malibu.png" class="img-fluid" alt>
-                                            </div>
-                                            <div class="tbl_cart_product_caption">
-                                                <h5 class="tbl_product_title">Malibú 1 Litro</h5>
-                                            </div>
-                                        </div>
-                                        
-                                    </td>
-                                    <td>
-                                        <h4 class="tbl_price">$100.00</h4>
-                                    </td>
-                                    <td>
-                                        <input type="number" class="tbl_quantity form-control" value="2">
-                                    </td>
-                                    <td>
-                                        <div class="tbl_total_action">
-                                            <h4 class="tbl_total">$200.00</h4>
-                                            <a href="#" class="tbl_remove">
-                                                <i class="ti-close"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                <?php
+                                    }
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>
@@ -224,66 +173,13 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        var boton;
-        var loginValido;
-        if(loginInvalido==true)
+        var refrescarPrecio;
+        if (refrescarPrecio ==true)
         {
-            document.getElementById('errorLogin').removeAttribute("hidden");
+        $("#topBar").load("Resources/Sections/topBar.php");
         }
-        function validarRegistro()
-        {  
-            if($("#regNombre").val() == "")
-            {
-                $("#regNombre")[0].setCustomValidity('Ingrese el nombre');
-            }
-            else if($("#regApellido").val() == "")
-            {
-                $("#regApellido")[0].setCustomValidity('Ingrese el apellido');
-            }
-            else if($("#regCorreo").val() == "")
-            {
-                $("#regCorreo")[0].setCustomValidity('Ingrese un correo electrónico válido');
-            }
-            else if($("#regClave").val() == "")
-            {
-                $("#regClave")[0].setCustomValidity('Ingrese la contraseña');
-            }
-            else if($("#confirmarClave").val() != $("#regClave").val())
-            {
-                $("#confirmarClave")[0].setCustomValidity('Las contraseñas no concuerdan');
-            }
-            else
-            {
-                boton = true;
-            }
-        }
-        function validarIngreso()
-        {
-            if($("#loginCorreo").val() == "")
-            {
-                $("#loginCorreo")[0].setCustomValidity('Ingrese un correo electrónico válido');
-            }
-            else if($("#loginClave").val() == "")
-            {
-                $("#loginClave")[0].setCustomValidity('Ingrese la contraseña');
-            }
-            else
-            {
-                boton = true;
-            }
-            
-        }    
-
-        function validarForm()
-        {   
-            if(boton != true)
-            {
-                return false;
-            }
-            return true;
-        }
-
     </script>
 </form>
 </body>

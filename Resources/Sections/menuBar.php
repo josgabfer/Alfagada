@@ -10,9 +10,9 @@
               <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Categorias</a>
+              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Categorías</a>
               <ul class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Abarrotes</a>
+                <a class="dropdown-item" href="producto.php">Abarrotes</a>
                 <a class="dropdown-item" href="#">Bebidas</a>
                 <a class="dropdown-item" href="#">Carnes</a>
                 <a class="dropdown-item" href="#">Refrigerados</a>
@@ -22,7 +22,7 @@
               </ul>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Contactenos</a>
+              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Contáctenos</a>
               <ul class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Sobre nosotros</a>
                 <a class="dropdown-item" href="#">Nuestra Compañia</a>
@@ -31,7 +31,7 @@
               </ul>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="#">A domicilio</a>
+              <a class="nav-link" href="ubicacion.php">Ubicación</a>
             </li>
         </ul>
         </div>

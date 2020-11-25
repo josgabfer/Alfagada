@@ -1,7 +1,9 @@
 <?php
 
     include 'Resources/Scripts/conexionBD.php';
-    
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
 
     if(isset($_POST['btnRegistrar']))
     {
@@ -38,7 +40,6 @@
         }
         else 
         {
-            session_start();
             $_SESSION["NombreUsuario"] = $row["nombre"];
             $_SESSION["ApellidoUsuario"] = $row["apellido"];
             header('Location: index.php');

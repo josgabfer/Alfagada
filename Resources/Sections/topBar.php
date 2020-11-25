@@ -1,9 +1,3 @@
-<?php
-
-session_start();
-
-?>
-
 <div class="header">
     <div class="container">
         <div class="header_logo">
@@ -24,6 +18,9 @@ session_start();
         <div class="header_login">
             <ul>
                 <?php
+                    if (session_status() == PHP_SESSION_NONE) {
+                        session_start();
+                    }
                     if (empty($_SESSION["NombreUsuario"]))
                     {
                         echo "<li><a href='login.php'>Ingresar</a></li><li><a href='login.php'>&nbsp|&nbsp</a></li><li><a href='login.php'>Crear Cuenta</a></li>";
@@ -37,14 +34,35 @@ session_start();
         </div>
         <div class="header_shop_cart">
             <div class="ss_right">
-                <a href="#" class="cart_icon">
-                    <span class="qut_counter">0</span>
+                <a href="carrito.php" class="cart_icon">
+                    <span class="qut_counter">
+                        <?php
+                        if (isset($_SESSION["carrito"]))
+                        {
+                            echo count($_SESSION["carrito"]); 
+
+                        } else 
+                        {
+                            echo "0";
+                        }
+                        ?></span>
                     <i class="fas fa-shopping-cart "></i>
                 </a>
             </div>
             <div class="ss_cart_content">
                 <strong>Mi Carrito</strong>
-                <span>₡0</span>
+                <span>¢
+                    <?php
+                        if (isset($_SESSION["precioTotal"]))
+                        {
+                            echo $_SESSION["precioTotal"];
+
+                        } else 
+                        {
+                            echo "0";
+                        }
+                        ?>
+                </span></span>
             </div>
         </div>
     </div>

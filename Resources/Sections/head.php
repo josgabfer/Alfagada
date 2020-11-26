@@ -3,6 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="Resources/Styles/styles.css">
+    <link rel="stylesheet" href="Resources/Styles/nosotros.css">
     <link rel="stylesheet" href="Resources/Styles/styles_producto.css">
     <link rel="stylesheet" href="Resources/Styles/bootstrap.css">
     <link rel="stylesheet" href="Resources/Styles/bootstrap.min.css">
@@ -18,4 +19,5 @@
     <link rel="stylesheet" href="Resources/Styles/styles_checkout.css" media="all" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Resources/Styles/themify/css/themify-icons.css"> 
+
 </head>

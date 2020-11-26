@@ -1,0 +1,71 @@
+/**Colors: #B8C0D9 #2E3D59 #85D3F2 #76BF41 #BAF266 **/
+
+.checkout_header{
+    padding: 2rem 0;
+    background: #2E3D59;
+}
+
+.checkout_title{
+    font-size: 35px;
+    font-family:  'Dosis', sans-serif;
+    font-weight: 600;
+    color: #76BF41;
+    margin-bottom: 0;
+    line-height: 36px;
+}
+
+.mb-5{
+    margin-bottom: 3rem!important;
+}
+
+h4{
+    color: #2E3D59;
+    line-height: 26px;
+    font-size: 21px;
+    font-weight: 500;
+    text-transform: capitalize;
+    font-family:  'Dosis', sans-serif;
+}
+
+.mb-3{
+    margin-bottom: 1rem!important;
+}
+
+.mb-0{
+    margin-bottom: 0!important;
+}
+
+
+.custom-control-input:checked~.custom-control-label::before {
+    background: #5dbf13;
+    border-color: #5dbf13;
+    color: #fff;
+}
+
+.checkout-form-control{
+    height: 54px;
+    border-radius: 4px;
+    font-size: 15px;
+    box-shadow: none;
+    padding: .5rem .75rem;
+    border: 1px solid #e6eaf3;
+    background-clip: initial;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-image: none;
+    display: block;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+
+
+
+
+
+
+
+
+
+
+

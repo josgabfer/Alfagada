@@ -38,21 +38,6 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="text-center">
                         <h2 class="cart_title">Carrito de Compras</h2>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item">
-                                    <a href="#">
-                                        <i class="fas fa-home"></i>
-                                    </a>
-                                </li>
-                                <li class="breadcrumb-item">
-                                    <a href="#">Tienda</a>                                    </a>
-                                </li>
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    Carrito de Compras
-                                </li>
-                            </ol>
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -158,7 +143,7 @@
                             </ul>
                         </div>
                     </div>
-                    <a class="btn btn-block-dark mb-2" href="#">Continuar con el Pago</a>
+                    <a class="btn btn-block-dark mb-2" href="checkout.php">Continuar con el Pago</a>
                     <a class="px-0 text-body" href="#">
                         <i class="ti-back-left mr-2"></i>
                         Continuar comprando

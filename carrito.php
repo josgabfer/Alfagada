@@ -11,8 +11,35 @@
                 if($values["idProducto"] == $_GET["id"])
                 {
                     unset($_SESSION["carrito"][$keys]);
-                    echo "<script>refrescarPrecio=true</script>";
                 }
+            }
+            if (count($_SESSION["carrito"]) > 0)
+            {
+                foreach($_SESSION["carrito"] as $keys => $values)
+                {  
+                    $total = 0;
+                    $total = $total + ($values["cantidadProducto"] * $values["precioProducto"]);
+                    $_SESSION["totalProducto". $values["idProducto"]] = $values["cantidadProducto"] * $values["precioProducto"];
+                    $_SESSION["precioTotal"] = $total;
+                }
+                          
+            } else 
+            {
+                $_SESSION["precioTotal"] = 0; 
+            }   
+        
+        }
+        echo "<script>refrescarPrecio=true</script>";
+     }
+     if (isset($_POST["actualizarCarrito"]))
+     {
+        $_SESSION["precioTotal"] = $_POST["hidden_precioProducto"];
+        foreach($_SESSION["carrito"] as $keys => $values)
+        {
+            $_SESSION["cantidadProducto" . $values["idProducto"]] = $_POST["cantidadProducto" . $values["idProducto"]];
+            if ($_POST["hidden_totalProducto" . $values["idProducto"]] != null)
+            {
+                $_SESSION["totalProducto". $values["idProducto"]] = $_POST["hidden_totalProducto" . $values["idProducto"]];
             }
         }
      }
@@ -20,13 +47,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Head</title>
+    <title>Carrito</title>
     <?php include 'Resources/Sections/head.php';?> 
 </head>
 <body>
 
 <form action="" method="post">
-    <div>
+    <div  id = "topBar">
         <?php include 'Resources/Sections/topBar.php';?> 
     </div>
     <div>
@@ -93,14 +120,16 @@
                                         
                                     </td>
                                     <td>
-                                        <h4 class="tbl_price">¢<?php echo $values["precioProducto"];?></h4>
+                                        <h4 class="tbl_price" id="precioProducto<?php echo $values["idProducto"];?>" name="precioProducto<?php echo $values["idProducto"];?>">¢<?php echo $values["precioProducto"];?></h4>
                                     </td>
                                     <td>
-                                        <input type="number" class="tbl_quantity form-control" value="<?php echo $values["cantidadProducto"];?>">
+                                        <input type="number" class="tbl_quantity form-control" id="cantidadProducto<?php echo $values['idProducto'];?>" name="cantidadProducto<?php echo $values['idProducto'];?>" 
+                                        value="<?php echo  $_SESSION["cantidadProducto" . $values["idProducto"]];?>" onblur=calcularPrecio(<?php echo $values["idProducto"];?>);>
                                     </td>
                                     <td>
                                         <div class="tbl_total_action">
-                                            <h4 class="tbl_total">¢<?php echo $_SESSION["totalProducto" . $values['idProducto']];?></h4>
+                                            <h4 class="tbl_total total_precio" id="totalProducto<?php echo $values["idProducto"];?>">¢<?php echo $_SESSION["totalProducto" . $values['idProducto']];?></h4>
+                                            <input type="hidden" id="hidden_totalProducto<?php echo $values["idProducto"];?>" name="hidden_totalProducto<?php echo $values["idProducto"];?>" value ="">
                                             <a href="carrito.php?action=delete&id=<?php echo $values['idProducto'];?>" class="tbl_remove">
                                                 <i class="ti-close"></i>
                                             </a>
@@ -111,6 +140,7 @@
                                     }
                                 }
                                 ?>
+                                <input type="hidden" id ="hidden_precioProducto" name = "hidden_precioProducto" value ="">
                             </tbody>
                         </table>
                     </div>
@@ -131,7 +161,7 @@
                             </form>
                         </div>
                         <div class="col-12 col-md-auto m-full">
-                            <button class="btn btn-md btn-outline-dark">Actualizar Carrito</button>
+                            <input type="submit" hidden class="btn btn-md btn-outline-dark" id="actualizarCarrito" name="actualizarCarrito" value = "Actualizar Carrito" onclick = "calcularTotal()">
                         </div>
                     </div>
                 </div>
@@ -144,15 +174,49 @@
                                 </li>
                                 <li class="list-group-item d-flex">
                                     <span>Subtotal</span>
-                                    <span class="ml-auto font-size-sm">$89.00</span>
+                                    <span class="ml-auto font-size-sm"> ¢
+                                    <?php
+                                        if (isset($_SESSION["precioTotal"]))
+                                        {
+                                            echo number_format($_SESSION["precioTotal"] - ($_SESSION["precioTotal"]*.13));
+
+                                        } else 
+                                        {
+                                            echo "0";
+                                        }
+                                    ?>
+                                    </span>
                                 </li>
                                 <li class="list-group-item d-flex">
                                     <span>Impuestos</span>
-                                    <span class="ml-auto font-size-sm">$0.00</span>
+                                    <span class="ml-auto font-size-sm">¢
+                                    <?php
+                                        if (isset($_SESSION["precioTotal"]))
+                                        {
+                                            echo number_format(($_SESSION["precioTotal"]*.13));
+
+                                        } else 
+                                        {
+                                            echo "0";
+                                        }
+                                    ?>
+                                    
+                                    </span>
                                 </li>
-                                <li class="list-group-item d-flex font-size-lg font-weight-bold">
+                                <li class="list-group-item d-flex font-size-lg font-weight-bold">   
                                     <span>Total</span>
-                                    <span class="ml-auto font-size-sm">$89.00</span>
+                                    <span class="ml-auto font-size-sm">¢
+                                    <?php
+                                        if (isset($_SESSION["precioTotal"]))
+                                        {
+                                            echo number_format($_SESSION["precioTotal"]);
+
+                                        } else 
+                                        {
+                                            echo "0";
+                                        }
+                                    ?>
+                                    </span>
                                 </li>
                                 <li class="list-group-item font-size-sm text-center text-gray-500">Costo de envio se calculará al concluir el pago*</li>
                             </ul>
@@ -180,6 +244,38 @@
         {
         $("#topBar").load("Resources/Sections/topBar.php");
         }
+        function calcularPrecio(id)
+        {
+            var cantidadServidor = document.getElementById("cantidadProducto" + id).defaultValue;
+            var precioProducto = document.getElementById("precioProducto" + id).innerText;
+            precioProducto = precioProducto.slice(1);
+            var totalProducto = parseFloat(document.getElementById("cantidadProducto" + id).value) * parseFloat(precioProducto);
+            document.getElementById("totalProducto" + id).innerText = "¢" + totalProducto;
+            document.getElementById("hidden_totalProducto" + id).value = totalProducto;
+            if (cantidadServidor != document.getElementById("cantidadProducto" + id).value)
+            {
+                
+                document.getElementById("actualizarCarrito").removeAttribute("hidden");
+            }
+            else 
+            {
+                document.getElementById("actualizarCarrito").setAttribute("hidden", true);
+            }
+            
+        }
+        function calcularTotal()
+        {
+            var precio_unitario = document.getElementsByClassName("total_precio");
+            var precioTotal = 0;
+            for(var i=0; i<precio_unitario.length; i++)
+            {
+                var x = precio_unitario[i].innerHTML;
+                x = x.slice(1);
+                precioTotal += parseFloat(x);
+            }
+            document.getElementById("hidden_precioProducto").value = precioTotal;
+        }
+
     </script>
 </form>
 </body>

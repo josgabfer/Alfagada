@@ -53,6 +53,7 @@
         $total = $total + ($values["cantidadProducto"] * $values["precioProducto"]);
         $_SESSION["totalProducto". $values["idProducto"]] = $values["cantidadProducto"] * $values["precioProducto"];
         $_SESSION["precioTotal"] = $total;
+        $_SESSION["cantidadProducto" . $values["idProducto"]] = $values["cantidadProducto"];
           
       }
       echo "<script>refrescarPrecio=true</script>";

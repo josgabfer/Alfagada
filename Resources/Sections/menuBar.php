@@ -5,10 +5,7 @@
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav m-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item active dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Categorías</a>
               <ul class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="producto.php">Abarrotes</a>
@@ -20,7 +17,7 @@
                 <a class="dropdown-item" href="#">Panaderia y reposteria</a>
               </ul>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item active dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Contáctenos</a>
               <ul class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Sobre nosotros</a>
@@ -29,7 +26,7 @@
                 <a class="dropdown-item" href="#">Sucursales</a>
               </ul>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item active ">
               <a class="nav-link" href="ubicacion.php">Ubicación</a>
             </li>
         </ul>

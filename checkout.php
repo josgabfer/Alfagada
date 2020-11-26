@@ -69,6 +69,60 @@
                                     <input class="checkout-form-control form-control" id="checkoutNombre" type="text" placeholder="Nombre" required>
                                 </div>
                             </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label>Apellido *</label>
+                                    <input class="checkout-form-control form-control" id="checkoutApellido" type="text" placeholder="Apellido" required>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>País *</label>
+                                    <input class="checkout-form-control form-control" id="checkoutPais" type="text" placeholder="País" required>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Dirección *</label>
+                                    <input class="checkout-form-control form-control" id="checkoutDireccion" type="text" placeholder="Dirección" required>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Dirección Adicional *</label>
+                                    <input class="checkout-form-control form-control" id="checkoutDireccionAdicional" type="text" placeholder="Dirección Adicional" required>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label>Distrito *</label>
+                                    <input class="checkout-form-control form-control" id="checkoutDistrito" type="text" placeholder="Distrito" required>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label>Cantón *</label>
+                                    <input class="checkout-form-control form-control" id="checkoutCanton" type="text" placeholder="Cantón" required>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label>Provincia *</label>
+                                    <input class="checkout-form-control form-control" id="checkoutProvincia" type="text" placeholder="Provincia" required>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label>Código Postal *</label>
+                                    <input class="checkout-form-control form-control" id="checkoutCodigoPostal" type="text" placeholder="Código Postal" required>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Número Teléfono *</label>
+                                    <input class="checkout-form-control form-control" id="checkoutNumero" type="text" placeholder="Dirección Adicional" required>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>

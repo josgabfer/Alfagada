@@ -33,7 +33,7 @@ table.table tr th{
 }
 
 .table tr th, .table tr td{
-    border-color: #B8C0D9;
+    border-color: #e8eaf1;
     border-bottom: 1px solid #e8eaf1;
     padding: 12px 15px;
     vertical-align: middle;

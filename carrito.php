@@ -203,7 +203,7 @@
                                     ?>
                                     </span>
                                 </li>
-                                <li class="list-group-item font-size-sm text-center text-gray-500">Costo de envio se calculará al concluir el pago*</li>
+                                <li class="list-group-item font-size-sm text-center text-gray-500">Costo de envío se calculará al concluir el pago*</li>
                             </ul>
                         </div>
                     </div>

@@ -164,7 +164,7 @@
             </div>
             <div class="col-lg-2 col-md-2">
                 <div class="footer_widget">
-                    <h4 class="widget_title">Nuesta Compañia</h4>
+                    <h4 class="widget_title">Nuestra Compañía</h4>
                     <ul class="footer-menu">
                         <li>
                             <a href="#">Sobre Nosotros</a>

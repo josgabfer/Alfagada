@@ -222,5 +222,40 @@
         </div>
     </div>
 </div>
-<div></div>
+<div class="footer_bottom">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-8">
+                <p class="mb-0" style="font-size: 17px">
+                    ©Copyright 2020 GoodSoft.com 
+                </p>
+            </div>
+            <div class="col-lg-6 col-md-6 text-right">
+                <ul class="footer_social_links">
+                    <li>
+                        <a href="#">
+                            <i class="ti-facebook"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="ti-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="ti-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="ti-linkedin"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
 

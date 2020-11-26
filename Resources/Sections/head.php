@@ -17,4 +17,5 @@
     <link rel="stylesheet" href="Resources/Styles/styles_cart.css" media="all" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Resources/Styles/themify/css/themify-icons.css"> 
+
 </head>

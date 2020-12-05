@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 25, 2020 at 01:29 AM
+-- Generation Time: Nov 26, 2020 at 03:34 AM
 -- Server version: 10.4.16-MariaDB
 -- PHP Version: 7.4.12
 
@@ -77,7 +77,7 @@ CREATE TABLE `productos` (
   `id` int(11) NOT NULL,
   `nombre` varchar(30) NOT NULL,
   `descripcion` varchar(50) NOT NULL,
-  `precio_unitario` decimal(5,2) NOT NULL,
+  `precio_unitario` decimal(10,0) NOT NULL,
   `imagen` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -86,8 +86,8 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio_unitario`, `imagen`) VALUES
-(1, 'Atun Aceite', '140 gramos', '500.00', 'atunaceite140g'),
-(2, 'Arroz 90%', '1 kilo', '200.00', 'arroz901kg');
+(1, 'Atun Aceite', '140 gramos', '500', 'atunaceite140g'),
+(2, 'Arroz 90%', '1 kilo', '2000', 'arroz901kg');
 
 -- --------------------------------------------------------
 
@@ -107,12 +107,12 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`nombre`, `apellido`, `correo`, `clave`) VALUES
-('', '', '', ''),
-('', '123', '1232@123', '123'),
 ('123', '123', '123@123', '123'),
 ('Fabian', 'Bolanos', 'fabian@gmail.com', 'Test123'),
 ('Fabián', 'Bolaños', 'fabianbbenavides@gmail.com', 'test'),
-('Luis ', 'Salas', 'lsalas@alfagada.com', 'test123');
+('Luis ', 'Salas', 'lsalas@alfagada.com', 'test123'),
+('Roberto', 'Perez', 'roberto@alfagada.com', '123'),
+('Test', 'Test', 'test123@test.com', 'test');
 
 --
 -- Indexes for dumped tables

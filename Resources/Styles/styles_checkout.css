@@ -102,9 +102,9 @@ h4{
 .address-box.existing-address{
     height: 266px;
     width: 320px;
-    border-width: 1px;
+    border-width: 3px;
     box-sizing: border-box;
-    border-color: #C7C7C7;
+    border-color: #5dbf13;
     text-align: center;
     border-style: solid;
     display: table-cell;

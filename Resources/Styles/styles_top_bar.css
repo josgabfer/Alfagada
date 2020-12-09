@@ -45,8 +45,10 @@ a {
 }
 
 .nav-brand img{
-    max-height: 75%;
-    max-width: 75%;
+    max-height: 100%;
+    max-width: 100%;
+    margin-left: -40%;
+    margin-bottom: 5%;
 }
 
 
@@ -60,9 +62,10 @@ a {
 
 .header_search .form-control{
     border: none;
+    font-size: 125%;
+    margin-left: 5%;
+    
 }
-
-
 button.btn.search_btn {
     border: none;
     background: #76BF41;
@@ -76,9 +79,11 @@ button.btn.search_btn {
 
 .header_login{
     float: left;
-    width: 32%;
-    padding: 1rem 5rem;
+    width: 40%;
+    padding: 1rem 4rem;
     margin-top: -2.5%;
+    margin-right: -20%;
+    margin-left: 3%;
     
 }
 
@@ -88,8 +93,7 @@ button.btn.search_btn {
 }
 
 .header_login ul li a{
-    font-size: 1.1em;
-    text-transform: capitalize;
+    font-size: 120%;
     color: #fff;
     font-weight: 600;
     text-decoration: none;
@@ -98,10 +102,10 @@ button.btn.search_btn {
 .header_shop_cart{
     display: flex;
     float: left;
-    margin-right: 1.5rem;
     align-items: center;
-    margin-top: -2.3%;
-    margin-right: -20.5rem;
+    margin-top: -1.1%;
+    position: absolute;
+    right: 22%;
 }
 .ss_right {
     margin-right: 15px;
@@ -137,11 +141,13 @@ span.qut_counter {
 
 .ss_cart_content {
     flex: 1;
+    font-size: 120%;
 }
 
 .ss_cart_content strong {
     display: block;
     color: #76BF41;
+    font-size: 95%;
 }
 
 .ss_cart_content span {

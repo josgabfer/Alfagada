@@ -25,7 +25,7 @@
             </div>
         </div>
     </div>
-    <section>
+    <section class="large-font">
         <div class="container" id="accordion">
             <div class="row">
                 <div class="col-lg-8 col-md-12">

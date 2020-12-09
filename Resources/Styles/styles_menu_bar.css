@@ -10,7 +10,7 @@ html, body {
    
    .nav-item .nav-link{
        color:white;
-       font-size:20px;
+       font-size:140%;
        font-family: 'Dosis', sans-serif;
        letter-spacing: 2px;
        margin: 0px 10px;
@@ -25,7 +25,12 @@ html, body {
    .dropdown-menu{
        border:none;
    }
-   
+   ul.navbar-nav{
+       margin-left: 32%;
+   }
+   li.nav-item.active{
+        margin-right: 15%;
+   }
    .dropdown-item{
 
        color:#ffffff;

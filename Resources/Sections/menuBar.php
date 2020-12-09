@@ -4,7 +4,10 @@
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav m-auto">
+          <ul class="navbar-nav">
+          <li class="nav-item active ">
+              <a class="nav-link" href="index.php">Inicio</a>
+            </li>
             <li class="nav-item active dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Categorías</a>
               <ul class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">

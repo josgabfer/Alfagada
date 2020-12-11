@@ -9,7 +9,7 @@
 <form action="" method="post">
     <div>
         <?php include 'Resources/Sections/topBar.php';?> 
-    </div>
+    </div>1
     <div>
         <?php include 'Resources/Sections/menuBar.php';?> 
     </div>

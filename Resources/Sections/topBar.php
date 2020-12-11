@@ -23,7 +23,7 @@
                     }
                     if (empty($_SESSION["NombreUsuario"]))
                     {
-                        echo "<li><a href='login.php'>Ingresar</a></li><li><a href='login.php'>&nbsp|&nbsp</a></li><li><a href='login.php'>Crear Cuenta</a></li>";
+                        echo "<li><a href='login.php'>Ingresar</a></li><li><a href='login.php'></a></li>";
                     }
                     else
                     {

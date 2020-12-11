@@ -9,7 +9,7 @@
 <form action="" method="post">
     <div>
         <?php include 'Resources/Sections/topBar.php';?> 
-    </div>1
+    </div>
     <div>
         <?php include 'Resources/Sections/menuBar.php';?> 
     </div>
@@ -141,9 +141,12 @@
                                         <input class="checkout-form-control form-control" id="checkoutNumero" type="text" placeholder="Número Teléfono" required>
                                     </div>
                                 </div>
+                                <br/>
+                                <div class="col-12">
+                                    <button class="btn btn-outline-dark" type="submit">Añadir Dirección</button>
+                                </div>
                             </div>
                         </div>
-                        
                         <div id="onsite" class="collapse" data-parent="#accordion">
                             <h4 class="mb-3">Sucursales</h4>
                             <div class="table-responsive mb-3">
@@ -172,9 +175,109 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </div> 
+                        </div>
+                         
 
                     </form>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="cart_details">
+                        <div class="cart body">
+                            <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
+                                <li class="list-group-item d-flex">
+                                    <h5 class="mb-0">Resumen del Pedido</h5>
+                                </li>
+                                <li class="list-group-item d-flex">
+                                    <span>Subtotal</span>
+                                    <span class="ml-auto font-size-sm"> ¢
+                                    <?php
+                                        if (isset($_SESSION["precioTotal"]))
+                                        {
+                                            echo number_format($_SESSION["precioTotal"]);
+
+                                        } else 
+                                        {
+                                            echo "0";
+                                        }
+                                    ?>
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex">
+                                    <span>Impuestos</span>
+                                    <span class="ml-auto font-size-sm">¢
+                                    <?php
+                                        if (isset($_SESSION["precioTotal"]))
+                                        {
+                                            $_SESSION["impuesto"] = $_SESSION["precioTotal"]*.13;
+                                            echo number_format(($_SESSION["impuesto"]));
+
+                                        } else 
+                                        {
+                                            echo "0";
+                                        }
+                                    ?>
+                                    
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex">
+                                    <span>Descuento</span>
+                                    <span class="ml-auto font-size-sm">¢
+                                    <?php
+                                        if (isset($_SESSION["precioTotal"]))
+                                        {
+                                            if (!isset($_SESSION["descuento"]))
+                                            {
+                                               $_SESSION["descuento"] = 0;
+                                            }
+                                            $_SESSION["montoDescuento"] = ($_SESSION["precioTotal"] +  $_SESSION["impuesto"]) * $_SESSION["descuento"];
+                                            echo number_format($_SESSION["montoDescuento"]);
+                                        }
+                                        else 
+                                        {
+                                            echo "0";
+                                        }
+                                    ?>
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex font-size-lg font-weight-bold">   
+                                    <span>Total</span>
+                                    <span class="ml-auto font-size-sm">¢
+                                    <?php
+                                        if (isset($_SESSION["precioTotal"]))
+                                        {
+                                            if ($_SESSION["descuentoAplicado"] = 1)
+                                            {
+                                                $_SESSION["precioFinal"] = $_SESSION["precioTotal"] +  $_SESSION["impuesto"] - $_SESSION["montoDescuento"];
+                                                $_SESSION["descuentoAplicado"] = -1;   
+                                                echo number_format($_SESSION["precioFinal"]);
+                                            }
+                                            else 
+                                            {
+                                                echo number_format($_SESSION["precioTotal"]);
+                                            }
+                                            
+
+                                        } 
+                                        else 
+                                        {
+                                            echo "0";
+                                        }
+                                    ?>
+                                    </span>
+                                </li>
+                                <li class="list-group-item font-size-sm text-center text-gray-500">Costo de envío se calculará al concluir el pago*</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <?php
+                        if(!empty($_SESSION["carrito"])){
+                            echo "<a class='btn btn-block-dark mb-2' href='payment.php'>Continuar con el Pago</a>";
+                        }
+                        else
+                        {
+                            echo " </br>";
+                        }
+                    ?>
                 </div>
             </div>
         </div>

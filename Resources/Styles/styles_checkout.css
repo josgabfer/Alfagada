@@ -41,6 +41,7 @@ h4{
     border-color: #5dbf13;
     color: #fff;
 }
+
 .large-font{
     font-size: 130%;
 }
@@ -57,6 +58,7 @@ h4{
     background-color: #fff;
     background-image: none;
     display: block;
+    width: 100%;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
@@ -110,6 +112,15 @@ h4{
     display: table-cell;
     vertical-align: middle;
 }
+
+.custom-control-label::before {
+    margin-top: 4px;
+}
+
+.custom-control-label::after {
+    margin-top: 4px;
+}
+
 
 
 

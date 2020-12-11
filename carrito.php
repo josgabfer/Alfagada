@@ -201,7 +201,7 @@
 
                                             if ($_SESSION["descuentoAplicado"] != 1)
                                             {
-                                                echo "<button class='btn btn-md btn-dark' name = 'aplicarCodigo' type='submit' onclick = 'aplicarDescuento()'>Aplicar</button>";
+                                                echo "<button class='btn btn-dark' name = 'aplicarCodigo' type='submit' onclick = 'aplicarDescuento()'>Aplicar</button>";
                                             }
 
                                             ?>
@@ -210,7 +210,7 @@
                             </form>
                         </div>
                         <div class="col-12 col-md-auto m-full">
-                            <input type="submit" hidden class="btn btn-md btn-outline-dark" id="actualizarCarrito" name="actualizarCarrito" value = "Actualizar Carrito" onclick = "calcularTotal()">
+                            <input type="submit" hidden class="btn btn-outline-dark" id="actualizarCarrito" name="actualizarCarrito" value = "Actualizar Carrito" onclick = "calcularTotal()">
                         </div>
                     </div>
                 </div>

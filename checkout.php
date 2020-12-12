@@ -314,18 +314,6 @@
             });
         });
 
-        $document.ready(function() {
-            if(document.getElementById('agregarDireccion').clicked ==true){
-                $("#address").collapse('hide');
-                $("#delivery").collapse('show');
-                radiobtn = document.getElementById("radio1");
-                radiobtn.checked = true;
-            }
-            
-            
-        }
-
-
     </script>
 </form>
 </body>

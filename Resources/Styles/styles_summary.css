@@ -1,0 +1,128 @@
+/*#8892A6 #2E3D59 */
+
+.text-muted{
+    color: #8892A6;
+    font-weight: 600;
+    font-size: 17px;
+    font-family:  'Dosis', sans-serif;
+}
+
+.text-muted-thin{
+    color: #8892A6;
+    font-weight: 450;
+    font-size: 17px;
+    font-family:  'Dosis', sans-serif;
+}
+
+.card.style-2{
+    border-color: #e2e6ec;
+    width: 100%;
+}
+
+.card.style-2 .card-header{
+    border-color: #e2e6ec;
+    background: #fff
+}
+
+.confirmation h2{
+    font-family:  'Dosis', sans-serif;
+    line-height: 36px;
+    font-size: 32px;
+    font-weight: 650;
+}
+
+.confirmation p{
+    font-family:  'Dosis', sans-serif;
+    margin: 0 0 10px;
+    line-height: 1.8;
+    color: #8892A6;
+    font-size: 18px;
+}
+
+.confirmation-card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.font-weight-medium{
+    font-weight: 600;
+}
+
+.checkout-btn-secondary{
+    transition: .2s ease-in;
+    background-color: #eef0f3;
+    color: #8d97ad;
+}
+
+.checkout-btn-secondary:hover{
+    background-color: #727b84;
+    border-color: #6c757d;
+    color: #fff;
+}
+
+.checkout-btn{
+    background: #76BF41;
+    border: 1px solid #76BF41;
+    transition: .2s ease-in;
+    color: #fff;
+}
+
+.checkout-btn:hover{
+    background: #2E3D59;
+    border: 1px solid #2E3D59;
+    color:#fff;
+    transition: .2s ease-in;
+}
+
+.ch-text-bold{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.confirmation-card-header{
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    border-color: #e2e6ec;
+}
+
+.confirmation-card-header h4{
+    font-weight: 650;
+    font-size: 28px;
+}
+
+.item-groups{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+ul.item-groups li{
+    list-style: none;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #e6e8ec;
+    display: flex;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+
+.confirmation_product {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.confirmation_product_thumb{
+    max-width: 100px;
+}
+
+.c-product{
+    font-weight: 600;
+    font-size: 20px;
+}

@@ -102,13 +102,112 @@
                                 <div class="custom-control custom-radio">
                                     <input type="radio" name="pago" value="2" data-toggle="collapse" href="#cc" class="custom-control-input" id="efectivo" aria-expanded="true" aria-controls="efectivo">
                                         <label class="custom-control-label" for="efectivo">
-                                            Efectivo
+                                            Efectivo &nbsp
                                             <i class="fas fa-money-bill"></i>
                                         </label>
                                 </div>
                             </div>
                         </div>
                     </form>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="cart_details">
+                        <div class="cart body">
+                            <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
+                                <li class="list-group-item d-flex">
+                                    <h5 class="mb-0">Resumen del Pedido</h5>
+                                </li>
+                                <li class="list-group-item d-flex">
+                                    <span>Subtotal</span>
+                                    <span class="ml-auto font-size-sm"> ¢
+                                    <?php
+                                        if (isset($_SESSION["precioTotal"]))
+                                        {
+                                            echo number_format($_SESSION["precioTotal"]);
+
+                                        } else 
+                                        {
+                                            echo "0";
+                                        }
+                                    ?>
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex">
+                                    <span>Impuestos</span>
+                                    <span class="ml-auto font-size-sm">¢
+                                    <?php
+                                        if (isset($_SESSION["precioTotal"]))
+                                        {
+                                            $_SESSION["impuesto"] = $_SESSION["precioTotal"]*.13;
+                                            echo number_format(($_SESSION["impuesto"]));
+
+                                        } else 
+                                        {
+                                            echo "0";
+                                        }
+                                    ?>
+                                    
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex">
+                                    <span>Descuento</span>
+                                    <span class="ml-auto font-size-sm">¢
+                                    <?php
+                                        if (isset($_SESSION["precioTotal"]))
+                                        {
+                                            if (!isset($_SESSION["descuento"]))
+                                            {
+                                               $_SESSION["descuento"] = 0;
+                                            }
+                                            $_SESSION["montoDescuento"] = ($_SESSION["precioTotal"] +  $_SESSION["impuesto"]) * $_SESSION["descuento"];
+                                            echo number_format($_SESSION["montoDescuento"]);
+                                        }
+                                        else 
+                                        {
+                                            echo "0";
+                                        }
+                                    ?>
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex font-size-lg font-weight-bold">   
+                                    <span>Total</span>
+                                    <span class="ml-auto font-size-sm">¢
+                                    <?php
+                                        if (isset($_SESSION["precioTotal"]))
+                                        {
+                                            if ($_SESSION["descuentoAplicado"] = 1)
+                                            {
+                                                $_SESSION["precioFinal"] = $_SESSION["precioTotal"] +  $_SESSION["impuesto"] - $_SESSION["montoDescuento"];
+                                                $_SESSION["descuentoAplicado"] = -1;   
+                                                echo number_format($_SESSION["precioFinal"]);
+                                            }
+                                            else 
+                                            {
+                                                echo number_format($_SESSION["precioTotal"]);
+                                            }
+                                            
+
+                                        } 
+                                        else 
+                                        {
+                                            echo "0";
+                                        }
+                                    ?>
+                                    </span>
+                                </li>
+                                <li class="list-group-item font-size-sm text-center text-gray-500">Costo de envío se calculará al concluir el pago*</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <?php
+                        if(!empty($_SESSION["carrito"])){
+                            echo "<a class='btn btn-block-dark mb-2' href='order_summary.php'>Finalizar Compra</a>";
+                        }
+                        else
+                        {
+                            echo " </br>";
+                        }
+                    ?>
                 </div>
             </div>
         </div>

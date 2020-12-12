@@ -19,13 +19,13 @@
             <div class="row align-items-center">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="text-center">
-                        <h2 class="checkout_title">Resumén de Orden</h2>
+                        <h2 class="checkout_title">Resumen de Orden</h2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <section style="background: #eff0f0">
+    <section style="background: #eff0f0; padding-top: 25px">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-md-12 col-sm-12">
@@ -48,9 +48,71 @@
                         <div class="card-body mb-4">
                             <div class="row">
                                 <div class="col-6 col-lg-3">
-                                    <h6 class="text-muted mb-1">Número de Orden</h6>
+                                    <h6 class="text-muted mb-1">Número de Orden:</h6>
+                                    <p class="mb-lg-0 font-size-sm ch-text-bold">857123</p>
+                                </div>
+                                <div class="col-6 col-lg-3">
+                                    <h6 class="text-muted mb-1">Fecha de Entrega:</h6>
+                                    <p class="mb-lg-0 font-size-sm ch-text-bold">15/12/2020</p>
+                                </div>
+                                <div class="col-6 col-lg-3">
+                                    <h6 class="text-muted mb-1">Estado:</h6>
+                                    <p class="mb-lg-0 font-size-sm ch-text-bold">En proceso</p>
+                                </div>
+                                <div class="col-6 col-lg-3">
+                                    <h6 class="text-muted mb-1">Total de Orden:</h6>
+                                    <p class="mb-lg-0 font-size-sm ch-text-bold">¢25000</p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="confirmation-card">
+                        <div class="confirmation-card-header">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h4>Producto</h4>
+                                </div>
+                                <div class="col-2">
+                                    <h4>Precio</h4>
+                                </div>
+                                <div class="col-2">
+                                    <h4>Cantidad</h4>
+                                </div>
+                                <div class="col-2">
+                                    <h4>Total</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <ul class="item-groups">
+                                <li>
+                                    <div class="col-2 col-md-2 col-xl-2">
+                                        <a class="confirmation_product_thumb" href="#">
+                                            <img src="Resources/imgs/atunaceite140g.jpg" class="confirmation_product_thumb" alt="...">
+                                        </a>
+                                    </div>
+                                    <div class="col-4 col-md-4 col-xl-4">
+                                        <p class="mb-2 font-size-sm c-product">
+                                            <a class="text-body" href="#">Atún Sardimar Aceite</a>
+                                            <br>
+                                            <span style="color: #76BF41">¢500</span>
+                                        </p>
+                                        <div class="font-size-sm text-muted-thin">
+                                            Categoría: Abarrotes
+                                        </div>
+                                    </div>
+                                    <div class="col-2" style="font-size: 22px; font-weight: 600">
+                                        ¢500
+                                    </div>
+                                    <div class="col-2" style="font-size: 22px; font-weight: 600">
+                                        3
+                                    </div>
+                                    <div class="col-2" style="font-size: 22px; font-weight: 600">
+                                        ¢1500
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

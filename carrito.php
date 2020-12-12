@@ -299,13 +299,13 @@
                                     ?>
                                     </span>
                                 </li>
-                                <li class="list-group-item font-size-sm text-center text-gray-500">Costo de envío se calculará al concluir el pago*</li>
+                                <li class="list-group-item font-size-sm text-center text-gray-500">Costo de envío se calculará al proceder con la compra*</li>
                             </ul>
                         </div>
                     </div>
                     <?php
                         if(!empty($_SESSION["carrito"])){
-                            echo "<a class='btn btn-block-dark mb-2' href='checkout.php'>Continuar con el Pago</a>";
+                            echo "<a class='btn btn-block-dark mb-2' href='checkout.php'>Proceder con la Compra</a>";
                         }
                         else
                         {

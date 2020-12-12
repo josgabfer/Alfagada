@@ -1,3 +1,45 @@
+<?php
+    include 'Resources/Scripts/conexionBD.php';
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    $abrirCon = OpenCon();
+    $correo = $_SESSION["correoSesion"];
+    $consultarDireccion = "call ConsultarDireccion('$correo')";
+    $direccionRegistrada = $abrirCon -> query($consultarDireccion);
+    CloseCon($abrirCon);
+
+    if (isset($_POST["anadirDireccion"]))
+    {
+        $abrirCon = OpenCon();
+        $correo = $_SESSION["correoSesion"];
+        $direccion = $_POST["checkoutDireccion"];
+        $direccionAdicional = $_POST["checkoutDireccionAdicional"];
+        $pais = $_POST["checkoutPais"];
+        $distrito = $_POST["checkoutDistrito"];
+        $canton = $_POST["checkoutCanton"];
+        $provincia = $_POST["checkoutProvincia"];
+        $codPostal = $_POST["checkoutCodigoPostal"];
+        $telefono = $_POST["checkoutNumero"];
+        $insertarDireccion = "call InsertarDireccion('$correo', '$direccion', '$direccionAdicional', '$pais', '$distrito', '$canton', '$provincia', $codPostal, $telefono)";
+        $abrirCon -> next_result();
+        if($abrirCon -> query($insertarDireccion))
+        {
+            header('Location: checkout.php#delivery');
+        }
+        else
+        {
+            echo $abrirCon -> error;
+        }
+        CloseCon($abrirCon);
+    }
+    if (isset($_POST["cargoEnvio"]))
+    {
+        
+
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +48,7 @@
 </head>
 <body>
 
-<form action="" method="post">
+<form action="" id= "formEnvio" method="post">
     <div>
         <?php include 'Resources/Sections/topBar.php';?> 
     </div>
@@ -37,7 +79,7 @@
                                     <tr>
                                         <td>
                                             <div class="custom-control custom-radio">
-                                            <input type="radio" name="shipping" value="1" data-toggle="collapse" href="#delivery" class="custom-control-input" id="radio1" aria-expanded="true" aria-controls="delivery">
+                                            <input type="radio" name="shipping" value="1" data-toggle="collapse" href="#delivery" class="custom-control-input" id="radio1" aria-expanded="true" aria-controls="delivery" onclick=sumarCargoEnvio(3000);>
                                                 <label class="custom-control-label" for="radio1" style="color: black ">
                                                     A domicilio
                                                 </label>
@@ -49,7 +91,7 @@
                                     <tr>
                                         <td>
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" name="shipping" value="2" data-toggle="collapse" data-parent="#accordion" href="#onsite" class="custom-control-input" id="radio2" aria-expanded="false" aria-controls="onsite">
+                                            <input type="radio" name="shipping" value="2" data-toggle="collapse" data-parent="#accordion" href="#onsite" class="custom-control-input" id="radio2" aria-expanded="false" aria-controls="onsite" onclick=sumarCargoEnvio(1500)>
                                                 <label class="custom-control-label" for="radio2" style="color: black ">
                                                     Recoger en sitio
                                                 </label>
@@ -60,6 +102,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <input type="hidden" value="" name="cargoEnvio" id="cargoEnvio" />
                         </div>
                         <br>
                         <div id="delivery" class="collapse" data-parent="#accordion">
@@ -70,80 +113,88 @@
                                         <h2>Agregar Dirección Nueva</h2>
                                     </div>
                                 </div>
-                                <div class="a-column">
-                                    <div class="address-box existing-address">
-                                        <h2>Direccion Existente</h2>
-                                    </div>
-                                </div>
+                                <?php
+                                    if(mysqli_num_rows($direccionRegistrada) > 0)
+                                    {
+                                        $fila = mysqli_fetch_array($direccionRegistrada);
+                                        $pais = $fila["pais"];
+                                        $direccion = $fila["direccion"];
+                                        $direccionAdicional = $fila["direccion_2"];
+                                        $distrito = $fila["distrito"];
+                                        $canton = $fila["canton"];
+                                        $provincia = $fila["provincia"];
+                                        $codPostal = $fila["codigo_postal"];
+                                        $telefono = $fila["telefono"];
 
+                                        echo '<div class="a-column">
+                                        <div class="address-box existing-address">
+                                            <h4>'.$direccion.','.'</h4>
+                                            <h4>'.$direccionAdicional.'</h4>
+                                            <h4>'.$distrito.'</h4>
+                                            <h4>'.$canton.'</h4>
+                                            <h4>'.$provincia.'</h4>
+                                            <h4>'.$codPostal.'</h4>
+                                            <h4>'.$telefono.'</h4>
+                                        </div>
+                                    </div>';
+                                    };
+                                ?>
                             </div>
                         </div>
                         <div id="address" class="collapse in" data-parent="#accordion">
                             <h4 class="mb-3">Dirección de Entrega</h4>
                             <div class="row mb-5">
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <label>Nombre *</label>
-                                        <input class="checkout-form-control form-control" id="checkoutNombre" type="text" placeholder="Nombre" required>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <label>Apellido *</label>
-                                        <input class="checkout-form-control form-control" id="checkoutApellido" type="text" placeholder="Apellido" required>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label>País *</label>
-                                        <input class="checkout-form-control form-control" id="checkoutPais" type="text" placeholder="País" required>
-                                    </div>
-                                </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label>Dirección *</label>
-                                        <input class="checkout-form-control form-control" id="checkoutDireccion" type="text" placeholder="Dirección" required>
+                                        <input class="checkout-form-control form-control" id="checkoutDireccion" name="checkoutDireccion" type="text" placeholder="Dirección" required>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label>Dirección Adicional *</label>
-                                        <input class="checkout-form-control form-control" id="checkoutDireccionAdicional" type="text" placeholder="Dirección Adicional" required>
+                                        <input class="checkout-form-control form-control" id="checkoutDireccionAdicional" name="checkoutDireccionAdicional" type="text" placeholder="Dirección Adicional" required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label>País *</label>
+                                        <input class="checkout-form-control form-control" id="checkoutPais" name="checkoutPais" type="text" placeholder="País" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label>Distrito *</label>
-                                        <input class="checkout-form-control form-control" id="checkoutDistrito" type="text" placeholder="Distrito" required>
+                                        <input class="checkout-form-control form-control" id="checkoutDistrito" name="checkoutDistrito" type="text" placeholder="Distrito" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label>Cantón *</label>
-                                        <input class="checkout-form-control form-control" id="checkoutCanton" type="text" placeholder="Cantón" required>
+                                        <input class="checkout-form-control form-control" id="checkoutCanton" name="checkoutCanton" type="text" placeholder="Cantón" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label>Provincia *</label>
-                                        <input class="checkout-form-control form-control" id="checkoutProvincia" type="text" placeholder="Provincia" required>
+                                        <input class="checkout-form-control form-control" id="checkoutProvincia" name="checkoutProvincia" type="text" placeholder="Provincia" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label>Código Postal *</label>
-                                        <input class="checkout-form-control form-control" id="checkoutCodigoPostal" type="text" placeholder="Código Postal" required>
+                                        <input class="checkout-form-control form-control" id="checkoutCodigoPostal" name="checkoutCodigoPostal" type="text" placeholder="Código Postal" required>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label>Número Teléfono *</label>
-                                        <input class="checkout-form-control form-control" id="checkoutNumero" type="text" placeholder="Número Teléfono" required>
+                                        <input class="checkout-form-control form-control" id="checkoutNumero" name="checkoutNumero" type="text" placeholder="Número Teléfono" required>
                                     </div>
                                 </div>
                                 <br/>
                                 <div class="col-12">
-                                    <button class="btn btn-outline-dark" type="submit">Añadir Dirección</button>
+                                    <button class="btn btn-outline-dark" name="anadirDireccion" type="submit">Añadir Dirección</button>
                                 </div>
                             </div>
                         </div>
@@ -239,9 +290,13 @@
                                     ?>
                                     </span>
                                 </li>
+                                <li class="list-group-item d-flex">
+                                    <span>Envío</span>
+                                    <span class="ml-auto font-size-sm" id="envioResumen">¢ 0</span>
+                                </li>
                                 <li class="list-group-item d-flex font-size-lg font-weight-bold">   
                                     <span>Total</span>
-                                    <span class="ml-auto font-size-sm">¢
+                                    <span class="ml-auto font-size-sm" id="totalResumen">¢
                                     <?php
                                         if (isset($_SESSION["precioTotal"]))
                                         {
@@ -265,19 +320,10 @@
                                     ?>
                                     </span>
                                 </li>
-                                <li class="list-group-item font-size-sm text-center text-gray-500">Costo de envío se calculará al concluir el pago*</li>
                             </ul>
                         </div>
                     </div>
-                    <?php
-                        if(!empty($_SESSION["carrito"])){
-                            echo "<a class='btn btn-block-dark mb-2' href='payment.php'>Continuar con el Pago</a>";
-                        }
-                        else
-                        {
-                            echo " </br>";
-                        }
-                    ?>
+                    <a class='btn btn-block-dark mb-2' href='payment.php'>Continuar con el Pago</a>
                 </div>
             </div>
         </div>
@@ -291,28 +337,54 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        var refrescarPrecio;
-        if (refrescarPrecio ==true)
-        {
-        $("#topBar").load("Resources/Sections/topBar.php");
+        var hash = window.location.hash;
+        if (hash) {
+            var requestedPanel = $(hash);
+            if (requestedPanel.length) {
+                $("#radio1").attr('checked', true); 
+                $(hash).show();
+                $('html, body').animate({scrollTop: $("#formEnvio").offset().top}, 2000);
+            }
         }
-
-        $document.ready(function() {
-            $("input[name='delivery']").click(function(){
-                var checkedValue = $("input[name='delivery']:checked").val();
-                console.log(checkedValue);
-                if(checkedValue == "1"){
-                    $("#delivery").collapse('show');
-                    $("#onsite").collapse('hide');
-                }else if(checkedValue == "2"){
-                    $("#delivery").collapse('hide');
-                    $("#onsite").collapse('show');
-                    $("#address").collapse('hide');
-                }else{
-                    console.log("Oops.");
-                }
-            });
+        $(hash).click(function(){
+            $(hash).hide();
         });
+
+        function sumarCargoEnvio(x)
+        {
+  
+            var valorEnvio = x.toLocaleString(undefined, { minimumFractionDigits: 0 });
+            document.getElementById("envioResumen").innerHTML = "¢ " + valorEnvio;
+            <?php
+                
+                echo 'document.getElementById("totalResumen").innerHTML = "'.number_format($_SESSION["precioFinal"]). '";';
+                        
+            ?>
+            var totalEnvio = (parseFloat(document.getElementById("totalResumen").innerHTML.replace(",","")) + x);
+
+            totalEnvio = totalEnvio.toLocaleString(undefined, { minimumFractionDigits: 0 });
+            document.getElementById("totalResumen").innerHTML = "¢" + totalEnvio;
+        }
+     
+        /* $("input[name='delivery']").click(function(){
+           console.log("HAA");
+           var checkedValue = $("input[name='delivery']:checked").val();
+            console.log(checkedValue);
+            if(checkedValue == "1"){
+                $("#delivery").collapse('show');
+                $("#onsite").collapse('hide');
+                $("#cargoEnvio").val() = "3000";
+            }else if(checkedValue == "2"){
+                $("#delivery").collapse('hide');
+                $("#onsite").collapse('show');
+                $("#address").collapse('hide');
+                $("#cargoEnvio").val() = "1500";
+            }else{
+                console.log("Oops.");
+           
+        }); }*/ 
+    
+
     </script>
 </form>
 </body>

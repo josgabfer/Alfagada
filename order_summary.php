@@ -114,7 +114,78 @@
                                 </li>
                             </ul>
                         </div>
+                        <div class="">
+
+                        </div>
                     </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="confirmation-card">
+                                <div class="confirmation-card-header">
+                                    <h4 class="mb-0">Total de Orden</h4>
+                                </div>
+                                <div class="card-body price-card-body">
+                                    <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
+                                        <li class="list-group-item d-flex">
+                                            <span>Subtotal</span>
+                                            <span class="ml-auto">¢1500</span>
+                                        </li>
+                                        <li class="list-group-item d-flex">
+                                            <span>Impuestos</span>
+                                            <span class="ml-auto">¢150</span>
+                                        </li>
+                                        <li class="list-group-item d-flex">
+                                            <span>Envío</span>
+                                            <span class="ml-auto">¢1500</span>
+                                        </li>
+                                        <li class="list-group-item d-flex">
+                                            <span>Descuento</span>
+                                            <span class="ml-auto">¢0</span>
+                                        </li>
+                                        <li class="list-group-item d-flex font-weight-bold">
+                                            <span>Total</span>
+                                            <span class="ml-auto">¢3150</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="confirmation-card">
+                                <div class="confirmation-card-header">
+                                        <h4 class="mb-0">Información de Envío y Pago</h4>
+                                    </div>
+                                    <div class="card-body price-card-body">
+                                        <div class="row">
+                                            <div class="col-12 col-md-6">
+                                                <p class="info_pago font-weight-bold">Dirección de Entrega:</p>
+                                                <p class="info-pago">
+                                                    Direccion, Direccion
+                                                    <br>
+                                                    Direccion, Direccion
+                                                    <br>
+                                                    Costa Rica
+                                                    <br>
+                                                </p>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <p class="info_pago font-weight-bold">Tipo de Entrega:</p>
+                                                <p class="info-pago">
+                                                    A domicilio
+                                                </p>
+                                                <p class="info_pago font-weight-bold">Tipo de Pago:</p>
+                                                <p class="info-pago">
+                                                    Tarjeta de Crédito
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>

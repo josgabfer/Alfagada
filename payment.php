@@ -121,14 +121,7 @@
                                     <span>Subtotal</span>
                                     <span class="ml-auto font-size-sm"> ¢
                                     <?php
-                                        if (isset($_SESSION["precioTotal"]))
-                                        {
-                                            echo number_format($_SESSION["precioTotal"]);
-
-                                        } else 
-                                        {
-                                            echo "0";
-                                        }
+                                        echo number_format($_SESSION["precioTotal"]);
                                     ?>
                                     </span>
                                 </li>
@@ -136,62 +129,23 @@
                                     <span>Impuestos</span>
                                     <span class="ml-auto font-size-sm">¢
                                     <?php
-                                        if (isset($_SESSION["precioTotal"]))
-                                        {
-                                            $_SESSION["impuesto"] = $_SESSION["precioTotal"]*.13;
-                                            echo number_format(($_SESSION["impuesto"]));
-
-                                        } else 
-                                        {
-                                            echo "0";
-                                        }
+                                        echo number_format($_SESSION["impuesto"]);
                                     ?>
-                                    
                                     </span>
                                 </li>
                                 <li class="list-group-item d-flex">
                                     <span>Descuento</span>
                                     <span class="ml-auto font-size-sm">¢
                                     <?php
-                                        if (isset($_SESSION["precioTotal"]))
-                                        {
-                                            if (!isset($_SESSION["descuento"]))
-                                            {
-                                               $_SESSION["descuento"] = 0;
-                                            }
-                                            $_SESSION["montoDescuento"] = ($_SESSION["precioTotal"] +  $_SESSION["impuesto"]) * $_SESSION["descuento"];
-                                            echo number_format($_SESSION["montoDescuento"]);
-                                        }
-                                        else 
-                                        {
-                                            echo "0";
-                                        }
+                                        echo number_format($_SESSION["montoDescuento"]);
                                     ?>
                                     </span>
                                 </li>
                                 <li class="list-group-item d-flex font-size-lg font-weight-bold">   
                                     <span>Total</span>
-                                    <span class="ml-auto font-size-sm">¢
+                                    <span class="ml-auto font-size-sm" id="totalResumen">¢
                                     <?php
-                                        if (isset($_SESSION["precioTotal"]))
-                                        {
-                                            if ($_SESSION["descuentoAplicado"] = 1)
-                                            {
-                                                $_SESSION["precioFinal"] = $_SESSION["precioTotal"] +  $_SESSION["impuesto"] - $_SESSION["montoDescuento"];
-                                                $_SESSION["descuentoAplicado"] = -1;   
-                                                echo number_format($_SESSION["precioFinal"]);
-                                            }
-                                            else 
-                                            {
-                                                echo number_format($_SESSION["precioTotal"]);
-                                            }
-                                            
-
-                                        } 
-                                        else 
-                                        {
-                                            echo "0";
-                                        }
+                                        echo number_format($_SESSION["precioFinal"]);
                                     ?>
                                     </span>
                                 </li>

@@ -33,9 +33,10 @@
         }
         CloseCon($abrirCon);
     }
-    if (isset($_POST["cargoEnvio"]))
+    if (isset($_POST["continuarPago"]))
     {
-        
+        $_SESSION["precioFinal"]= $_POST["nuevoTotal"];
+        header('Location: payment.php');
 
     }
 ?>
@@ -227,8 +228,6 @@
                                 </table>
                             </div>
                         </div>
-                         
-
                     </form>
                 </div>
                 <div class="col-lg-4 col-md-12">
@@ -242,14 +241,7 @@
                                     <span>Subtotal</span>
                                     <span class="ml-auto font-size-sm"> ¢
                                     <?php
-                                        if (isset($_SESSION["precioTotal"]))
-                                        {
-                                            echo number_format($_SESSION["precioTotal"]);
-
-                                        } else 
-                                        {
-                                            echo "0";
-                                        }
+                                        echo number_format($_SESSION["precioTotal"]);
                                     ?>
                                     </span>
                                 </li>
@@ -257,36 +249,15 @@
                                     <span>Impuestos</span>
                                     <span class="ml-auto font-size-sm">¢
                                     <?php
-                                        if (isset($_SESSION["precioTotal"]))
-                                        {
-                                            $_SESSION["impuesto"] = $_SESSION["precioTotal"]*.13;
-                                            echo number_format(($_SESSION["impuesto"]));
-
-                                        } else 
-                                        {
-                                            echo "0";
-                                        }
+                                        echo number_format($_SESSION["impuesto"]);
                                     ?>
-                                    
                                     </span>
                                 </li>
                                 <li class="list-group-item d-flex">
                                     <span>Descuento</span>
                                     <span class="ml-auto font-size-sm">¢
                                     <?php
-                                        if (isset($_SESSION["precioTotal"]))
-                                        {
-                                            if (!isset($_SESSION["descuento"]))
-                                            {
-                                               $_SESSION["descuento"] = 0;
-                                            }
-                                            $_SESSION["montoDescuento"] = ($_SESSION["precioTotal"] +  $_SESSION["impuesto"]) * $_SESSION["descuento"];
-                                            echo number_format($_SESSION["montoDescuento"]);
-                                        }
-                                        else 
-                                        {
-                                            echo "0";
-                                        }
+                                        echo number_format($_SESSION["montoDescuento"]);
                                     ?>
                                     </span>
                                 </li>
@@ -294,28 +265,18 @@
                                     <span>Envío</span>
                                     <span class="ml-auto font-size-sm" id="envioResumen">¢ 0</span>
                                 </li>
+                                <form action="" method="post">
                                 <li class="list-group-item d-flex font-size-lg font-weight-bold">   
                                     <span>Total</span>
                                     <span class="ml-auto font-size-sm" id="totalResumen">¢
                                     <?php
-                                        if (isset($_SESSION["precioTotal"]))
+                                        if ($_SESSION["descuentoAplicado"] = 1)
                                         {
-                                            if ($_SESSION["descuentoAplicado"] = 1)
-                                            {
-                                                $_SESSION["precioFinal"] = $_SESSION["precioTotal"] +  $_SESSION["impuesto"] - $_SESSION["montoDescuento"];
-                                                $_SESSION["descuentoAplicado"] = -1;   
-                                                echo number_format($_SESSION["precioFinal"]);
-                                            }
-                                            else 
-                                            {
-                                                echo number_format($_SESSION["precioTotal"]);
-                                            }
-                                            
-
-                                        } 
+                                            echo number_format($_SESSION["precioFinal"]);
+                                        }
                                         else 
                                         {
-                                            echo "0";
+                                            echo number_format($_SESSION["precioTotal"]);
                                         }
                                     ?>
                                     </span>
@@ -323,12 +284,13 @@
                             </ul>
                         </div>
                     </div>
-                    <a class='btn btn-block-dark mb-2' href='payment.php'>Continuar con el Pago</a>
+                    <input type=hidden id ="nuevoTotal" name="nuevoTotal" value="" />
+                    <button class='btn btn-block-dark mb-2' type='submit' name='continuarPago' >Continuar con el Pago</button>
                 </div>
+                </form>
             </div>
         </div>
     </section>
-
     <footer class="dark-footer skin-dark-footer">
       <?php include('Resources/Sections/footer.php');?>
     </footer>
@@ -364,6 +326,7 @@
 
             totalEnvio = totalEnvio.toLocaleString(undefined, { minimumFractionDigits: 0 });
             document.getElementById("totalResumen").innerHTML = "¢" + totalEnvio;
+            document.getElementById("nuevoTotal").value = totalEnvio.replace(",","");
         }
      
         /* $("input[name='delivery']").click(function(){

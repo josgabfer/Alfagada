@@ -1,0 +1,21 @@
+/*#8892A6 #2E3D59 */
+
+.bg-white{
+    background-color: #fff;
+}
+
+.text-muted{
+    color: #8892A6;
+    font-weight: 600;
+    font-family:  'Dosis', sans-serif;
+}
+
+.card.style-2{
+    border-color: #e2e6ec;
+}
+
+.card.style-2 .card-header{
+    border-color: #e2e6ec;
+    background: #fff;
+}
+

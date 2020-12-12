@@ -93,7 +93,7 @@
 }
 
 .confirmation-card-header h4{
-    font-weight: 650;
+    font-weight: 600;
     font-size: 28px;
 }
 
@@ -125,4 +125,13 @@ ul.item-groups li{
 .c-product{
     font-weight: 600;
     font-size: 20px;
+}
+
+.price-card-body span{
+    font-size: 18px;
+}
+
+.info_pago{
+    color: #6c757d;
+    font-size: 18px;
 }

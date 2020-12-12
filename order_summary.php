@@ -25,37 +25,36 @@
             </div>
         </div>
     </div>
-    <section class="large-font" style="background: #f4f5f7">
+    <section style="background: #eff0f0">
         <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-md-12 col-sm-12">
+                    <div class="confirmation-card py-3 mt-sm-3">
+                        <div class="card-body text-center confirmation">
+                            <h2 class="pb-2">¡Gracias por su orden!</h2>
+                            <p class="font-size-sm mb-2">Su orden va a ser procesada lo antes posible.</p>
+                            <p class="font-size-sm mb-2">Su número de orden sería: <span class="font-weight-medium">857123</span></p>
+                            <p class="font-size-sm mb-2">Recibirá un correo electrónico con la confirmación de su orden.</p>
+                            <a class="btn checkout-btn-secondary mt-3 mr-3" href="index.php">Seguir Comprando</a>
+                            <a class="btn checkout-btn mt-3">Rastrear Orden</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </br>
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    <div class="card-body bg-white mb-4">
-                        <div class="row">
-                            <div class="col-12 col-lg-3">
-                                <h6 class="text-muted mb-1">Número de Orden:</h6>
-                                <p class="mb-lg-0 font-size-sm font-weight-bold" style="color: #2E3D59">5817845</p>
-                            </div>
-                            <div class="col-12 col-lg-3">
-                                <h6 class="text-muted mb-1">Fecha de Envío:</h6>
-                                <p class="mb-lg-0 font-size-sm font-weight-bold" style="color: #2E3D59">17/12/2020</p>
-                            </div>
-                            <div class="col-12 col-lg-3">
-                                <h6 class="text-muted mb-1">Estado:</h6>
-                                <p class="mb-lg-0 font-size-sm font-weight-bold" style="color: #2E3D59">Entregado</p>
-                            </div>
-                            <div class="col-12 col-lg-3">
-                                <h6 class="text-muted mb-1">Total de Orden:</h6>
-                                <p class="mb-lg-0 font-size-sm font-weight-bold" style="color: #2E3D59">₡21,000</p>
+                    <div class="confirmation-card">
+                        <div class="card-body mb-4">
+                            <div class="row">
+                                <div class="col-6 col-lg-3">
+                                    <h6 class="text-muted mb-1">Número de Orden</h6>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card style-2 mb-4">
-                        <div class="card-header">
-
-                        </div>
-                    </div>
-                </div> 
-            </div>  
+                </div>
+            </div>
         </div>
     </section>
     

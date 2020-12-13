@@ -5,7 +5,7 @@ h5{
     line-height: 22px;
     font-weight: 600;
     text-transform: capitalize;
-    font-family:  'Dosis', sans-serif;
+    font-family: 'Muli', sans-serif;
 }
 
 .cart_header{
@@ -15,7 +15,7 @@ h5{
 
 .cart_title{
     font-size: 35px;
-    font-family:  'Dosis', sans-serif;
+    font-family: 'Muli', sans-serif;
     font-weight: 600;
     color: #76BF41;
     margin-bottom: 0;

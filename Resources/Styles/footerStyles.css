@@ -1,6 +1,6 @@
 html, body {
     font-size: 100%;
-	font-family: 'Dosis', sans-serif;
+	font-family: 'Muli', sans-serif;
 	background:#ffffff;
 }
 
@@ -32,7 +32,6 @@ footer.skin-dark-footer,
 footer.skin-dark-footer a{
     color: #8892A6;
     transition: all ease .4s;
-    font-size: 100%;
 }
 
 .top_footer{
@@ -79,15 +78,16 @@ footer.skin-dark-footer a{
 }
 
 .facts_caption h4{
-    font-size: 125%;
+    font-size: 17px;
     margin-bottom: 5px;
     line-height: 1;
     color: #fff;
-    font-weight: 500;
+    font-weight: 550;
 }
 
 .facts_caption p{
-    font-size: 110%;
+    font-size: 14px;
+    font-weight: 500;;
     margin: 0;
     line-height: 1.8;
     color: #fff;
@@ -98,20 +98,19 @@ footer.skin-dark-footer a{
 }
 
 .footer_widget p{
-    font-size: 100%;
     color: #A5B2C9;
 }
 
 .footer_widget p a{
-    font-size: 110%;
+    font-size: 14px;
 }
 
 footer.skin-dark-footer .extream{
     letter-spacing: 1px;
     font-weight: 700;
     line-height: 1.4;
-    font-family: 'Dosis', sans-serif;
-    font-size: 175%;
+    font-family: 'Muli', sans-serif;
+    font-size: 21px;
     color: #fff;
     margin-top: -.5px;
 }
@@ -134,11 +133,15 @@ footer.skin-dark-footer .extream{
 }
 
 .address_infos ul li i{
-    font-size: 18px;
+    font-size: 14px;
     color: #A5B2C9;
     position: absolute;
     top: 2px;
     left: 0;
+}
+
+.address_infos ul li p{
+    font-size: 14px;
 }
 
 .footer_widget ul li{
@@ -149,10 +152,10 @@ footer.skin-dark-footer .extream{
 
 h4.widget_title{
     margin-bottom: 20px;
-    font-weight: 700;
-    font-size: 125%;
+    font-weight: 500;
+    font-size: 17px;
     text-transform: capitalize;
-    font-family: 'Dosis', sans-serif;
+    font-family: 'Muli', sans-serif;
     color: #fff;
 }
 
@@ -162,7 +165,8 @@ h4.widget_title{
 }
 
 .footer_widget ul li a{
-    font-weight: 500;
+    font-weight: 400;
+    font-size: 14px;
 }
 
 .footer_bottom{

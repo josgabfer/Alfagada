@@ -72,7 +72,6 @@
     <?php include 'Resources/Sections/head.php';?> 
 </head>
 <body>
-<form action="" method="post">
     <div>
         <?php include 'Resources/Sections/topBar.php';?> 
     </div>
@@ -153,7 +152,7 @@
           </form>
       </div>
   </section>
-  <!--<div class="card">
+   <!--<div class="card">
     <form method="post" action="producto.php?action=add&id=<?php echo $row["id"]; ?>">
       <img src="<?php echo $sourceImagen;?>" alt="<?php echo $nombreProducto ?>" title="<?php echo $nombreProducto ?>" style="width:100%">
       <h1><?php echo $nombreProducto ?></h1>
@@ -165,11 +164,11 @@
       <input type="hidden" name="hidden_imagen<?php echo $row["id"]?>" value="<?php echo $row["imagen"];?>" />
       <input type="submit" name="anadirCarrito" class="btn card-button" value="Añadir al Carrito" />
     </form>  
-   </div>
+   </div>!-->
    <?php
           }
         }
-   ?>!-->
+   ?>
 
 
 
@@ -188,7 +187,7 @@
     }
   </script>
 
-</form>
+
 </body>
 
 </html>

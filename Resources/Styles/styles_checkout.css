@@ -7,7 +7,7 @@
 
 .checkout_title{
     font-size: 200%;
-    font-family:  'Dosis', sans-serif;
+    font-family: 'Muli', sans-serif;
     font-weight: 600;
     color: #76BF41;
     margin-bottom: 0;
@@ -24,7 +24,7 @@ h4{
     font-size: 21px;
     font-weight: 500;
     text-transform: capitalize;
-    font-family:  'Dosis', sans-serif;
+    font-family: 'Muli', sans-serif;
 }
 
 .mb-3{
@@ -83,7 +83,7 @@ h4{
 .address-box h2{
     color: #495057;
     margin-top: 5px;
-    font-family:  'Dosis', sans-serif;
+    font-family: 'Muli', sans-serif;
 }
 
 .a-row{
@@ -113,13 +113,7 @@ h4{
     vertical-align: middle;
 }
 
-.custom-control-label::before {
-    margin-top: 4px;
-}
 
-.custom-control-label::after {
-    margin-top: 4px;
-}
 
 
 

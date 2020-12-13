@@ -1,15 +1,10 @@
 html, body {
-    font-size: 100%;
-	font-family: 'Dosis', sans-serif;
+	font-family: 'Muli', sans-serif;
 	background:#ffffff;
 }
 
 p {
     margin: 0;
-}
-
-ul li, ol li {
-    font-size: 100%;
 }
 
 ol li{
@@ -42,7 +37,7 @@ a {
 
 .login_title{
     font-size: 35px;
-    font-family:  'Dosis', sans-serif;
+    font-family: 'Muli', sans-serif;
     font-weight: 600;
     color: #76BF41;
     margin-bottom: 0;
@@ -87,7 +82,7 @@ nav a{
     font-weight: 700;
     font-size: 24px;
     color: #76BF41;
-    font-family:  'Dosis', sans-serif;
+    font-family: 'Muli', sans-serif;
 }
 
 section{
@@ -170,7 +165,7 @@ section{
 }
 
 h4.modal-title {
-    font-family:  'Dosis', sans-serif;
+    font-family: 'Muli', sans-serif;
     font-weight: 600;
     font-size: 25px;
     color: #76BF41;

@@ -100,11 +100,13 @@
                             </div>
                             <div class="list-group-item">
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" name="pago" value="2" data-toggle="collapse" href="#cc" class="custom-control-input" id="efectivo" aria-expanded="true" aria-controls="efectivo">
+                                    <input type="radio" name="pago" value="2" data-toggle="collapse" href="#efectivo" class="custom-control-input" id="efectivo" aria-expanded="true" aria-controls="efectivo">
                                         <label class="custom-control-label" for="efectivo">
                                             Efectivo &nbsp
                                             <i class="fas fa-money-bill"></i>
                                         </label>
+                                </div>
+                                <div id="efectivo" class="collapse" data-parent="#accordion">
                                 </div>
                             </div>
                         </div>
@@ -182,8 +184,8 @@
         }
 
         $document.ready(function() {
-            $("input[name='cc']").click(function(){
-                var checkedValue = $("input[name='cc']:checked").val();
+            $("input[name='pago']").click(function(){
+                var checkedValue = $("input[name='pago']:checked").val();
                 console.log(checkedValue);
                 if(checkedValue == "1"){
                     $("#cc").collapse('show');

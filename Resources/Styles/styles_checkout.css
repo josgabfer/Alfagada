@@ -22,7 +22,7 @@ h4{
     color: #2E3D59;
     line-height: 26px;
     font-size: 21px;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: capitalize;
     font-family: 'Muli', sans-serif;
 }
@@ -36,11 +36,11 @@ h4{
 }
 
 
-.custom-control-input:checked~.custom-control-label::before {
+/**.custom-control-input:checked~.custom-control-label::before {
     background: #5dbf13;
     border-color: #5dbf13;
     color: #fff;
-}
+}*/
 
 .large-font{
     font-size: 17px;
@@ -60,6 +60,20 @@ h4{
     display: block;
     width: 100%;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.entrega_seleccion td label{
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Muli', sans-serif;
+    color: #495057;
+}
+
+.entrega_seleccion td{
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Muli', sans-serif;
+    color: #495057;
 }
 
 .address-box{

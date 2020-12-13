@@ -90,13 +90,13 @@
                     <form>
                         <h4 class="mb-3">Método de Entrega</h4>
                         <div class="table-responsive mb-3">
-                            <table class="table table-bordered table-sm table-hover mb-0">
+                            <table class="table table-bordered table-sm table-hover mb-0 entrega_seleccion">
                                 <tbody>
                                     <tr>
                                         <td>
                                             <div class="custom-control custom-radio">
                                             <input type="radio" name="shipping" value="1" data-toggle="collapse" href="#delivery" class="custom-control-input" id="radio1" aria-expanded="true" aria-controls="delivery" onclick=sumarCargoEnvio(3000);>
-                                                <label class="custom-control-label" for="radio1" style="color: black ">
+                                                <label class="custom-control-label" for="radio1">
                                                     A domicilio
                                                 </label>
                                             </div>
@@ -108,7 +108,7 @@
                                         <td>
                                         <div class="custom-control custom-radio">
                                             <input type="radio" name="shipping" value="2" data-toggle="collapse" data-parent="#accordion" href="#onsite" class="custom-control-input" id="radio2" aria-expanded="false" aria-controls="onsite" onclick=sumarCargoEnvio(1500)>
-                                                <label class="custom-control-label" for="radio2" style="color: black ">
+                                                <label class="custom-control-label" for="radio2" >
                                                     Recoger en sitio
                                                 </label>
                                             </div>
@@ -246,44 +246,45 @@
                     </form>
                 </div>
                 <div class="col-lg-4 col-md-12">
-                    <div class="cart_details">
-                        <div class="cart body">
+                    <div class="cart_details mb-4">
+                        <div class="card-body">
                             <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
                                 <li class="list-group-item d-flex">
-                                    <h5 class="mb-0">Resumen del Pedido</h5>
+                                    <h5 class="mb-0 order_sum">Resumen del Pedido</h5>
                                 </li>
                                 <li class="list-group-item d-flex">
-                                    <span>Subtotal</span>
-                                    <span class="ml-auto font-size-sm"> ¢
+                                    <span class="order_sum_light">Subtotal</span>
+                                    <span class="ml-auto order_sum_light"> ¢
                                     <?php
                                         echo number_format($_SESSION["precioTotal"]);
                                     ?>
                                     </span>
                                 </li>
                                 <li class="list-group-item d-flex">
-                                    <span>Impuestos</span>
-                                    <span class="ml-auto font-size-sm">¢
+                                    <span class="order_sum_light">Impuestos</span>
+                                    <span class="ml-auto order_sum_light">¢
                                     <?php
                                         echo number_format($_SESSION["impuesto"]);
                                     ?>
                                     </span>
                                 </li>
                                 <li class="list-group-item d-flex">
-                                    <span>Descuento</span>
-                                    <span class="ml-auto font-size-sm">¢
+                                    <span class="order_sum_light">Descuento</span>
+                                    <span class="ml-auto order_sum_light">¢
                                     <?php
                                         echo number_format($_SESSION["montoDescuento"]);
                                     ?>
                                     </span>
                                 </li>
                                 <li class="list-group-item d-flex">
-                                    <span>Envío</span>
-                                    <span class="ml-auto font-size-sm" id="envioResumen">¢ 0</span>
+                                    <span class="order_sum_light">Envío</span>
+                                    <span class="ml-auto order_sum_light" id="envioResumen">¢ 0</span>
                                 </li>
+                                <br>
                                 <form action="" method="post">
-                                <li class="list-group-item d-flex font-size-lg font-weight-bold">   
-                                    <span>Total</span>
-                                    <span class="ml-auto font-size-sm" id="totalResumen">¢
+                                <li class="list-group-item d-flex font-size-lg ">   
+                                    <span class="order_sum_light font-weight-bold">Total</span>
+                                    <span class="ml-auto order_sum_light font-weight-bold" id="totalResumen">¢
                                     <?php
                                         if ($_SESSION["descuentoAplicado"] = 1)
                                         {

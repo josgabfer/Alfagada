@@ -286,14 +286,7 @@
                                     <span class="order_sum_light font-weight-bold">Total</span>
                                     <span class="ml-auto order_sum_light font-weight-bold" id="totalResumen">¢
                                     <?php
-                                        if ($_SESSION["descuentoAplicado"] = 1)
-                                        {
-                                            echo number_format($_SESSION["precioFinal"]);
-                                        }
-                                        else 
-                                        {
-                                            echo number_format($_SESSION["precioTotal"]);
-                                        }
+                                         echo number_format($_SESSION["precioFinal"]);
                                     ?>
                                     </span>
                                 </li>

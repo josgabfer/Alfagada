@@ -78,7 +78,7 @@
     <div>
         <?php include 'Resources/Sections/menuBar.php';?> 
     </div>
-prod    <div class="min-banner img-fluid">
+    <div class="min-banner img-fluid">
       <img src="Resources/imgs/abarrotes.jpg"  alt="...">
     </div>
     <div class="checkout_header">
@@ -150,20 +150,7 @@ prod    <div class="min-banner img-fluid">
 
           </form>
           </div>
- 
-   <!--<div class="card">
-    <form method="post" action="producto.php?action=add&id=<?php echo $row["id"]; ?>">
-      <img src="<?php echo $sourceImagen;?>" alt="<?php echo $nombreProducto ?>" title="<?php echo $nombreProducto ?>" style="width:100%">
-      <h1><?php echo $nombreProducto ?></h1>
-      <p class="price"><?php echo $precioProducto ?></p>
-      <p><?php echo $descProducto ?></p>
-      <input type="text" name="cantidad" value="1" class="form-control" />
-      <input type="hidden" name="hidden_nombre<?php echo $row["id"]?>" value="<?php echo $row["nombre"];?>"/>
-      <input type="hidden" name="hidden_precio<?php echo $row["id"]?>" value="<?php echo $row["precio_unitario"];?>" />
-      <input type="hidden" name="hidden_imagen<?php echo $row["id"]?>" value="<?php echo $row["imagen"];?>" />
-      <input type="submit" name="anadirCarrito" class="btn card-button" value="Añadir al Carrito" />
-    </form>  
-   </div>!-->
+
    <?php
           }
         }
@@ -196,7 +183,7 @@ prod    <div class="min-banner img-fluid">
                                   <span class="offer_discount">20% Descuento</span>
                                   <br/>
                                   <div class="product_thumb">
-                                      <img src="<?php echo $sourceImagen;?>" alt="">
+                                      <img src="<?php echo $sourceImagen;?>" alt="<?php echo $nombreProducto ?>" title="<?php echo $nombreProducto ?>">
                                   </div>
                                   <div class="product_caption">
                                       <div class="product_title">
@@ -227,20 +214,6 @@ prod    <div class="min-banner img-fluid">
 
           </form>
           </div>
- 
-   <!--<div class="card">
-    <form method="post" action="producto.php?action=add&id=<?php echo $row["id"]; ?>">
-      <img src="<?php echo $sourceImagen;?>" alt="<?php echo $nombreProducto ?>" title="<?php echo $nombreProducto ?>" style="width:100%">
-      <h1><?php echo $nombreProducto ?></h1>
-      <p class="price"><?php echo $precioProducto ?></p>
-      <p><?php echo $descProducto ?></p>
-      <input type="text" name="cantidad" value="1" class="form-control" />
-      <input type="hidden" name="hidden_nombre<?php echo $row["id"]?>" value="<?php echo $row["nombre"];?>"/>
-      <input type="hidden" name="hidden_precio<?php echo $row["id"]?>" value="<?php echo $row["precio_unitario"];?>" />
-      <input type="hidden" name="hidden_imagen<?php echo $row["id"]?>" value="<?php echo $row["imagen"];?>" />
-      <input type="submit" name="anadirCarrito" class="btn card-button" value="Añadir al Carrito" />
-    </form>  
-   </div>!-->
    <?php
           }
         }

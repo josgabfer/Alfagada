@@ -201,11 +201,11 @@
                                     <?php
                                         if ($_SESSION["descuentoAplicado"] != 1)
                                         {
-                                        echo '<input class="form_coupon form-control" id = "codigo" name= "codigo" type="text" placeholder="Ingresar código*">';
+                                        echo '<input class="form_coupon form-control" id="codigo" name="codigo" type="text" placeholder="Ingresar código*">';
                                         }
                                         else
                                         {
-                                            echo "<button class='btn btn-md btn-dark' name = 'removerCodigo' type='submit'>Remover</button>";
+                                            echo "<button class='btn btn-md btn-dark' name='removerCodigo' type='submit'>Remover</button>";
                                         }
                                     ?>
                                         <input name= "hidden_codigo" id = "hidden_codigo" type="hidden" value="">
@@ -299,16 +299,9 @@
                                     <?php
                                         if (isset($_SESSION["precioTotal"]))
                                         {
-                                            if ($_SESSION["descuentoAplicado"] = 1)
-                                            {
-                                                $_SESSION["precioFinal"] = $_SESSION["precioTotal"] +  $_SESSION["impuesto"] - $_SESSION["montoDescuento"];
-                                                $_SESSION["descuentoAplicado"] = -1;   
-                                                echo number_format($_SESSION["precioFinal"]);
-                                            }
-                                            else 
-                                            {
-                                                echo number_format($_SESSION["precioTotal"]);
-                                            }
+
+                                            $_SESSION["precioFinal"] = $_SESSION["precioTotal"] +  $_SESSION["impuesto"] - $_SESSION["montoDescuento"];
+                                            echo number_format($_SESSION["precioFinal"]);
                                             
 
                                         } 
@@ -319,13 +312,20 @@
                                     ?>
                                     </span>
                                 </li>
-                                <li class="list-group-item font-size-sm text-center text-gray-500 order_sum_light">Costo de envío se calculará al proceder con la compra*</li>
                             </ul>
                         </div>
                     </div>
                     <?php
                         if(!empty($_SESSION["carrito"])){
-                            echo "<a class='btn btn-block-dark mb-2' href='checkout.php'>Proceder con la Compra</a>";
+                            if (!isset($_SESSION["correoSesion"]))
+                            {
+                                echo "<a class='btn btn-block-dark mb-2' href='login.php'>Iniciar Sesión</a>";
+                            }
+                            else
+                            {
+                                echo "<a class='btn btn-block-dark mb-2' href='checkout.php'>Proceder con la Compra</a>";
+                            }
+                           
                         }
                         else
                         {

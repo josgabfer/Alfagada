@@ -170,7 +170,7 @@ label{
 .form_coupon{
     height: 54px;
     border-radius: 4px;
-    font-size: 17px;
+    font-size: 15px;
     box-shadow: none;
     padding: .5rem .75rem;
     border: 1px solid #e6eaf3;
@@ -205,12 +205,12 @@ label{
     border-radius: 4px;
 }
 
-.cart_details .cart_body{
+.cart_details .card-body{
     border: none;
     border-bottom: 0;
 }
 
-.cart_body{
+.card-body{
     flex: 1 1 auto;
     padding: 1.25rem;
 }
@@ -230,6 +230,11 @@ ul{
 .list-group-flush-y .list-group-item:first-child {
     padding-top: 0;
     border-top: none;
+}
+
+.list-group-flush-y .list-group-item:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
 }
 
 .list-group-flush-x .list-group-item {
@@ -258,10 +263,7 @@ ul{
     display: flex!important;
 }
 
-.mb-0{
-    margin-bottom: 0!important;
-    margin-top: 20px;
-}
+
 
 .ml-auto {
     margin-left: auto!important;
@@ -282,8 +284,8 @@ ul{
     border: 2px solid transparent;
     cursor: pointer;
     border-radius: 4px;
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .btn-block-dark:hover{
@@ -302,5 +304,16 @@ a{
 
 .mr-2 {
     margin-right: .5rem!important;
+}
+
+.order_sum{
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+}
+
+.order_sum_light{
+    font-size: 15px;
+    font-weight: 400;
 }
     

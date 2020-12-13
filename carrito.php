@@ -98,12 +98,27 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="text-center">
                         <h2 class="cart_title">Carrito de Compras</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="index.php">
+                                        <i class="fas fa-home"></i>
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="#">Tienda</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Carrito de Compras
+                                </li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <section class="large-font">
+    <section>
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-12 col-sm-12 col-12">
@@ -152,9 +167,9 @@
                                             
                                         </div>
                                     </td>
-                                    <td>
+                                    <td style="padding: 0px 0px">
                                         <div class="tbl_total_action">
-                                        <input type="submit" class="tbl_remove" value = "X" formaction="carrito.php?action=delete&id=<?php echo $values['idProducto'];?>"/>
+                                            <input type="submit" class="tbl_remove" value = "X" formaction="carrito.php?action=delete&id=<?php echo $values['idProducto'];?>"/>
                                         </div>
                                     </td>
                                 </tr>
@@ -220,15 +235,15 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 col-12">
-                    <div class="cart_details">
-                        <div class="cart body">
+                    <div class="cart_details mb-4">
+                        <div class="card-body">
                             <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
                                 <li class="list-group-item d-flex">
-                                    <h5 class="mb-0">Resumen del Pedido</h5>
+                                    <h5 class="mb-0 order_sum">Resumen del Pedido</h5>
                                 </li>
                                 <li class="list-group-item d-flex">
-                                    <span>Subtotal</span>
-                                    <span class="ml-auto font-size-sm"> ¢
+                                    <span class="order_sum_light">Subtotal</span>
+                                    <span class="ml-auto order_sum_light"> ¢
                                     <?php
                                         if (isset($_SESSION["precioTotal"]))
                                         {
@@ -242,8 +257,8 @@
                                     </span>
                                 </li>
                                 <li class="list-group-item d-flex">
-                                    <span>Impuestos</span>
-                                    <span class="ml-auto font-size-sm">¢
+                                    <span class="order_sum_light">Impuestos</span>
+                                    <span class="ml-auto order_sum_light">¢
                                     <?php
                                         if (isset($_SESSION["precioTotal"]))
                                         {
@@ -259,8 +274,8 @@
                                     </span>
                                 </li>
                                 <li class="list-group-item d-flex">
-                                    <span>Descuento</span>
-                                    <span class="ml-auto font-size-sm">¢
+                                    <span class="order_sum_light">Descuento</span>
+                                    <span class="ml-auto order_sum_light">¢
                                     <?php
                                         if (isset($_SESSION["precioTotal"]))
                                         {
@@ -278,9 +293,9 @@
                                     ?>
                                     </span>
                                 </li>
-                                <li class="list-group-item d-flex font-size-lg font-weight-bold">   
-                                    <span>Total</span>
-                                    <span class="ml-auto font-size-sm">¢
+                                <li class="list-group-item d-flex font-size-lg ">   
+                                    <span class="order_sum_light font-weight-bold">Total</span>
+                                    <span class="ml-auto order_sum_light font-weight-bold">¢
                                     <?php
                                         if (isset($_SESSION["precioTotal"]))
                                         {
@@ -304,7 +319,7 @@
                                     ?>
                                     </span>
                                 </li>
-                                <li class="list-group-item font-size-sm text-center text-gray-500">Costo de envío se calculará al proceder con la compra*</li>
+                                <li class="list-group-item font-size-sm text-center text-gray-500 order_sum_light">Costo de envío se calculará al proceder con la compra*</li>
                             </ul>
                         </div>
                     </div>

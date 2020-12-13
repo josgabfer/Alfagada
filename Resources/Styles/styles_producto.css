@@ -11,18 +11,7 @@
     font-size: 150%;
   }
   
-  .card .card-button {
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    background-color: #76BF41;
-    font-size: 120%;
-	  font-family: 'Dosis', sans-serif;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-  }
+  
   .card button:hover {
     opacity: 0.7;
   }  

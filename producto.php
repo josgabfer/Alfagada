@@ -72,12 +72,29 @@
     <?php include 'Resources/Sections/head.php';?> 
 </head>
 <body>
-  <div id = "topBar">
-      <?php include 'Resources/Sections/topBar.php';?> 
-  </div>
-  <div>
-      <?php include 'Resources/Sections/menuBar.php';?> 
-  </div>
+<form action="" method="post">
+    <div>
+        <?php include 'Resources/Sections/topBar.php';?> 
+    </div>
+    <div>
+        <?php include 'Resources/Sections/menuBar.php';?> 
+    </div>
+    <div class="min-banner">
+      <img src="Resources/imgs/abarrotes.jpg"  alt="...">
+    </div>
+    <div class="checkout_header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="text-center">
+                        <h2 class="checkout_title">Abarrotes</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
   <?php
 				$query = "SELECT * FROM tbl_product ORDER BY id ASC";
 				if(mysqli_num_rows($listaProductos) > 0)
@@ -89,8 +106,54 @@
             $nombreProducto = $row["nombre"];
             $precioProducto = "¢" . $row["precio_unitario"];
             $descProducto = $row["descripcion"];
-	?>
-  <div class="card">
+  ?>
+  <section style="background: #f4f5f7">
+      <div class="container">
+          <form method="post" action="producto.php?action=add&id=<?php echo $row["id"]; ?>">
+              <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                      <div class="row">
+                          <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="product_grid">
+                                  <span class="offer_discount">20% Descuento</span>
+                                  <br/>
+                                  <div class="product_thumb">
+                                      <img src="<?php echo $sourceImagen;?>" alt="">
+                                  </div>
+                                  <div class="product_caption">
+                                      <div class="product_title">
+                                          <h4 class="product_pro_title">
+                                              <a href="#"><?php echo $nombreProducto ?></a>
+                                          </h4>
+                                      </div>
+                                  </div>
+                                  <div class="product_price">
+                                      <h6>
+                                          <?php echo $precioProducto ?>
+                                      </h6>
+                                  </div>
+                                  <br/>
+                                  <div class="row">
+                                      <div class="col-lg-4" style="padding: 7.5px">
+                                          <input type="text" name="cantidad" value="1" class="product-qty-form form-control">
+                                          <input type="hidden" name="hidden_nombre<?php echo $row["id"]?>" value="<?php echo $row["nombre"];?>"/>
+                                          <input type="hidden" name="hidden_precio<?php echo $row["id"]?>" value="<?php echo $row["precio_unitario"];?>" />
+                                          <input type="hidden" name="hidden_imagen<?php echo $row["id"]?>" value="<?php echo $row["imagen"];?>" />
+                                      </div>
+                                      <div class="col-lg-8" style="padding: 7.5px">
+                                          <input type="submit" name="anadirCarrito" class="btn product_add_btn" value="Añadir al Carrito"/>
+                                      </div>
+                                  </div>
+                                  
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </section>
+  <!--<div class="card">
     <form method="post" action="producto.php?action=add&id=<?php echo $row["id"]; ?>">
       <img src="<?php echo $sourceImagen;?>" alt="<?php echo $nombreProducto ?>" title="<?php echo $nombreProducto ?>" style="width:100%">
       <h1><?php echo $nombreProducto ?></h1>
@@ -106,7 +169,10 @@
    <?php
           }
         }
-   ?>
+   ?>!-->
+
+
+
   <footer class="dark-footer skin-dark-footer">
       <?php include('Resources/Sections/footer.php');?>
   </footer>
@@ -121,6 +187,8 @@
       $("#topBar").load("Resources/Sections/topBar.php");
     }
   </script>
+
+</form>
 </body>
 
 </html>

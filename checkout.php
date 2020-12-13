@@ -63,6 +63,21 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="text-center">
                         <h2 class="checkout_title">Página de Información de Entrega</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="index.php">
+                                        <i class="fas fa-home"></i>
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="#">Tienda</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Información de Entrega
+                                </li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>

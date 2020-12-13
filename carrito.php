@@ -149,7 +149,12 @@
                                             <h4 class="tbl_total total_precio" id="totalProducto<?php echo $values["idProducto"];?>">¢<?php echo $_SESSION["totalProducto" . $values['idProducto']];?></h4>
                                             <input type="hidden" id="hidden_totalProducto<?php echo $values["idProducto"];?>" name="hidden_totalProducto<?php echo $values["idProducto"];?>" value ="">
                                             <input type="hidden" class="tbl_remove" name = "removerProducto" value = "<?php echo $values["idProducto"];?>"/>
-                                            <input type="submit" class="tbl_remove" value = "X" formaction="carrito.php?action=delete&id=<?php echo $values['idProducto'];?>"/>
+                                            
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="tbl_total_action">
+                                        <input type="submit" class="tbl_remove" value = "X" formaction="carrito.php?action=delete&id=<?php echo $values['idProducto'];?>"/>
                                         </div>
                                     </td>
                                 </tr>

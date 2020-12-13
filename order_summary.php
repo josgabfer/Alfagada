@@ -1,7 +1,46 @@
+<?php
+    include 'Resources/Scripts/conexionBD.php';
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    $abrirCon = OpenCon();
+    $correo = $_SESSION["correoSesion"];
+    $consultarDireccion = "call ConsultarDireccion('$correo')";
+    $direccionRegistrada = $abrirCon -> query($consultarDireccion);
+    CloseCon($abrirCon);
+
+    if (isset($_POST["anadirDireccion"]))
+    {
+        $abrirCon = OpenCon();
+        $fecha = date("d/m/Y");
+        $estado = "Pendiente";
+        $totalEntrega = $SESSION["precioFinal"];
+        $tipoEntrega = $_SESSION["tipoEntrega"];
+        $tipoPago = $_SESSION["tipoPago"];
+        $insertarCompra = "call InsertarCompra('$fecha', '$estado', '$totalEntrega', '$tipoEntrega', '$tipoPago')";
+        $abrirCon -> next_result();
+        if($abrirCon -> query($insertarCompra))
+        {
+            header('Location: order_summary.php#delivery');
+        }
+        else
+        {
+            echo $abrirCon -> error;
+        }
+        CloseCon($abrirCon);
+    }
+    if (isset($_POST["continuarPago"]))
+    {
+        $_SESSION["precioFinal"]= $_POST["nuevoTotal"];
+        header('Location: payment.php');
+
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Head</title>
+    <title>Resumen Compra</title>
     <?php include 'Resources/Sections/head.php';?> 
 </head>
 <body>
@@ -19,7 +58,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="text-center">
-                        <h2 class="checkout_title">Resumen de Orden</h2>
+                        <h2 class="checkout_title">Resumen de Compra</h2>
                     </div>
                 </div>
             </div>
@@ -33,8 +72,8 @@
                         <div class="card-body text-center confirmation">
                             <h2 class="pb-2">¡Gracias por su orden!</h2>
                             <p class="font-size-sm mb-2">Su orden va a ser procesada lo antes posible.</p>
-                            <p class="font-size-sm mb-2">Su número de orden sería: <span class="font-weight-medium">857123</span></p>
-                            <p class="font-size-sm mb-2">Recibirá un correo electrónico con la confirmación de su orden.</p>
+                            <p class="font-size-sm mb-2">Su número de orden es: <span class="font-weight-medium">857123</span></p>
+                            <p class="font-size-sm mb-2">Recibirá un correo electrónico con la confirmación de la orden.</p>
                             <a class="btn checkout-btn-secondary mt-3 mr-3" href="index.php">Seguir Comprando</a>
                             <a class="btn checkout-btn mt-3">Rastrear Orden</a>
                         </div>

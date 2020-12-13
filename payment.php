@@ -1,3 +1,11 @@
+<?php
+    if (isset($_POST["finalizarCompra"]))
+    {   
+        $_SESSION["tipoPago"] = $_POST["tipoPago"];
+        header('Location: order_summary.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,12 +37,11 @@
         <div class="container" id="accordion">
             <div class="row">
                 <div class="col-lg-8 col-md-12">
-                    <form>
                         <h4 class="mb-3">Método de Pago</h4>
                         <div class="list-group list-group-sm mb-5">
                             <div class="list-group-item" >
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" name="pago" value="1" data-toggle="collapse" href="#cc" class="custom-control-input" id="cc" aria-expanded="true" aria-controls="cc">
+                                    <input type="radio" name="pago" value="1" data-toggle="collapse" href="#cc" onclick=metodoPago(1); class="custom-control-input" id="cc" aria-expanded="true" aria-controls="cc">
                                         <label class="custom-control-label" for="cc">
                                             Tarjeta de Crédito
                                             <img class="ml-2" src="Resources/imgs/cc.png" alt="...">
@@ -100,7 +107,7 @@
                             </div>
                             <div class="list-group-item">
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" name="pago" value="2" data-toggle="collapse" href="#efectivo" class="custom-control-input" id="efectivo" aria-expanded="true" aria-controls="efectivo">
+                                    <input type="radio" name="pago" value="2" data-toggle="collapse" onclick=metodoPago(2); href="#efectivo" class="custom-control-input" id="efectivo" aria-expanded="true" aria-controls="efectivo">
                                         <label class="custom-control-label" for="efectivo">
                                             Efectivo &nbsp
                                             <i class="fas fa-money-bill"></i>
@@ -110,7 +117,6 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="cart_details">
@@ -151,19 +157,11 @@
                                     ?>
                                     </span>
                                 </li>
-                                <li class="list-group-item font-size-sm text-center text-gray-500">Costo de envío se calculará al concluir el pago*</li>
                             </ul>
                         </div>
                     </div>
-                    <?php
-                        if(!empty($_SESSION["carrito"])){
-                            echo "<a class='btn btn-block-dark mb-2' href='order_summary.php'>Finalizar Compra</a>";
-                        }
-                        else
-                        {
-                            echo " </br>";
-                        }
-                    ?>
+                    <button class='btn btn-block-dark mb-2' type='submit' name='finalizarCompra' >Finalizar Compra</button>
+                    <input type="hidden" value="" id="tipoPago" name="tipoPago"/>
                 </div>
             </div>
         </div>
@@ -182,20 +180,18 @@
         {
         $("#topBar").load("Resources/Sections/topBar.php");
         }
-
-        $document.ready(function() {
-            $("input[name='pago']").click(function(){
-                var checkedValue = $("input[name='pago']:checked").val();
-                console.log(checkedValue);
-                if(checkedValue == "1"){
-                    $("#cc").collapse('show');
-                }else if(checkedValue == "2"){
-                    $("#cc").collapse('hide');
-                }else{
-                    console.log("Oops.");
-                }
-            });
-        });
+        function metodoPago(x)
+        {
+            if (x == 1)
+            {
+                document.getElementById("tipoPago").value = "Tarjeta de Crédito";
+            }
+            else 
+            {
+                document.getElementById("tipoPago").value = "Efectivo";
+            }
+        }
+        
     </script>
 </form>
 </body>

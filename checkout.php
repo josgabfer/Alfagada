@@ -34,10 +34,10 @@
         CloseCon($abrirCon);
     }
     if (isset($_POST["continuarPago"]))
-    {
+    {   
+        $_SESSION["tipoEntrega"] = $_POST["formaEntrega"];
         $_SESSION["precioFinal"]= $_POST["nuevoTotal"];
         header('Location: payment.php');
-
     }
 ?>
 
@@ -293,6 +293,7 @@
                         </div>
                     </div>
                     <input type=hidden id ="nuevoTotal" name="nuevoTotal" value="" />
+                    <input type=hidden id ="formaEntrega" name="formaEntrega" value="" />
                     <button class='btn btn-block-dark mb-2' type='submit' name='continuarPago' >Continuar con el Pago</button>
                 </div>
                 </form>
@@ -327,7 +328,7 @@
             document.getElementById("envioResumen").innerHTML = "¢ " + valorEnvio;
             <?php
                 
-                echo 'document.getElementById("totalResumen").innerHTML = "'.number_format($_SESSION["precioFinal"]). '";';
+                echo 'document.getElementById("totalResumen").innerHTML = "'.number_format($_SESSION["precioFinal"]).'";';
                         
             ?>
             var totalEnvio = (parseFloat(document.getElementById("totalResumen").innerHTML.replace(",","")) + x);
@@ -335,26 +336,17 @@
             totalEnvio = totalEnvio.toLocaleString(undefined, { minimumFractionDigits: 0 });
             document.getElementById("totalResumen").innerHTML = "¢" + totalEnvio;
             document.getElementById("nuevoTotal").value = totalEnvio.replace(",","");
+
+            if (x==3000)
+            {
+                document.getElementById("formaEntrega").value = "A domicilio";
+            }
+            else
+            {
+                document.getElementById("formaEntrega").value = "Recoger en sitio";
+            }
         }
      
-        /* $("input[name='delivery']").click(function(){
-           console.log("HAA");
-           var checkedValue = $("input[name='delivery']:checked").val();
-            console.log(checkedValue);
-            if(checkedValue == "1"){
-                $("#delivery").collapse('show');
-                $("#onsite").collapse('hide');
-                $("#cargoEnvio").val() = "3000";
-            }else if(checkedValue == "2"){
-                $("#delivery").collapse('hide');
-                $("#onsite").collapse('show');
-                $("#address").collapse('hide');
-                $("#cargoEnvio").val() = "1500";
-            }else{
-                console.log("Oops.");
-           
-        }); }*/ 
-    
 
     </script>
 </form>

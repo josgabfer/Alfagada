@@ -97,7 +97,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12">
-        <div class="row">
+        <div class="row" id="rowScroll">
          
       <?php
             $query = "SELECT * FROM tbl_product ORDER BY id ASC";
@@ -164,7 +164,6 @@
         <div class="row">
          
       <?php
-            $query = "SELECT * FROM tbl_product ORDER BY id ASC";
             if(mysqli_num_rows($listaProductos) > 0)
             {
               while($row = mysqli_fetch_array($listaProductos))
@@ -239,6 +238,11 @@
     {
       $("#topBar").load("Resources/Sections/topBar.php");
     }
+    
+    if (window.location.toString().indexOf("action") > -1) {
+      $('html, body').animate({scrollTop: $("#rowScroll").offset().top}, 2000);
+    }
+    
   </script>
 
 

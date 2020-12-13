@@ -85,7 +85,7 @@ th {
 }
 
 .tbl_price{
-    font-size: 17px;
+    font-size: 90%;
     font-weight: 400;
     margin: 0;
 }
@@ -107,7 +107,7 @@ table{
     background: #f4f5f7;
     font-weight: 600;
     border-radius: 4px;
-    font-size: 15px;
+    font-size: 80%;
     box-shadow: none;
     padding: .5rem .75rem;
     border: 1px solid #e6eaf3;
@@ -121,7 +121,7 @@ table{
 
 .tbl_total_action .tbl_total{
     margin: 0;
-    font-size: 17px;
+    font-size: 90%;
     font-weight: 450;
     margin-right: 15px;
 }
@@ -140,6 +140,14 @@ table{
 .font-weight-bold{
     font-weight: 700;
 }
+.btn{
+    border: 2px solid transparent;
+    padding: 15px 25px;
+    cursor: pointer;
+    border-radius: 4px;
+
+}
+
 
 label{
     display: inline-block;
@@ -212,11 +220,6 @@ label{
     flex-direction: column;
     padding-left: 0;
 }
-
-ul:last-child {
-    margin: 0;
-}
-
 ul{
     padding: 0;
 }

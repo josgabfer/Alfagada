@@ -6,7 +6,7 @@
 }
 
 .checkout_title{
-    font-size: 35px;
+    font-size: 200%;
     font-family:  'Dosis', sans-serif;
     font-weight: 600;
     color: #76BF41;
@@ -42,6 +42,9 @@ h4{
     color: #fff;
 }
 
+.large-font{
+    font-size: 130%;
+}
 .checkout-form-control{
     height: 54px;
     border-radius: 4px;
@@ -55,7 +58,67 @@ h4{
     background-color: #fff;
     background-image: none;
     display: block;
+    width: 100%;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.address-box{
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.address-box.new-address{
+    border-style: dashed;
+    height: 266px;
+    width: 320px;
+    border-width: 2px;
+    box-sizing: border-box;
+    border-color: #C7C7C7;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.address-box h2{
+    color: #495057;
+    margin-top: 5px;
+    font-family:  'Dosis', sans-serif;
+}
+
+.a-row{
+    width: 100%;
+}
+
+.a-spacing{
+    margin-bottom: 4px!important;
+}
+
+.a-column{
+    float: left;
+    min-height: 1px;
+    margin-right: 13px;
+    width: auto;
+}
+
+.address-box.existing-address{
+    height: 266px;
+    width: 320px;
+    border-width: 3px;
+    box-sizing: border-box;
+    border-color: #5dbf13;
+    text-align: center;
+    border-style: solid;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.custom-control-label::before {
+    margin-top: 4px;
+}
+
+.custom-control-label::after {
+    margin-top: 4px;
 }
 
 

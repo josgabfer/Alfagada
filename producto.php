@@ -28,7 +28,8 @@
             'idProducto'			=>	$_GET["id"],
             'nombreProducto'			=>	$_POST["hidden_nombre" . $_GET["id"]],
             'precioProducto'		=>	$_POST["hidden_precio" . $_GET["id"]],
-            'cantidadProducto'		=>	$_POST["cantidad"]
+            'cantidadProducto'		=>	$_POST["cantidad"],
+            'imagenProducto'    =>  $_POST["hidden_imagen" . $_GET["id"]]
           );
           $_SESSION["carrito"][$contador] = $arregloProductos;
         }
@@ -43,7 +44,8 @@
           'idProducto'			=>	$_GET["id"],
           'nombreProducto'			=>	$_POST["hidden_nombre" . $_GET["id"]],
           'precioProducto'		=>	$_POST["hidden_precio" . $_GET["id"]],
-          'cantidadProducto'		=>	$_POST["cantidad"]
+          'cantidadProducto'		=>	$_POST["cantidad"],
+          'imagenProducto'    =>  $_POST["hidden_imagen" . $_GET["id"]]
         );
         $_SESSION["carrito"][0] = $arregloProductos;
         
@@ -97,6 +99,7 @@
       <input type="text" name="cantidad" value="1" class="form-control" />
       <input type="hidden" name="hidden_nombre<?php echo $row["id"]?>" value="<?php echo $row["nombre"];?>"/>
       <input type="hidden" name="hidden_precio<?php echo $row["id"]?>" value="<?php echo $row["precio_unitario"];?>" />
+      <input type="hidden" name="hidden_imagen<?php echo $row["id"]?>" value="<?php echo $row["imagen"];?>" />
       <input type="submit" name="anadirCarrito" class="btn card-button" value="Añadir al Carrito" />
     </form>  
    </div>

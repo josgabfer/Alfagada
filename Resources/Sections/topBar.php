@@ -23,11 +23,11 @@
                     }
                     if (empty($_SESSION["NombreUsuario"]))
                     {
-                        echo "<li><a href='login.php'>Ingresar</a></li><li><a href='login.php'>&nbsp|&nbsp</a></li><li><a href='login.php'>Crear Cuenta</a></li>";
+                        echo "<li><a href='login.php'>Ingresar</a></li><li><a href='login.php'></a></li>";
                     }
                     else
                     {
-                        echo "<li><a href=''>" . $_SESSION["NombreUsuario"] ."&nbsp" . $_SESSION["ApellidoUsuario"] . "</a></li><li><a href=''>&nbsp|&nbsp</a></li><li><a href='logout.php'>Cerrar Sesión</a></li>";
+                        echo "<li><a href='logout.php'>" . $_SESSION["NombreUsuario"] ."&nbsp" . $_SESSION["ApellidoUsuario"] . "</a>";
                     }
                 ?>
             </ul>

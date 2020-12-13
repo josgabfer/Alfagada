@@ -35,16 +35,62 @@ h4{
     margin-bottom: 0!important;
 }
 
+.custom-control-input{
+    z-index: -1;
+    width: 1.125rem;
+    height: 1.3125rem;
+    opacity: 0;
+}
 
-/**.custom-control-input:checked~.custom-control-label::before {
-    background: #5dbf13;
-    border-color: #5dbf13;
+[type="radio"]:checked + label, [type="radio"]:not(:checked) + label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+}
+
+[type="radio"]:checked + label:before, [type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.custom-control-input:checked~.custom-control-label::before {
     color: #fff;
-}*/
+    border-color: #5dbf13;
+    background-color: #5dbf13;
+}
+
+.custom-control-label::after{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: no-repeat 50%/50% 50%;
+}
+
+
 
 .large-font{
-    font-size: 17px;
+    font-size: 15px;
 }
+
 .checkout-form-control{
     height: 54px;
     border-radius: 4px;
@@ -118,6 +164,7 @@ h4{
 .address-box.existing-address{
     height: 266px;
     width: 320px;
+    padding: 10px;
     border-width: 3px;
     box-sizing: border-box;
     border-color: #5dbf13;
@@ -125,6 +172,14 @@ h4{
     border-style: solid;
     display: table-cell;
     vertical-align: middle;
+}
+
+.address-box.existing-address h5{
+    color: #2E3D59;
+    font-size: 17px;
+    line-height: 17px;
+    font-weight: 500;
+    font-family: 'Muli', sans-serif;
 }
 
 

@@ -21,7 +21,7 @@
         $provincia = $_POST["checkoutProvincia"];
         $codPostal = $_POST["checkoutCodigoPostal"];
         $telefono = $_POST["checkoutNumero"];
-        $insertarDireccion = "call InsertarDireccion('$correo', '$direccion', '$direccionAdicional', '$pais', '$distrito', '$canton', '$provincia', $codPostal, $telefono)";
+        $insertarDireccion = "call InsertarDireccion('$correo', '$direccion', '$direccionAdicional', '$pais', '$provincia', '$canton', '$distrito', $codPostal, $telefono)";
         $abrirCon -> next_result();
         if($abrirCon -> query($insertarDireccion))
         {
@@ -133,9 +133,10 @@
                                     if(mysqli_num_rows($direccionRegistrada) > 0)
                                     {
                                         $fila = mysqli_fetch_array($direccionRegistrada);
-                                        $pais = $fila["pais"];
+                                        
                                         $direccion = $fila["direccion"];
                                         $direccionAdicional = $fila["direccion_2"];
+                                        $pais = $fila["pais"];
                                         $distrito = $fila["distrito"];
                                         $canton = $fila["canton"];
                                         $provincia = $fila["provincia"];
@@ -144,13 +145,11 @@
 
                                         echo '<div class="a-column">
                                         <div class="address-box existing-address">
-                                            <h4>'.$direccion.','.'</h4>
-                                            <h4>'.$direccionAdicional.'</h4>
-                                            <h4>'.$distrito.'</h4>
-                                            <h4>'.$canton.'</h4>
-                                            <h4>'.$provincia.'</h4>
-                                            <h4>'.$codPostal.'</h4>
-                                            <h4>'.$telefono.'</h4>
+                                            <h5>'.$direccion.'</h5>
+                                            <h5>'.$direccionAdicional.'</h5>
+                                            <h5>'.$distrito.',&nbsp'.$canton.'</h5>
+                                            <h5>'.$provincia.',&nbsp'.$codPostal.',&nbsp'.$pais.'</h5>
+                                            <h5>'.$telefono.'</h5>
                                         </div>
                                     </div>';
                                     };
@@ -217,13 +216,13 @@
                         <div id="onsite" class="collapse" data-parent="#accordion">
                             <h4 class="mb-3">Sucursales</h4>
                             <div class="table-responsive mb-3">
-                                <table class="table table-bordered table-sm table-hover mb-0">
+                                <table class="table table-bordered table-sm table-hover mb-0 entrega_seleccion">
                                     <tbody>
                                         <tr>
                                             <td>
                                                 <div class="custom-control custom-radio">
                                                 <input type="radio" name="branch"  class="custom-control-input" id="heredia1">
-                                                    <label class="custom-control-label" for="heredia1" style="color: black ">
+                                                    <label class="custom-control-label" for="heredia1">
                                                         Belén, Heredia
                                                     </label>
                                                 </div>
@@ -233,7 +232,7 @@
                                             <td>
                                                 <div class="custom-control custom-radio">
                                                 <input type="radio" name="branch" class="custom-control-input" id="rohrmoser2">
-                                                    <label class="custom-control-label" for="rohrmoser2" style="color: black ">
+                                                    <label class="custom-control-label" for="rohrmoser2">
                                                         Rohrmoser, San José
                                                     </label>
                                                 </div>

@@ -4,7 +4,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="Resources/Styles/styles.css">
     <link rel="stylesheet" href="Resources/Styles/nosotros.css">
-    <link rel="stylesheet" href="Resources/Styles/styles_producto.css">
     <link rel="stylesheet" href="Resources/Styles/bootstrap.css">
     <link rel="stylesheet" href="Resources/Styles/bootstrap.min.css">
     <link rel="stylesheet" href="Resources/Styles/styles_top_bar.css" media="all" type="text/css">
@@ -19,7 +18,11 @@
     <link rel="stylesheet" href="Resources/Styles/styles_checkout.css" media="all" type="text/css">
     <link rel="stylesheet" href="Resources/Styles/styles_payment.css" media="all" type="text/css">
     <link rel="stylesheet" href="Resources/Styles/styles_summary.css" media="all" type="text/css">
+    <link rel="stylesheet" href="Resources/Styles/styles_producto.css" media="all" type="text/css">
+    <link rel="stylesheet" href="Resources/Styles/styles_categorias.css" media="all" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://use.typekit.net/ttf3tmi.css">
     <link rel="stylesheet" href="Resources/Styles/themify/css/themify-icons.css"> 
 
 </head>

@@ -21,7 +21,7 @@
         $provincia = $_POST["checkoutProvincia"];
         $codPostal = $_POST["checkoutCodigoPostal"];
         $telefono = $_POST["checkoutNumero"];
-        $insertarDireccion = "call InsertarDireccion('$correo', '$direccion', '$direccionAdicional', '$pais', '$distrito', '$canton', '$provincia', $codPostal, $telefono)";
+        $insertarDireccion = "call InsertarDireccion('$correo', '$direccion', '$direccionAdicional', '$pais', '$provincia', '$canton', '$distrito', $codPostal, $telefono)";
         $abrirCon -> next_result();
         if($abrirCon -> query($insertarDireccion))
         {
@@ -34,10 +34,10 @@
         CloseCon($abrirCon);
     }
     if (isset($_POST["continuarPago"]))
-    {
+    {   
+        $_SESSION["tipoEntrega"] = $_POST["formaEntrega"];
         $_SESSION["precioFinal"]= $_POST["nuevoTotal"];
         header('Location: payment.php');
-
     }
 ?>
 
@@ -63,6 +63,21 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="text-center">
                         <h2 class="checkout_title">Página de Información de Entrega</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="index.php">
+                                        <i class="fas fa-home"></i>
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="categorias.php">Tienda</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Información de Entrega
+                                </li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -75,13 +90,13 @@
                     <form>
                         <h4 class="mb-3">Método de Entrega</h4>
                         <div class="table-responsive mb-3">
-                            <table class="table table-bordered table-sm table-hover mb-0">
+                            <table class="table table-bordered table-sm table-hover mb-0 entrega_seleccion">
                                 <tbody>
                                     <tr>
                                         <td>
                                             <div class="custom-control custom-radio">
                                             <input type="radio" name="shipping" value="1" data-toggle="collapse" href="#delivery" class="custom-control-input" id="radio1" aria-expanded="true" aria-controls="delivery" onclick=sumarCargoEnvio(3000);>
-                                                <label class="custom-control-label" for="radio1" style="color: black ">
+                                                <label class="custom-control-label" for="radio1">
                                                     A domicilio
                                                 </label>
                                             </div>
@@ -93,7 +108,7 @@
                                         <td>
                                         <div class="custom-control custom-radio">
                                             <input type="radio" name="shipping" value="2" data-toggle="collapse" data-parent="#accordion" href="#onsite" class="custom-control-input" id="radio2" aria-expanded="false" aria-controls="onsite" onclick=sumarCargoEnvio(1500)>
-                                                <label class="custom-control-label" for="radio2" style="color: black ">
+                                                <label class="custom-control-label" for="radio2" >
                                                     Recoger en sitio
                                                 </label>
                                             </div>
@@ -118,9 +133,10 @@
                                     if(mysqli_num_rows($direccionRegistrada) > 0)
                                     {
                                         $fila = mysqli_fetch_array($direccionRegistrada);
-                                        $pais = $fila["pais"];
+                                        
                                         $direccion = $fila["direccion"];
                                         $direccionAdicional = $fila["direccion_2"];
+                                        $pais = $fila["pais"];
                                         $distrito = $fila["distrito"];
                                         $canton = $fila["canton"];
                                         $provincia = $fila["provincia"];
@@ -129,13 +145,11 @@
 
                                         echo '<div class="a-column">
                                         <div class="address-box existing-address">
-                                            <h4>'.$direccion.','.'</h4>
-                                            <h4>'.$direccionAdicional.'</h4>
-                                            <h4>'.$distrito.'</h4>
-                                            <h4>'.$canton.'</h4>
-                                            <h4>'.$provincia.'</h4>
-                                            <h4>'.$codPostal.'</h4>
-                                            <h4>'.$telefono.'</h4>
+                                            <h5>'.$direccion.'</h5>
+                                            <h5>'.$direccionAdicional.'</h5>
+                                            <h5>'.$distrito.',&nbsp'.$canton.'</h5>
+                                            <h5>'.$provincia.',&nbsp'.$codPostal.',&nbsp'.$pais.'</h5>
+                                            <h5>'.$telefono.'</h5>
                                         </div>
                                     </div>';
                                     };
@@ -202,13 +216,13 @@
                         <div id="onsite" class="collapse" data-parent="#accordion">
                             <h4 class="mb-3">Sucursales</h4>
                             <div class="table-responsive mb-3">
-                                <table class="table table-bordered table-sm table-hover mb-0">
+                                <table class="table table-bordered table-sm table-hover mb-0 entrega_seleccion">
                                     <tbody>
                                         <tr>
                                             <td>
                                                 <div class="custom-control custom-radio">
                                                 <input type="radio" name="branch"  class="custom-control-input" id="heredia1">
-                                                    <label class="custom-control-label" for="heredia1" style="color: black ">
+                                                    <label class="custom-control-label" for="heredia1">
                                                         Belén, Heredia
                                                     </label>
                                                 </div>
@@ -218,7 +232,7 @@
                                             <td>
                                                 <div class="custom-control custom-radio">
                                                 <input type="radio" name="branch" class="custom-control-input" id="rohrmoser2">
-                                                    <label class="custom-control-label" for="rohrmoser2" style="color: black ">
+                                                    <label class="custom-control-label" for="rohrmoser2">
                                                         Rohrmoser, San José
                                                     </label>
                                                 </div>
@@ -231,53 +245,47 @@
                     </form>
                 </div>
                 <div class="col-lg-4 col-md-12">
-                    <div class="cart_details">
-                        <div class="cart body">
+                    <div class="cart_details mb-4">
+                        <div class="card-body">
                             <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
                                 <li class="list-group-item d-flex">
-                                    <h5 class="mb-0">Resumen del Pedido</h5>
+                                    <h5 class="mb-0 order_sum">Resumen del Pedido</h5>
                                 </li>
                                 <li class="list-group-item d-flex">
-                                    <span>Subtotal</span>
-                                    <span class="ml-auto font-size-sm"> ¢
+                                    <span class="order_sum_light">Subtotal</span>
+                                    <span class="ml-auto order_sum_light"> ¢
                                     <?php
                                         echo number_format($_SESSION["precioTotal"]);
                                     ?>
                                     </span>
                                 </li>
                                 <li class="list-group-item d-flex">
-                                    <span>Impuestos</span>
-                                    <span class="ml-auto font-size-sm">¢
+                                    <span class="order_sum_light">Impuestos</span>
+                                    <span class="ml-auto order_sum_light">¢
                                     <?php
                                         echo number_format($_SESSION["impuesto"]);
                                     ?>
                                     </span>
                                 </li>
                                 <li class="list-group-item d-flex">
-                                    <span>Descuento</span>
-                                    <span class="ml-auto font-size-sm">¢
+                                    <span class="order_sum_light">Descuento</span>
+                                    <span class="ml-auto order_sum_light">¢
                                     <?php
                                         echo number_format($_SESSION["montoDescuento"]);
                                     ?>
                                     </span>
                                 </li>
                                 <li class="list-group-item d-flex">
-                                    <span>Envío</span>
-                                    <span class="ml-auto font-size-sm" id="envioResumen">¢ 0</span>
+                                    <span class="order_sum_light">Envío</span>
+                                    <span class="ml-auto order_sum_light" id="envioResumen">¢ 0</span>
                                 </li>
+                                <br>
                                 <form action="" method="post">
-                                <li class="list-group-item d-flex font-size-lg font-weight-bold">   
-                                    <span>Total</span>
-                                    <span class="ml-auto font-size-sm" id="totalResumen">¢
+                                <li class="list-group-item d-flex font-size-lg ">   
+                                    <span class="order_sum_light font-weight-bold">Total</span>
+                                    <span class="ml-auto order_sum_light font-weight-bold" id="totalResumen">¢
                                     <?php
-                                        if ($_SESSION["descuentoAplicado"] = 1)
-                                        {
-                                            echo number_format($_SESSION["precioFinal"]);
-                                        }
-                                        else 
-                                        {
-                                            echo number_format($_SESSION["precioTotal"]);
-                                        }
+                                         echo number_format($_SESSION["precioFinal"]);
                                     ?>
                                     </span>
                                 </li>
@@ -285,6 +293,7 @@
                         </div>
                     </div>
                     <input type=hidden id ="nuevoTotal" name="nuevoTotal" value="" />
+                    <input type=hidden id ="formaEntrega" name="formaEntrega" value="" />
                     <button class='btn btn-block-dark mb-2' type='submit' name='continuarPago' >Continuar con el Pago</button>
                 </div>
                 </form>
@@ -319,7 +328,7 @@
             document.getElementById("envioResumen").innerHTML = "¢ " + valorEnvio;
             <?php
                 
-                echo 'document.getElementById("totalResumen").innerHTML = "'.number_format($_SESSION["precioFinal"]). '";';
+                echo 'document.getElementById("totalResumen").innerHTML = "'.number_format($_SESSION["precioFinal"]).'";';
                         
             ?>
             var totalEnvio = (parseFloat(document.getElementById("totalResumen").innerHTML.replace(",","")) + x);
@@ -327,26 +336,17 @@
             totalEnvio = totalEnvio.toLocaleString(undefined, { minimumFractionDigits: 0 });
             document.getElementById("totalResumen").innerHTML = "¢" + totalEnvio;
             document.getElementById("nuevoTotal").value = totalEnvio.replace(",","");
+
+            if (x==3000)
+            {
+                document.getElementById("formaEntrega").value = "A domicilio";
+            }
+            else
+            {
+                document.getElementById("formaEntrega").value = "Recoger en sitio";
+            }
         }
      
-        /* $("input[name='delivery']").click(function(){
-           console.log("HAA");
-           var checkedValue = $("input[name='delivery']:checked").val();
-            console.log(checkedValue);
-            if(checkedValue == "1"){
-                $("#delivery").collapse('show');
-                $("#onsite").collapse('hide');
-                $("#cargoEnvio").val() = "3000";
-            }else if(checkedValue == "2"){
-                $("#delivery").collapse('hide');
-                $("#onsite").collapse('show');
-                $("#address").collapse('hide');
-                $("#cargoEnvio").val() = "1500";
-            }else{
-                console.log("Oops.");
-           
-        }); }*/ 
-    
 
     </script>
 </form>

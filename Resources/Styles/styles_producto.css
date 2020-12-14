@@ -1,17 +1,121 @@
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    margin: auto;
+.product_grid{
+    position: relative;
+    position: relative;
+    width: 100%;
+    display: block;
+    background: #fff;
+    border: 1px solid #e4e7ec;
+    border-radius: .4rem;
+    margin-bottom: 30px;
+    padding: 1rem 1.5rem;
+    transition: all ease .4s;
+}
+
+.offer_discount{
+    padding: 4px 12px;
+    position: absolute;
+    right: 10px;
+    font-size: 13px;
+    background: rgba(28,163,1,0.1);
+    border-radius: 3px;
+    color: #76BF41;
+}
+
+.product_thumb{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product_thumb img{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: table;
+    margin: 1rem auto 0;
+}
+
+.product_caption{
     text-align: center;
-    font-family: arial;
-  }
-  
-  .price {
-    color: grey;
-    font-size: 150%;
-  }
-  
-  
-  .card button:hover {
-    opacity: 0.7;
-  }  
+    width: 100%;
+}
+
+.product_title .product_pro_title{
+    font-size: 17px;
+    font-weight: 600;
+    line-height: .5;
+    margin-bottom: 5px;
+    font-family: 'Muli', sans-serif;
+    text-transform: uppercase;
+}
+
+.product_description h5{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 5px;
+    color: #5b687b;
+    font-family: 'Muli', sans-serif;
+}
+
+
+.product_title .product_pro_title a:hover{
+    color: #76BF41;
+}
+
+.product_price{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product_price h6{
+    margin-top: 2px;
+    margin-bottom: 0px;
+    font-size: 20px;
+    color: #76BF41;
+    font-weight: 550;
+}
+
+.product-qty-form{
+  height: 48px;
+  border-radius: 4px;
+  font-size: 15px;
+  box-shadow: none;
+  padding: .5rem .75rem;
+  border: 1px solid #e6eaf3;
+  background-clip: initial;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-image: none;
+  display: block;
+  width: 100%;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.product_add_btn{
+    padding: 10px 20px;
+    background: #76BF41;
+    border-color: #76BF41;
+    color: #fff;
+    transition: all ease .4s;
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+    height: 48px;
+    margin: auto;
+}
+
+.product_add_btn:hover{
+    padding: 10px 20px;
+    background: #3f6624;
+    border: 1px solid #3f6624;
+    color:#fff;
+    transition: .2s ease-in;
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+    height: 48px;
+}

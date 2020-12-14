@@ -7,7 +7,7 @@
 
 .checkout_title{
     font-size: 200%;
-    font-family:  'Dosis', sans-serif;
+    font-family: 'Muli', sans-serif;
     font-weight: 600;
     color: #76BF41;
     margin-bottom: 0;
@@ -22,9 +22,9 @@ h4{
     color: #2E3D59;
     line-height: 26px;
     font-size: 21px;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: capitalize;
-    font-family:  'Dosis', sans-serif;
+    font-family: 'Muli', sans-serif;
 }
 
 .mb-3{
@@ -35,16 +35,62 @@ h4{
     margin-bottom: 0!important;
 }
 
+.custom-control-input{
+    z-index: -1;
+    width: 1.125rem;
+    height: 1.3125rem;
+    opacity: 0;
+}
+
+[type="radio"]:checked + label, [type="radio"]:not(:checked) + label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+}
+
+[type="radio"]:checked + label:before, [type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
 
 .custom-control-input:checked~.custom-control-label::before {
-    background: #5dbf13;
-    border-color: #5dbf13;
     color: #fff;
+    border-color: #5dbf13;
+    background-color: #5dbf13;
 }
 
-.large-font{
-    font-size: 130%;
+.custom-control-label::after{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: no-repeat 50%/50% 50%;
 }
+
+
+
+.large-font{
+    font-size: 15px;
+}
+
 .checkout-form-control{
     height: 54px;
     border-radius: 4px;
@@ -60,6 +106,20 @@ h4{
     display: block;
     width: 100%;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.entrega_seleccion td label{
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Muli', sans-serif;
+    color: #495057;
+}
+
+.entrega_seleccion td{
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Muli', sans-serif;
+    color: #495057;
 }
 
 .address-box{
@@ -83,7 +143,7 @@ h4{
 .address-box h2{
     color: #495057;
     margin-top: 5px;
-    font-family:  'Dosis', sans-serif;
+    font-family: 'Muli', sans-serif;
 }
 
 .a-row{
@@ -104,6 +164,7 @@ h4{
 .address-box.existing-address{
     height: 266px;
     width: 320px;
+    padding: 10px;
     border-width: 3px;
     box-sizing: border-box;
     border-color: #5dbf13;
@@ -113,13 +174,15 @@ h4{
     vertical-align: middle;
 }
 
-.custom-control-label::before {
-    margin-top: 4px;
+.address-box.existing-address h5{
+    color: #2E3D59;
+    font-size: 17px;
+    line-height: 17px;
+    font-weight: 500;
+    font-family: 'Muli', sans-serif;
 }
 
-.custom-control-label::after {
-    margin-top: 4px;
-}
+
 
 
 

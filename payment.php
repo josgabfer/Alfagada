@@ -1,3 +1,11 @@
+<?php
+    if (isset($_POST["finalizarCompra"]))
+    {   
+        $_SESSION["tipoPago"] = $_POST["tipoPago"];
+        header('Location: order_summary.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +28,21 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="text-center">
                         <h2 class="checkout_title">Página De Pago</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="index.php">
+                                        <i class="fas fa-home"></i>
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="categorias.php">Tienda</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Información de Pago
+                                </li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -29,12 +52,11 @@
         <div class="container" id="accordion">
             <div class="row">
                 <div class="col-lg-8 col-md-12">
-                    <form>
                         <h4 class="mb-3">Método de Pago</h4>
                         <div class="list-group list-group-sm mb-5">
                             <div class="list-group-item" >
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" name="pago" value="1" data-toggle="collapse" href="#cc" class="custom-control-input" id="cc" aria-expanded="true" aria-controls="cc">
+                                    <input type="radio" name="pago" value="1" data-toggle="collapse" href="#cc" onclick=metodoPago(1); class="custom-control-input" id="cc" aria-expanded="true" aria-controls="cc">
                                         <label class="custom-control-label" for="cc">
                                             Tarjeta de Crédito
                                             <img class="ml-2" src="Resources/imgs/cc.png" alt="...">
@@ -100,68 +122,65 @@
                             </div>
                             <div class="list-group-item">
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" name="pago" value="2" data-toggle="collapse" href="#cc" class="custom-control-input" id="efectivo" aria-expanded="true" aria-controls="efectivo">
+                                    <input type="radio" name="pago" value="2" data-toggle="collapse" onclick=metodoPago(2); href="#efectivo" class="custom-control-input" id="efectivo" aria-expanded="true" aria-controls="efectivo">
                                         <label class="custom-control-label" for="efectivo">
                                             Efectivo &nbsp
                                             <i class="fas fa-money-bill"></i>
                                         </label>
                                 </div>
+                                <div id="efectivo" class="collapse" data-parent="#accordion">
+                                </div>
                             </div>
                         </div>
-                    </form>
                 </div>
                 <div class="col-lg-4 col-md-12">
-                    <div class="cart_details">
-                        <div class="cart body">
+                    <div class="cart_details mb-4">
+                        <div class="card-body">
                             <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
                                 <li class="list-group-item d-flex">
-                                    <h5 class="mb-0">Resumen del Pedido</h5>
+                                    <h5 class="mb-0 order_sum">Resumen del Pedido</h5>
                                 </li>
                                 <li class="list-group-item d-flex">
-                                    <span>Subtotal</span>
-                                    <span class="ml-auto font-size-sm"> ¢
+                                    <span class="order_sum_light">Subtotal</span>
+                                    <span class="ml-auto order_sum_light"> ¢
                                     <?php
                                         echo number_format($_SESSION["precioTotal"]);
                                     ?>
                                     </span>
                                 </li>
                                 <li class="list-group-item d-flex">
-                                    <span>Impuestos</span>
-                                    <span class="ml-auto font-size-sm">¢
+                                    <span class="order_sum_light">Impuestos</span>
+                                    <span class="ml-auto order_sum_light">¢
                                     <?php
                                         echo number_format($_SESSION["impuesto"]);
                                     ?>
                                     </span>
                                 </li>
                                 <li class="list-group-item d-flex">
-                                    <span>Descuento</span>
-                                    <span class="ml-auto font-size-sm">¢
+                                    <span class="order_sum_light">Descuento</span>
+                                    <span class="ml-auto order_sum_light">¢
                                     <?php
                                         echo number_format($_SESSION["montoDescuento"]);
                                     ?>
                                     </span>
                                 </li>
-                                <li class="list-group-item d-flex font-size-lg font-weight-bold">   
-                                    <span>Total</span>
-                                    <span class="ml-auto font-size-sm" id="totalResumen">¢
+                                <li class="list-group-item d-flex">
+                                    <span class="order_sum_light">Envío</span>
+                                    <span class="ml-auto order_sum_light" id="envioResumen">¢ 0</span>
+                                </li>
+                                <li class="list-group-item d-flex font-size-lg">   
+                                    <span class="order_sum_light font-weight-bold">Total</span>
+                                    <span class="ml-auto order_sum_light font-weight-bold" id="totalResumen">¢
                                     <?php
                                         echo number_format($_SESSION["precioFinal"]);
                                     ?>
                                     </span>
                                 </li>
-                                <li class="list-group-item font-size-sm text-center text-gray-500">Costo de envío se calculará al concluir el pago*</li>
                             </ul>
                         </div>
                     </div>
-                    <?php
-                        if(!empty($_SESSION["carrito"])){
-                            echo "<a class='btn btn-block-dark mb-2' href='order_summary.php'>Finalizar Compra</a>";
-                        }
-                        else
-                        {
-                            echo " </br>";
-                        }
-                    ?>
+                    <button class='btn btn-block-dark mb-2' type='submit' name='finalizarCompra' >Finalizar Compra</button>
+                    <input type="hidden" value="" id="tipoPago" name="tipoPago"/>
                 </div>
             </div>
         </div>
@@ -180,20 +199,18 @@
         {
         $("#topBar").load("Resources/Sections/topBar.php");
         }
-
-        $document.ready(function() {
-            $("input[name='cc']").click(function(){
-                var checkedValue = $("input[name='cc']:checked").val();
-                console.log(checkedValue);
-                if(checkedValue == "1"){
-                    $("#cc").collapse('show');
-                }else if(checkedValue == "2"){
-                    $("#cc").collapse('hide');
-                }else{
-                    console.log("Oops.");
-                }
-            });
-        });
+        function metodoPago(x)
+        {
+            if (x == 1)
+            {
+                document.getElementById("tipoPago").value = "Tarjeta de Crédito";
+            }
+            else 
+            {
+                document.getElementById("tipoPago").value = "Efectivo";
+            }
+        }
+        
     </script>
 </form>
 </body>

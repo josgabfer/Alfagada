@@ -30,7 +30,6 @@
     {
         $abrirCon = OpenCon();
         $correo = $_POST['loginCorreo'];
-        $_SESSION["correoSesion"] = $correo;
         $clave = $_POST['loginClave'];
         $consultarUsuario = "call ConsultarUsuario('$correo', '$clave')";
         $listaUsuarios = $abrirCon -> query($consultarUsuario);
@@ -43,6 +42,7 @@
         {
             $_SESSION["NombreUsuario"] = $row["nombre"];
             $_SESSION["ApellidoUsuario"] = $row["apellido"];
+            $_SESSION["correoSesion"] = $correo;
             header('Location: index.php');
 
         }
@@ -74,7 +74,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="#">
+                                    <a href="index.php">
                                         <i class="fas fa-home"></i>
                                     </a>
                                 </li>

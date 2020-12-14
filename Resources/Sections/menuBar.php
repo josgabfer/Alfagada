@@ -11,10 +11,10 @@
             <li class="nav-item active dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Categorías</a>
                 <ul class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="producto.php">Abarrotes</a>
+                  <a class="dropdown-item" href="abarrotes.php">Abarrotes</a>
                   <a class="dropdown-item" href="#">Bebidas</a>
                   <a class="dropdown-item" href="#">Carnes</a>
-                  <a class="dropdown-item" href="#">Refrigerados</a>
+                  <a class="dropdown-item" href="#">Limpieza</a>
                   <a class="dropdown-item" href="#">Frutas y Verduras</a>
                   <a class="dropdown-item" href="#">Lacteos</a>
                   <a class="dropdown-item" href="#">Panaderia y reposteria</a>

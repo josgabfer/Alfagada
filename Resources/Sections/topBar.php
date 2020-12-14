@@ -7,7 +7,7 @@
         </div>
         <div class="header_search">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Buscar...">
+                <input type="text" class="search-form-control form-control" placeholder="Buscar...">
                 <span class="input-group-append">
                     <button class="btn search_btn" type="button" >
                         <i class="fas fa-search w3-medium" ></i>

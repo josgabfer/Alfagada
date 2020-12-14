@@ -1,6 +1,6 @@
 html, body {
     font-size: 100%;
-	font-family: 'Dosis', sans-serif;
+	font-family: 'Muli', sans-serif;
 	background:#ffffff;
 }
 .image{
@@ -37,7 +37,7 @@ html, body {
     left: 15%;
 }
 .banner h1{
-    font-family: 'Dosis' sans-serif,
+    font-family: 'Muli', sans-serif;
     serif;
     font-size: 8rem;
     font-weight: 300;
@@ -49,7 +49,7 @@ html, body {
     animation: moveBanner 1s .5s forwards;
 }
 .banner p{
-    font-family: 'Dosis', sans-serif;
+    font-family: 'Muli', sans-serif;
     font-size: 4rem;
     color: white;
     width: 70%;
@@ -63,7 +63,7 @@ html, body {
     height: 7rem;
     background-color: #2E3D59;
     border: none;
-    font-family: 'Dosis',serif;
+    font-family: 'Muli', sans-serif;
     font-size: 2rem;
     text-transform: uppercase;
     color: white;

@@ -1,15 +1,10 @@
 html, body {
-    font-size: 100%;
-	font-family: 'Dosis', sans-serif;
+	font-family: 'Muli', sans-serif;
 	background:#ffffff;
 }
 
 p {
     margin: 0;
-}
-
-ul li, ol li {
-    font-size: 100%;
 }
 
 ol li{
@@ -41,11 +36,12 @@ a {
 }
 
 .login_title{
-    font-size: 35px;
-    font-family:  'Dosis', sans-serif;
+    font-size: 32px;
+    font-family: 'Muli', sans-serif;
     font-weight: 600;
     color: #76BF41;
     margin-bottom: 0;
+    line-height: 36px;
 }
 
 .breadcrumb{
@@ -87,7 +83,7 @@ nav a{
     font-weight: 700;
     font-size: 24px;
     color: #76BF41;
-    font-family:  'Dosis', sans-serif;
+    font-family: 'Muli', sans-serif;
 }
 
 section{
@@ -116,7 +112,7 @@ section{
 }
 
 .forgot_password{
-    font-weight: 600;
+    font-weight: 700;
     color: rgba(46, 61, 89, 0.693)
 }
 
@@ -130,7 +126,8 @@ section{
 .btn-md{
     padding: 1em 1.5em;
     font-size: 1em;
-    font-weight: 600;
+    font-weight: 500;
+    font-size: 17px;
 }
 
 .checkbox-newsletter{
@@ -170,7 +167,7 @@ section{
 }
 
 h4.modal-title {
-    font-family:  'Dosis', sans-serif;
+    font-family: 'Muli', sans-serif;
     font-weight: 600;
     font-size: 25px;
     color: #76BF41;

@@ -4,8 +4,7 @@ h5{
     color: #2E3D59;
     line-height: 22px;
     font-weight: 600;
-    text-transform: capitalize;
-    font-family:  'Dosis', sans-serif;
+    font-family: 'Muli', sans-serif;
 }
 
 .cart_header{
@@ -15,7 +14,7 @@ h5{
 
 .cart_title{
     font-size: 35px;
-    font-family:  'Dosis', sans-serif;
+    font-family: 'Muli', sans-serif;
     font-weight: 600;
     color: #76BF41;
     margin-bottom: 0;
@@ -76,7 +75,12 @@ th {
 }
 
 .tbl_cart_product_caption .tbl_product_title{
-    font-size: 19px;
+    font-size: 17px;
+    line-height: .5;
+}
+.tbl_cart_product_caption .tbl_product_description{
+    font-size: 15px;
+    color: #5b687b;
 }
 
 .img{
@@ -85,7 +89,7 @@ th {
 }
 
 .tbl_price{
-    font-size: 90%;
+    font-size: 17px;
     font-weight: 400;
     margin: 0;
 }
@@ -107,7 +111,7 @@ table{
     background: #f4f5f7;
     font-weight: 600;
     border-radius: 4px;
-    font-size: 80%;
+    font-size: 15px;
     box-shadow: none;
     padding: .5rem .75rem;
     border: 1px solid #e6eaf3;
@@ -121,8 +125,8 @@ table{
 
 .tbl_total_action .tbl_total{
     margin: 0;
-    font-size: 90%;
-    font-weight: 450;
+    font-size: 17px;
+    font-weight: 400;
     margin-right: 15px;
 }
 
@@ -140,12 +144,12 @@ table{
 .font-weight-bold{
     font-weight: 700;
 }
+
 .btn{
     border: 2px solid transparent;
     padding: 15px 25px;
     cursor: pointer;
     border-radius: 4px;
-
 }
 
 
@@ -170,7 +174,7 @@ label{
 .form_coupon{
     height: 54px;
     border-radius: 4px;
-    font-size: 17px;
+    font-size: 15px;
     box-shadow: none;
     padding: .5rem .75rem;
     border: 1px solid #e6eaf3;
@@ -205,12 +209,12 @@ label{
     border-radius: 4px;
 }
 
-.cart_details .cart_body{
+.cart_details .card-body{
     border: none;
     border-bottom: 0;
 }
 
-.cart_body{
+.card-body{
     flex: 1 1 auto;
     padding: 1.25rem;
 }
@@ -230,6 +234,11 @@ ul{
 .list-group-flush-y .list-group-item:first-child {
     padding-top: 0;
     border-top: none;
+}
+
+.list-group-flush-y .list-group-item:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
 }
 
 .list-group-flush-x .list-group-item {
@@ -258,10 +267,7 @@ ul{
     display: flex!important;
 }
 
-.mb-0{
-    margin-bottom: 0!important;
-    margin-top: 20px;
-}
+
 
 .ml-auto {
     margin-left: auto!important;
@@ -282,8 +288,8 @@ ul{
     border: 2px solid transparent;
     cursor: pointer;
     border-radius: 4px;
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .btn-block-dark:hover{
@@ -302,5 +308,16 @@ a{
 
 .mr-2 {
     margin-right: .5rem!important;
+}
+
+.order_sum{
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+}
+
+.order_sum_light{
+    font-size: 15px;
+    font-weight: 400;
 }
     

@@ -40,6 +40,23 @@
     </a>
   </div>
 
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="home-sec-heading pl-2 pr-2">
+            <div class="home-sec-heading-one">
+              <h2>Abarrotes</h2>
+            </div>
+            <div class="home-sec-heading-last">
+              <a href="abarrotes.php" class="btn btn-view-more"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer class="dark-footer skin-dark-footer">
       <?php include('Resources/Sections/footer.php');?>
   </footer>

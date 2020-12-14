@@ -40,7 +40,7 @@
     </a>
   </div>
 
-  <section>
+  <section style="background: #f4f5f7">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
@@ -49,7 +49,81 @@
               <h2>Abarrotes</h2>
             </div>
             <div class="home-sec-heading-last">
-              <a href="abarrotes.php" class="btn btn-view-more"></a>
+              <a href="abarrotes.php" class="btn product_add_btn">Ver Más
+                <i class="ti-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row"> 
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6">
+              <div class="product_grid">
+                <div class="product_thumb">
+                    <img src="Resources/imgs/aceiteoliva.jpg" alt="">
+                </div>
+                <div class="product_caption">
+                    <div class="product_title">
+                        <h4 class="product_pro_title">
+                            <a href="#">SALAT</a>
+                        </h4>
+                    </div>
+                </div>
+                <div class="product_caption">
+                    <div class="product_description">
+                        <h5>Aceite Oliva Virgen 500ml</h5>
+                    </div>
+                </div>
+                <div class="product_price">
+                    <h6>¢3000</h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+              <div class="product_grid">
+                <div class="product_thumb">
+                    <img src="Resources/imgs/azucar.jpg" alt="">
+                </div>
+                <div class="product_caption">
+                    <div class="product_title">
+                        <h4 class="product_pro_title">
+                            <a href="#">DOÑA MARIA</a>
+                        </h4>
+                    </div>
+                </div>
+                <div class="product_caption">
+                    <div class="product_description">
+                        <h5>Azúcar Blanco 2kg</h5>
+                    </div>
+                </div>
+                <div class="product_price">
+                    <h6>¢1350</h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+              <div class="product_grid">
+                <div class="product_thumb">
+                    <img src="Resources/imgs/frijoles_tiopelon.jpg" alt="">
+                </div>
+                <div class="product_caption">
+                    <div class="product_title">
+                        <h4 class="product_pro_title">
+                            <a href="#">TIO PELON</a>
+                        </h4>
+                    </div>
+                </div>
+                <div class="product_caption">
+                    <div class="product_description">
+                        <h5>Frijoles Rojos 800g</h5>
+                    </div>
+                </div>
+                <div class="product_price">
+                    <h6>¢1315</h6>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -112,6 +112,42 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="categories_item">
+                                <div class="categories_item_thumb">
+                                    <div class="categories_overlay">
+                                        <img src="Resources/imgs/meat_cat.jpeg" alt="">
+                                    </div>
+                                </div>
+                                <div class="categories_caption">
+                                    <div class="categories_bottom_caption">
+                                        <div class="categories_title">
+                                            Carnes
+                                        </div>
+                                    </div>
+                                    <a href="producto.php" class="btn categories_btn">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="categories_item">
+                                <div class="categories_item_thumb">
+                                    <div class="categories_overlay">
+                                        <img src="Resources/imgs/fruits_cat.jpeg" alt="">
+                                    </div>
+                                </div>
+                                <div class="categories_caption">
+                                    <div class="categories_bottom_caption">
+                                        <div class="categories_title">
+                                            Limpieza
+                                        </div>
+                                    </div>
+                                    <a href="producto.php" class="btn categories_btn">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@
 
     function OpenCon()
     {
-        $servidor = "MYSQLCONNSTR_localdb";
+        $servidor = "alfagada.scm.azurewebsites.net";
         $usuario = "root";
         $password = "";
         $baseDatos = "alfagada";

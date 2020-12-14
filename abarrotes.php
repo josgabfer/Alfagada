@@ -7,7 +7,7 @@
 
     $abrirCon = OpenCon();
 
-    $consultarProducto = "call ConsultarProducto()";
+    $consultarProducto = "call ConsultarProducto('Abarrotes')";
     $abrirCon -> next_result();
     $listaProductos = $abrirCon -> query($consultarProducto);
     if (!isset($total))

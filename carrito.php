@@ -148,6 +148,7 @@
                                             </div>
                                             <div class="tbl_cart_product_caption">
                                                 <h5 class="tbl_product_title"><?php echo $values["nombreProducto"]; ?></h5>
+                                                <h5 class="tbl_product_description"><?php echo $values["nombreProducto"]; ?></h5>
                                             </div>
                                         </div>
                                         

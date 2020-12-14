@@ -76,6 +76,11 @@ th {
 
 .tbl_cart_product_caption .tbl_product_title{
     font-size: 17px;
+    line-height: .5;
+}
+.tbl_cart_product_caption .tbl_product_description{
+    font-size: 15px;
+    color: #5b687b;
 }
 
 .img{

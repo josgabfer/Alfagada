@@ -87,6 +87,21 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="text-center">
                         <h2 class="checkout_title">Abarrotes</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="index.php">
+                                        <i class="fas fa-home"></i>
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="#">Tienda</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Abarrotes
+                                </li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -116,16 +131,22 @@
              
                       
                               <div class="product_grid">
-                                  <span class="offer_discount">20% Descuento</span>
-                                  <br/>
                                   <div class="product_thumb">
                                       <img src="<?php echo $sourceImagen;?>" alt="">
                                   </div>
+                                  <br>
                                   <div class="product_caption">
                                       <div class="product_title">
                                           <h4 class="product_pro_title">
                                               <a href="#"><?php echo $nombreProducto ?></a>
                                           </h4>
+                                      </div>
+                                  </div>
+                                  <div class="product_caption">
+                                      <div class="product_description">
+                                          <h5>
+                                              <?php echo $descProducto ?>
+                                          </h5>
                                       </div>
                                   </div>
                                   <div class="product_price">
@@ -179,8 +200,6 @@
              
                       
                               <div class="product_grid">
-                                  <span class="offer_discount">20% Descuento</span>
-                                  <br/>
                                   <div class="product_thumb">
                                       <img src="<?php echo $sourceImagen;?>" alt="<?php echo $nombreProducto ?>" title="<?php echo $nombreProducto ?>">
                                   </div>
@@ -189,6 +208,13 @@
                                           <h4 class="product_pro_title">
                                               <a href="#"><?php echo $nombreProducto ?></a>
                                           </h4>
+                                      </div>
+                                  </div>
+                                  <div class="product_caption">
+                                      <div class="product_description">
+                                          <h5>
+                                              <?php echo $descProducto ?>
+                                          </h5>
                                       </div>
                                   </div>
                                   <div class="product_price">

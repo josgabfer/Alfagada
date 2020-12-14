@@ -3,12 +3,16 @@
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
-
     $abrirCon = OpenCon();
     $idOrden = $_GET["idOrden"];
     $consultarCompra = "call ConsultarCompra($idOrden)";
     $compraRegistrada = $abrirCon -> query($consultarCompra);
     $fila = mysqli_fetch_array($compraRegistrada);
+    CloseCon($abrirCon);
+    $abrirCon = OpenCon();
+    $correo = $_SESSION["correoSesion"];
+    $consultarDireccion = "call ConsultarDireccion('$correo')";
+    $direccionRegistrada = $abrirCon -> query($consultarDireccion);
     CloseCon($abrirCon);
 ?>
 
@@ -90,7 +94,7 @@
                                 </div>
                                 <div class="col-6 col-lg-3">
                                     <h6 class="text-muted mb-1">Total de Orden:</h6>
-                                    <p class="mb-lg-0 font-size-sm ch-text-bold">¢<?php echo $fila["totalOrden"]; ?></p>
+                                    <p class="mb-lg-0 font-size-sm ch-text-bold">¢<?php echo number_format($fila["totalOrden"]) ?></p>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +126,7 @@
                                 <li>
                                     <div class="col-2 col-md-2 col-xl-2">
                                         <a class="confirmation_product_thumb" href="#">
-                                            <img src="Resources/imgs/atunaceite140g.jpg" class="confirmation_product_thumb" alt="...">
+                                            <img src=<?php echo 'Resources/imgs/' .   $values["imagenProducto"] . '.jpg'; ?>  class="confirmation_product_thumb" alt="...">
                                         </a>
                                     </div>
                                     <div class="col-4 col-md-4 col-xl-4">
@@ -136,13 +140,13 @@
                                         </div>
                                     </div>
                                     <div class="col-2">
-                                        <h3>¢<?php echo $values["precioProducto"];?></h3>
+                                        <h3>¢<?php echo number_format($values["precioProducto"]);?></h3>
                                     </div>
                                     <div class="col-2">
                                         <h3><?php echo $values["cantidadProducto"];?></h3>
                                     </div>
                                     <div class="col-2">
-                                        <h3>¢<?php echo $values["precioProducto"] * $values["cantidadProducto"];?></h3>
+                                        <h3>¢<?php echo number_format($values["precioProducto"] * $values["cantidadProducto"]);?></h3>
                                     </div>
                                 </li>
                             </ul>
@@ -165,23 +169,32 @@
                                     <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
                                         <li class="list-group-item d-flex">
                                             <span>Subtotal</span>
-                                            <span class="ml-auto">¢1500</span>
+                                            <span class="ml-auto">¢<?php echo number_format($_SESSION["precioTotal"]); ?></span>
                                         </li>
                                         <li class="list-group-item d-flex">
                                             <span>Impuestos</span>
-                                            <span class="ml-auto">¢150</span>
+                                            <span class="ml-auto">¢<?php echo number_format($_SESSION["impuesto"]); ?></span>
                                         </li>
                                         <li class="list-group-item d-flex">
                                             <span>Envío</span>
-                                            <span class="ml-auto">¢1500</span>
+                                            <span class="ml-auto">¢
+                                            <?php 
+                                                if ($_SESSION["tipoEntrega"] == "A domicilio")
+                                                {
+                                                    echo "3,000"; 
+                                                }
+                                                else 
+                                                {
+                                                    echo "1,500"; 
+                                                }    ?></span>
                                         </li>
                                         <li class="list-group-item d-flex">
                                             <span>Descuento</span>
-                                            <span class="ml-auto">¢0</span>
+                                            <span class="ml-auto">¢<?php echo number_format($_SESSION["montoDescuento"]);?></span>
                                         </li>
                                         <li class="list-group-item d-flex font-weight-bold">
                                             <span>Total</span>
-                                            <span class="ml-auto">¢<?php echo $fila["totalOrden"]; ?></span>
+                                            <span class="ml-auto">¢<?php echo number_format($fila["totalOrden"]); ?></span>
                                         </li>
                                     </ul>
                                 </div>
@@ -197,12 +210,24 @@
                                             <div class="col-12 col-md-6">
                                                 <p class="info_pago font-weight-bold">Dirección de Entrega:</p>
                                                 <p class="info-pago">
-                                                    Direccion, Direccion
-                                                    <br>
-                                                    Direccion, Direccion
-                                                    <br>
-                                                    Costa Rica
-                                                    <br>
+                                                <?php
+                                                    
+                                                    if(mysqli_num_rows($direccionRegistrada) > 0)
+                                                    {
+                                                        $filaDireccion = mysqli_fetch_array($direccionRegistrada);
+                                                        
+                                                        $direccion = $filaDireccion["direccion"];
+                                                        $direccionAdicional = $filaDireccion["direccion_2"];
+                                                        $pais = $filaDireccion["pais"];
+                                                        $distrito = $filaDireccion["distrito"];
+                                                        $canton = $filaDireccion["canton"];
+                                                        $provincia = $filaDireccion["provincia"];
+                                                        $codPostal = $filaDireccion["codigo_postal"];
+                                                        $telefono = $filaDireccion["telefono"];
+
+                                                        echo $direccion.'<br>'.$direccionAdicional.'<br>'.$distrito.',&nbsp'.$canton.'<br>'.$provincia.',&nbsp'.$codPostal.',&nbsp'.$pais.'<br>'.$telefono;
+                                                    };
+                                                ?>
                                                 </p>
                                             </div>
                                             <div class="col-12 col-md-6">

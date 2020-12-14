@@ -13,7 +13,9 @@
                 'nombreProducto'		=>	$values["nombreProducto"],
                 'precioProducto'		=>  $values["precioProducto"],
                 'cantidadProducto'		=>	$_POST["cantidadProducto" . $values["idProducto"]],
-                'imagenProducto'        =>  $values["imagenProducto"]
+                'imagenProducto'        =>  $values["imagenProducto"],
+                'descProducto'          =>  $values["descProducto"]
+                
             );
             $_SESSION["carrito"][$keys] = $arregloProductos;
             $_SESSION["cantidadProducto" . $values["idProducto"]] = $_POST["cantidadProducto" . $values["idProducto"]];
@@ -148,7 +150,7 @@
                                             </div>
                                             <div class="tbl_cart_product_caption">
                                                 <h5 class="tbl_product_title"><?php echo $values["nombreProducto"]; ?></h5>
-                                                <h5 class="tbl_product_description"><?php echo $values["nombreProducto"]; ?></h5>
+                                                <h5 class="tbl_product_description"><?php echo $values["descProducto"]; ?></h5>
                                             </div>
                                         </div>
                                         

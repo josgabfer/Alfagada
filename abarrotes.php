@@ -29,7 +29,9 @@
             'nombreProducto'			=>	$_POST["hidden_nombre" . $_GET["id"]],
             'precioProducto'		=>	$_POST["hidden_precio" . $_GET["id"]],
             'cantidadProducto'		=>	$_POST["cantidad"],
-            'imagenProducto'    =>  $_POST["hidden_imagen" . $_GET["id"]]
+            'imagenProducto'    =>  $_POST["hidden_imagen" . $_GET["id"]],
+            'descProducto'      =>  $_POST["hidden_desc" . $_GET["id"]]
+
           );
           $_SESSION["carrito"][$contador] = $arregloProductos;
         }
@@ -45,7 +47,8 @@
           'nombreProducto'			=>	$_POST["hidden_nombre" . $_GET["id"]],
           'precioProducto'		=>	$_POST["hidden_precio" . $_GET["id"]],
           'cantidadProducto'		=>	$_POST["cantidad"],
-          'imagenProducto'    =>  $_POST["hidden_imagen" . $_GET["id"]]
+          'imagenProducto'    =>  $_POST["hidden_imagen" . $_GET["id"]],
+          'descProducto'      =>  $_POST["hidden_desc" . $_GET["id"]]
         );
         $_SESSION["carrito"][0] = $arregloProductos;
         
@@ -127,7 +130,7 @@
                 $descProducto = $row["descripcion"];
       ?>
            <div class="col-lg-3 col-md-4 col-sm-6">
-                  <form method="post" action="producto.php?action=add&id=<?php echo $row["id"]; ?>">
+                  <form method="post" action="abarrotes.php?action=add&id=<?php echo $row["id"]; ?>">
              
                       
                               <div class="product_grid">
@@ -161,6 +164,8 @@
                                           <input type="hidden" name="hidden_nombre<?php echo $row["id"]?>" value="<?php echo $row["nombre"];?>"/>
                                           <input type="hidden" name="hidden_precio<?php echo $row["id"]?>" value="<?php echo $row["precio_unitario"];?>" />
                                           <input type="hidden" name="hidden_imagen<?php echo $row["id"]?>" value="<?php echo $row["imagen"];?>" />
+                                          <input type="hidden" name="hidden_desc<?php echo $row["id"]?>" value="<?php echo $row["descripcion"];?>" />
+                                          
                                       </div>
                                       <div class="col-lg-8" style="padding: 7.5px">
                                           <input type="submit" name="anadirCarrito" class="btn product_add_btn" value="Añadir al Carrito"/>
@@ -196,7 +201,7 @@
                 $descProducto = $row["descripcion"];
       ?>
            <div class="col-lg-3 col-md-4 col-sm-6">
-                  <form method="post" action="producto.php?action=add&id=<?php echo $row["id"]; ?>">
+                  <form method="post" action="abarrotes.php?action=add&id=<?php echo $row["id"]; ?>">
              
                       
                               <div class="product_grid">

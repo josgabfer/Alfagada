@@ -53,7 +53,7 @@
                                             Abarrotes
                                         </div>
                                     </div>
-                                    <a href="producto.php" class="btn categories_btn">Comprar</a>
+                                    <a href="abarrotes.php" class="btn categories_btn">Comprar</a>
                                 </div>
                             </div>
                         </div>

@@ -11,7 +11,7 @@
             <li class="nav-item active dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Categorías</a>
                 <ul class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="producto.php">Abarrotes</a>
+                  <a class="dropdown-item" href="abarrotes.php">Abarrotes</a>
                   <a class="dropdown-item" href="#">Bebidas</a>
                   <a class="dropdown-item" href="#">Carnes</a>
                   <a class="dropdown-item" href="#">Limpieza</a>

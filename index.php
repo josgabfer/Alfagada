@@ -49,7 +49,37 @@
               <h2>Abarrotes</h2>
             </div>
             <div class="home-sec-heading-last">
-              <a href="abarrotes.php" class="btn btn-view-more"></a>
+              <a href="abarrotes.php" class="btn btn-view-more">Ver Más
+                <i class="ti-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row"> 
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6">
+              <div class="product_grid">
+                <div class="product_thumb">
+                    <img src="Resources/imgs/aceiteoliva.jpg" alt="">
+                </div>
+                <div class="product_caption">
+                    <div class="product_title">
+                        <h4 class="product_pro_title">
+                            <a href="#">SALAT</a>
+                        </h4>
+                    </div>
+                </div>
+                <div class="product_caption">
+                    <div class="product_description">
+                        <h5>Aceite Oliva Virgen 500ml</h5>
+                    </div>
+                </div>
+                <div class="product_price">
+                    <h6>¢3000</h6>
+                </div>
+              </div>
             </div>
           </div>
         </div>

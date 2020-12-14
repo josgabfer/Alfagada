@@ -36,6 +36,7 @@ html{
     align-items: center;
     justify-content: center;
     border-radius: 2px;
+    
 }
 
 .btn-view-more{
@@ -43,4 +44,11 @@ html{
     border-color: #76BF41;
     color: #fff;
     transition: all ease .4s;
+}
+
+
+
+.carousel{
+    width: 100%;
+    z-index: 1;
 }

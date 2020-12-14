@@ -119,39 +119,43 @@
                         </div>
                 </div>
                 <div class="col-lg-4 col-md-12">
-                    <div class="cart_details">
-                        <div class="cart body">
+                    <div class="cart_details mb-4">
+                        <div class="card-body">
                             <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
                                 <li class="list-group-item d-flex">
-                                    <h5 class="mb-0">Resumen del Pedido</h5>
+                                    <h5 class="mb-0 order_sum">Resumen del Pedido</h5>
                                 </li>
                                 <li class="list-group-item d-flex">
-                                    <span>Subtotal</span>
-                                    <span class="ml-auto font-size-sm"> ¢
+                                    <span class="order_sum_light">Subtotal</span>
+                                    <span class="ml-auto order_sum_light"> ¢
                                     <?php
                                         echo number_format($_SESSION["precioTotal"]);
                                     ?>
                                     </span>
                                 </li>
                                 <li class="list-group-item d-flex">
-                                    <span>Impuestos</span>
-                                    <span class="ml-auto font-size-sm">¢
+                                    <span class="order_sum_light">Impuestos</span>
+                                    <span class="ml-auto order_sum_light">¢
                                     <?php
                                         echo number_format($_SESSION["impuesto"]);
                                     ?>
                                     </span>
                                 </li>
                                 <li class="list-group-item d-flex">
-                                    <span>Descuento</span>
-                                    <span class="ml-auto font-size-sm">¢
+                                    <span class="order_sum_light">Descuento</span>
+                                    <span class="ml-auto order_sum_light">¢
                                     <?php
                                         echo number_format($_SESSION["montoDescuento"]);
                                     ?>
                                     </span>
                                 </li>
-                                <li class="list-group-item d-flex font-size-lg font-weight-bold">   
-                                    <span>Total</span>
-                                    <span class="ml-auto font-size-sm" id="totalResumen">¢
+                                <li class="list-group-item d-flex">
+                                    <span class="order_sum_light">Envío</span>
+                                    <span class="ml-auto order_sum_light" id="envioResumen">¢ 0</span>
+                                </li>
+                                <li class="list-group-item d-flex font-size-lg">   
+                                    <span class="order_sum_light font-weight-bold">Total</span>
+                                    <span class="ml-auto order_sum_light font-weight-bold" id="totalResumen">¢
                                     <?php
                                         echo number_format($_SESSION["precioFinal"]);
                                     ?>

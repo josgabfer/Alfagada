@@ -2,29 +2,24 @@
 
     function OpenCon()
     {
-        $servidor = "";
-        $usuario = "";
-        $password = "";
-        $baseDatos = "";
-
-        // Parsing connnection string
-        foreach ($_SERVER as $key => $value) {
-            if (strpos($key, "MYSQLCONNSTR_") !== 0) {
-                continue;
-            }
-            
-            $servidor = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
-            $baseDatos = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
-            $usuario = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
-            $password = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
+        $conn = getenv("MYSQLCONNSTR_localdb");
+        $conarr2 = explode(";",$conn); 
+        $conarr = array();
+        foreach($conarr2 as $key=>$value){
+            $k = substr($value,0,strpos($value,'='));
+            $conarr[$k] = substr($value,strpos($value,'=')+1);
         }
+        print_r($conarr); 
+        
+
+
         /*$servidor = "MYSQLCONNSTR_localdb";
         $usuario = "root";
         $password = "";
         $baseDatos = "alfagada";
         */
-        $conn = new mysqli($servidor,$usuario,$password,$baseDatos) or die("Connect failed:" . $conn -> error);
-        return $conn;
+        //$conn = new mysqli($servidor,$usuario,$password,$baseDatos) or die("Connect failed:" . $conn -> error);
+        //return $conn;
     }
     
     function CloseCon($conn)

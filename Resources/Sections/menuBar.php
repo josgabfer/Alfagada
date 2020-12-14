@@ -14,7 +14,7 @@
                   <a class="dropdown-item" href="producto.php">Abarrotes</a>
                   <a class="dropdown-item" href="#">Bebidas</a>
                   <a class="dropdown-item" href="#">Carnes</a>
-                  <a class="dropdown-item" href="#">Refrigerados</a>
+                  <a class="dropdown-item" href="#">Limpieza</a>
                   <a class="dropdown-item" href="#">Frutas y Verduras</a>
                   <a class="dropdown-item" href="#">Lacteos</a>
                   <a class="dropdown-item" href="#">Panaderia y reposteria</a>

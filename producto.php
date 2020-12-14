@@ -95,7 +95,7 @@
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="#">Tienda</a>
+                                    <a href="categorias.php">Tienda</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Abarrotes

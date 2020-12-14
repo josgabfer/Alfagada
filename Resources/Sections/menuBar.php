@@ -16,7 +16,7 @@
                   <a class="dropdown-item" href="#">Carnes</a>
                   <a class="dropdown-item" href="#">Limpieza</a>
                   <a class="dropdown-item" href="#">Frutas y Verduras</a>
-                  <a class="dropdown-item" href="#">Lacteos</a>
+                  <a class="dropdown-item" href="lacteos.php">Lácteos</a>
                   <a class="dropdown-item" href="#">Panaderia y reposteria</a>
                 </ul>
             </li>

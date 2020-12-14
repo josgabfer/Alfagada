@@ -335,7 +335,7 @@
                             echo " </br>";
                         }
                     ?>
-                    <a class="px-0 text-body" href="producto.php">
+                    <a class="px-0 text-body" href="abarrotes.php">
                         <i class="ti-back-left mr-2"></i>
                         Continuar comprando
                     </a>

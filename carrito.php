@@ -140,7 +140,7 @@
                                     if(!empty($_SESSION["carrito"]))
                                     {
                                         foreach($_SESSION["carrito"] as $keys => $values)
-                                    {
+                                        {
                                 ?>
                                 <tr>
                                     <td>

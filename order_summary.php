@@ -3,18 +3,13 @@
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
+
     $abrirCon = OpenCon();
-    $correo = $_SESSION["correoSesion"];
-    $consultarDireccion = "call ConsultarDireccion('$correo')";
-    $direccionRegistrada = $abrirCon -> query($consultarDireccion);
+    $idOrden = $_GET["idOrden"];
+    $consultarCompra = "call ConsultarCompra($idOrden)";
+    $compraRegistrada = $abrirCon -> query($consultarCompra);
+    $fila = mysqli_fetch_array($compraRegistrada);
     CloseCon($abrirCon);
-
-    if (isset($_POST["continuarPago"]))
-    {
-        $_SESSION["precioFinal"]= $_POST["nuevoTotal"];
-        header('Location: payment.php');
-
-    }
 ?>
 
 <!DOCTYPE html>
@@ -67,9 +62,9 @@
                         <div class="card-body text-center confirmation">
                             <h2 class="pb-2">¡Gracias por su orden!</h2>
                             <p class="font-size-sm mb-2">Su orden va a ser procesada lo antes posible.</p>
-                            <p class="font-size-sm mb-2">Su número de orden es: <span class="font-weight-medium">857123</span></p>
+                            <p class="font-size-sm mb-2">Su número de orden es: <span class="font-weight-medium"><?php echo $_GET["idOrden"]; ?></span></p>
                             <p class="font-size-sm mb-2">Recibirá un correo electrónico con la confirmación de la orden.</p>
-                            <a class="btn checkout-btn-secondary mt-3 mr-3" href="index.php">Seguir Comprando</a>
+                            <a class="btn checkout-btn-secondary mt-3 mr-3" href="categorias.php">Seguir Comprando</a>
                             <a class="btn checkout-btn mt-3">Rastrear Orden</a>
                         </div>
                     </div>
@@ -83,19 +78,19 @@
                             <div class="row">
                                 <div class="col-6 col-lg-3">
                                     <h6 class="text-muted mb-1">Número de Orden:</h6>
-                                    <p class="mb-lg-0 font-size-sm ch-text-bold">857123</p>
+                                    <p class="mb-lg-0 font-size-sm ch-text-bold"><?php echo $_GET["idOrden"]; ?></p>
                                 </div>
                                 <div class="col-6 col-lg-3">
                                     <h6 class="text-muted mb-1">Fecha de Entrega:</h6>
-                                    <p class="mb-lg-0 font-size-sm ch-text-bold">15/12/2020</p>
+                                    <p class="mb-lg-0 font-size-sm ch-text-bold"><?php echo $fila["fechaEntrega"]; ?></p>
                                 </div>
                                 <div class="col-6 col-lg-3">
                                     <h6 class="text-muted mb-1">Estado:</h6>
-                                    <p class="mb-lg-0 font-size-sm ch-text-bold">En proceso</p>
+                                    <p class="mb-lg-0 font-size-sm ch-text-bold"><?php echo $fila["estado"]; ?></p>
                                 </div>
                                 <div class="col-6 col-lg-3">
                                     <h6 class="text-muted mb-1">Total de Orden:</h6>
-                                    <p class="mb-lg-0 font-size-sm ch-text-bold">¢25000</p>
+                                    <p class="mb-lg-0 font-size-sm ch-text-bold">¢<?php echo $fila["totalOrden"]; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -119,6 +114,10 @@
                             </div>
                         </div>
                         <div class="card-body">
+                        <?php
+                            foreach($_SESSION["carrito"] as $keys => $values)
+                            {
+                        ?>                    
                             <ul class="item-groups">
                                 <li>
                                     <div class="col-2 col-md-2 col-xl-2">
@@ -128,25 +127,28 @@
                                     </div>
                                     <div class="col-4 col-md-4 col-xl-4">
                                         <p class="font-size-sm c-product">
-                                            <a href="#">Atún Sardimar Aceite</a>
+                                            <a href="#"><?php echo $values["nombreProducto"]; ?></a>
                                             <br>
-                                            <span>¢500</span>
+                                            <span><?php echo $values["descProducto"];?></span>
                                         </p>
                                         <div class="font-size-sm text-muted-thin">
                                             <h5>Categoría: Abarrotes</h5>
                                         </div>
                                     </div>
                                     <div class="col-2">
-                                        <h3>¢500</h3>
+                                        <h3>¢<?php echo $values["precioProducto"];?></h3>
                                     </div>
                                     <div class="col-2">
-                                        <h3>3</h3>
+                                        <h3><?php echo $values["cantidadProducto"];?></h3>
                                     </div>
                                     <div class="col-2">
-                                        <h3>¢1500</h3>
+                                        <h3>¢<?php echo $values["precioProducto"] * $values["cantidadProducto"];?></h3>
                                     </div>
                                 </li>
                             </ul>
+                            <?php   
+                            }
+                            ?>  
                         </div>
                         <div class="">
 
@@ -179,7 +181,7 @@
                                         </li>
                                         <li class="list-group-item d-flex font-weight-bold">
                                             <span>Total</span>
-                                            <span class="ml-auto">¢3150</span>
+                                            <span class="ml-auto">¢<?php echo $fila["totalOrden"]; ?></span>
                                         </li>
                                     </ul>
                                 </div>
@@ -206,11 +208,11 @@
                                             <div class="col-12 col-md-6">
                                                 <p class="info_pago font-weight-bold">Tipo de Entrega:</p>
                                                 <p class="info-pago">
-                                                    A domicilio
+                                                    <?php echo $fila["tipoEntrega"]; ?>
                                                 </p>
                                                 <p class="info_pago font-weight-bold">Tipo de Pago:</p>
                                                 <p class="info-pago">
-                                                    Tarjeta de Crédito
+                                                    <?php echo $fila["tipoPago"]; ?>
                                                 </p>
                                             </div>
                                         </div>

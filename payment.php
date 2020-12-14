@@ -6,18 +6,19 @@
     if (isset($_POST["finalizarCompra"]))
     {   
         $abrirCon = OpenCon();
-        
-        $fecha = date("d/m/Y");
+        $idOrden = rand(1,100000);
+        $fecha = date("Y/m/d");
+        $fecha = date('Y-m-d', strtotime($fecha. ' + 4 days'));
         $estado = "Pendiente";
-        $totalOrden = $SESSION["precioFinal"];
+        $totalOrden = $_SESSION["precioFinal"];
         $tipoEntrega = $_SESSION["tipoEntrega"];
         $_SESSION["tipoPago"] = $_POST["tipoPago"];
         $tipoPago = $_SESSION["tipoPago"];
-        $insertarCompra = "call InsertarCompra('$fecha', '$estado', '$totalOrden', '$tipoEntrega', '$tipoPago')";
+        $insertarCompra = "call InsertarCompra($idOrden, '$fecha', '$estado', '$totalOrden', '$tipoEntrega', '$tipoPago')";
         $abrirCon -> next_result();
         if($abrirCon -> query($insertarCompra))
         {
-            header('Location: order_summary.php');
+            header('Location: order_summary.php?idOrden=' . $idOrden);
         }
         else
         {
@@ -35,7 +36,7 @@
 </head>
 <body>
 
-<form action="" method="post">
+
     <div>
         <?php include 'Resources/Sections/topBar.php';?> 
     </div>
@@ -157,6 +158,7 @@
                 <div class="col-lg-4 col-md-12">
                     <div class="cart_details mb-4">
                         <div class="card-body">
+                        <form action="" method="post">
                             <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
                                 <li class="list-group-item d-flex">
                                     <h5 class="mb-0 order_sum">Resumen del Pedido</h5>
@@ -205,8 +207,8 @@
                 </div>
             </div>
         </div>
+    </form>
     </section>
-
     <footer class="dark-footer skin-dark-footer">
       <?php include('Resources/Sections/footer.php');?>
     </footer>
@@ -233,6 +235,5 @@
         }
         
     </script>
-</form>
 </body>
 </html>

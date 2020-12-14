@@ -118,7 +118,6 @@
         <div class="row" id="rowScroll">
          
       <?php
-            $query = "SELECT * FROM tbl_product ORDER BY id ASC";
             if(mysqli_num_rows($listaProductos) > 0)
             {
               while($row = mysqli_fetch_array($listaProductos))

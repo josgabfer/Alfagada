@@ -2,7 +2,7 @@
 
     function OpenCon()
     {
-        $servidor = "localhost";
+        $servidor = "MYSQLCONNSTR_localdb";
         $usuario = "root";
         $password = "";
         $baseDatos = "alfagada";

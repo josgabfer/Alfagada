@@ -1,7 +1,16 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+    include 'Resources/Scripts/conexionBD.php';
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    $abrirCon = OpenCon();
+    $idOrden = $_GET["idOrden"];
+    $consultarCompra = "call ConsultarCompra($idOrden)";
+    $compraRegistrada = $abrirCon -> query($consultarCompra);
+    $fila = mysqli_fetch_array($compraRegistrada);
+    CloseCon($abrirCon);
+
 function fetch_data()
 {
     $html_string = '';

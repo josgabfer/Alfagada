@@ -2,7 +2,6 @@
 
     function OpenCon()
     {
-<<<<<<< HEAD
         $servidor = "";
         $usuario = "";
         $password = "";
@@ -20,9 +19,6 @@
             $password = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
         }
         /*$servidor = "MYSQLCONNSTR_localdb";
-=======
-        $servidor = "alfagada.scm.azurewebsites.net";
->>>>>>> b640684a5e7d8ff85138b024bffc33c13c632270
         $usuario = "root";
         $password = "";
         $baseDatos = "alfagada";

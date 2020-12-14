@@ -59,6 +59,21 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="text-center">
                         <h2 class="checkout_title">Resumen de Compra</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="index.php">
+                                        <i class="fas fa-home"></i>
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="#">Cuenta</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Resumen de Orden
+                                </li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -132,23 +147,23 @@
                                         </a>
                                     </div>
                                     <div class="col-4 col-md-4 col-xl-4">
-                                        <p class="mb-2 font-size-sm c-product">
-                                            <a class="text-body" href="#">Atún Sardimar Aceite</a>
+                                        <p class="font-size-sm c-product">
+                                            <a href="#">Atún Sardimar Aceite</a>
                                             <br>
-                                            <span style="color: #76BF41">¢500</span>
+                                            <span>¢500</span>
                                         </p>
                                         <div class="font-size-sm text-muted-thin">
-                                            Categoría: Abarrotes
+                                            <h5>Categoría: Abarrotes</h5>
                                         </div>
                                     </div>
-                                    <div class="col-2" style="font-size: 22px; font-weight: 600">
-                                        ¢500
+                                    <div class="col-2">
+                                        <h3>¢500</h3>
                                     </div>
-                                    <div class="col-2" style="font-size: 22px; font-weight: 600">
-                                        3
+                                    <div class="col-2">
+                                        <h3>3</h3>
                                     </div>
-                                    <div class="col-2" style="font-size: 22px; font-weight: 600">
-                                        ¢1500
+                                    <div class="col-2">
+                                        <h3>¢1500</h3>
                                     </div>
                                 </li>
                             </ul>

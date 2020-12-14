@@ -3,14 +3,14 @@
 .text-muted{
     color: #8892A6;
     font-weight: 600;
-    font-size: 17px;
+    font-size: 16px;
     font-family: 'Muli', sans-serif;
 }
 
-.text-muted-thin{
+.text-muted-thin h5{
     color: #8892A6;
-    font-weight: 450;
-    font-size: 17px;
+    font-weight: 400;
+    font-size: 15px;
     font-family: 'Muli', sans-serif;
 }
 
@@ -36,7 +36,7 @@
     margin: 0 0 10px;
     line-height: 1.8;
     color: #8892A6;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .confirmation-card{
@@ -74,14 +74,14 @@
 }
 
 .checkout-btn:hover{
-    background: #2E3D59;
-    border: 1px solid #2E3D59;
+    background: #3f6624;
+    border: 1px solid #3f6624;
     color:#fff;
     transition: .2s ease-in;
 }
 
 .ch-text-bold{
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 700;
 }
 
@@ -93,8 +93,8 @@
 }
 
 .confirmation-card-header h4{
-    font-weight: 600;
-    font-size: 28px;
+    font-weight: 650;
+    font-size: 21px;
 }
 
 .item-groups{
@@ -122,16 +122,38 @@ ul.item-groups li{
     max-width: 100px;
 }
 
-.c-product{
+.item-groups p{
+    line-height: 1.5;
+}
+
+.c-product a{
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
+    color: #5b687b;
+}
+
+.c-product a:hover{
+    color: #76BF41;
+}
+
+.c-product span{
+    color: #76BF41;
+    font-weight: 700;
+    font-size: 18px;
 }
 
 .price-card-body span{
-    font-size: 18px;
+    font-size: 15px;
+    color: #5b687b;
 }
 
 .info_pago{
-    color: #6c757d;
-    font-size: 18px;
+    color: #5b687b;
+    font-size: 15px;
+}
+
+.item-groups h3{
+    font-size: 19px;
+    font-weight: 500;
+    color: #4a5682;
 }

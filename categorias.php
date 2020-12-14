@@ -70,7 +70,7 @@
                                             Bebidas
                                         </div>
                                     </div>
-                                    <a href="producto.php" class="btn categories_btn">Comprar</a>
+                                    <a href="bebidas.php" class="btn categories_btn">Comprar</a>
                                 </div>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                                             Carnes
                                         </div>
                                     </div>
-                                    <a href="producto.php" class="btn categories_btn">Comprar</a>
+                                    <a href="carnes.php" class="btn categories_btn">Comprar</a>
                                 </div>
                             </div>
                         </div>
@@ -107,7 +107,7 @@
                                             Limpieza
                                         </div>
                                     </div>
-                                    <a href="producto.php" class="btn categories_btn">Comprar</a>
+                                    <a href="limpieza.php" class="btn categories_btn">Comprar</a>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
                                             Frutas y Vegetables
                                         </div>
                                     </div>
-                                    <a href="producto.php" class="btn categories_btn">Comprar</a>
+                                    <a href="frutas_vegetales.php" class="btn categories_btn">Comprar</a>
                                 </div>
                             </div>
                         </div>
@@ -144,10 +144,32 @@
                                             Lacteos
                                         </div>
                                     </div>
-                                    <a href="producto.php" class="btn categories_btn">Comprar</a>
+                                    <a href="lacteos.php" class="btn categories_btn">Comprar</a>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-6">
+                            <div class="categories_item">
+                                <div class="categories_item_thumb">
+                                    <div class="categories_overlay">
+                                        <img src="Resources/imgs/panaderia_cat.jpeg" alt="">
+                                    </div>
+                                </div>
+                                <div class="categories_caption">
+                                    <div class="categories_bottom_caption">
+                                        <div class="categories_title">
+                                            Panadería y Repostería
+                                        </div>
+                                    </div>
+                                    <a href="panaderia.php" class="btn categories_btn">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3"></div>
                     </div>
                 </div>
             </div>

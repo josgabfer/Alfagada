@@ -9,6 +9,7 @@
     margin-bottom: 30px;
     padding: 1rem 1.5rem;
     transition: all ease .4s;
+    max-height: 435px;
 }
 
 .offer_discount{

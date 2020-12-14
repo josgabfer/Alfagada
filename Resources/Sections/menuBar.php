@@ -12,12 +12,12 @@
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Categorías</a>
                 <ul class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="abarrotes.php">Abarrotes</a>
-                  <a class="dropdown-item" href="#">Bebidas</a>
-                  <a class="dropdown-item" href="#">Carnes</a>
-                  <a class="dropdown-item" href="#">Limpieza</a>
-                  <a class="dropdown-item" href="#">Frutas y Verduras</a>
+                  <a class="dropdown-item" href="bebidas.php">Bebidas</a>
+                  <a class="dropdown-item" href="carnes.php">Carnes</a>
+                  <a class="dropdown-item" href="limpieza.php">Limpieza</a>
+                  <a class="dropdown-item" href="frutas_vegetales.php">Frutas y Verduras</a>
                   <a class="dropdown-item" href="lacteos.php">Lácteos</a>
-                  <a class="dropdown-item" href="#">Panaderia y reposteria</a>
+                  <a class="dropdown-item" href="panaderia.php">Panaderia y reposteria</a>
                 </ul>
             </li>
             <li class="nav-item active dropdown">

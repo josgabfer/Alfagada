@@ -82,7 +82,7 @@
         <?php include 'Resources/Sections/menuBar.php';?> 
     </div>
     <div class="min-banner img-fluid">
-      <img src="Resources/imgs/abarrotes.jpg"  alt="...">
+      <img src="Resources/imgs/lacteos.jpeg"  alt="...">
     </div>
     <div class="checkout_header">
         <div class="container">

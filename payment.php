@@ -1,8 +1,29 @@
 <?php
+    include 'Resources/Scripts/conexionBD.php';
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     if (isset($_POST["finalizarCompra"]))
     {   
+        $abrirCon = OpenCon();
+        
+        $fecha = date("d/m/Y");
+        $estado = "Pendiente";
+        $totalOrden = $SESSION["precioFinal"];
+        $tipoEntrega = $_SESSION["tipoEntrega"];
         $_SESSION["tipoPago"] = $_POST["tipoPago"];
-        header('Location: order_summary.php');
+        $tipoPago = $_SESSION["tipoPago"];
+        $insertarCompra = "call InsertarCompra('$fecha', '$estado', '$totalOrden', '$tipoEntrega', '$tipoPago')";
+        $abrirCon -> next_result();
+        if($abrirCon -> query($insertarCompra))
+        {
+            header('Location: order_summary.php');
+        }
+        else
+        {
+            echo $abrirCon -> error;
+        }
+        CloseCon($abrirCon);
     }
 ?>
 
@@ -179,7 +200,7 @@
                             </ul>
                         </div>
                     </div>
-                    <button class='btn btn-block-dark mb-2' type='submit' name='finalizarCompra' >Finalizar Compra</button>
+                    <button class='btn btn-block-dark mb-2' type='submit' name='finalizarCompra'>Finalizar Compra</button>
                     <input type="hidden" value="" id="tipoPago" name="tipoPago"/>
                 </div>
             </div>

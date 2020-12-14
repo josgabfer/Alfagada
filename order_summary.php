@@ -9,26 +9,6 @@
     $direccionRegistrada = $abrirCon -> query($consultarDireccion);
     CloseCon($abrirCon);
 
-    if (isset($_POST["anadirDireccion"]))
-    {
-        $abrirCon = OpenCon();
-        $fecha = date("d/m/Y");
-        $estado = "Pendiente";
-        $totalEntrega = $SESSION["precioFinal"];
-        $tipoEntrega = $_SESSION["tipoEntrega"];
-        $tipoPago = $_SESSION["tipoPago"];
-        $insertarCompra = "call InsertarCompra('$fecha', '$estado', '$totalEntrega', '$tipoEntrega', '$tipoPago')";
-        $abrirCon -> next_result();
-        if($abrirCon -> query($insertarCompra))
-        {
-            header('Location: order_summary.php#delivery');
-        }
-        else
-        {
-            echo $abrirCon -> error;
-        }
-        CloseCon($abrirCon);
-    }
     if (isset($_POST["continuarPago"]))
     {
         $_SESSION["precioFinal"]= $_POST["nuevoTotal"];

@@ -7,6 +7,7 @@
     {   
         $abrirCon = OpenCon();
         $idOrden = rand(1,100000);
+        $correo = $_SESSION["correoSesion"];
         $fecha = date("Y/m/d");
         $fecha = date('Y-m-d', strtotime($fecha. ' + 4 days'));
         $estado = "Pendiente";
@@ -14,10 +15,23 @@
         $tipoEntrega = $_SESSION["tipoEntrega"];
         $_SESSION["tipoPago"] = $_POST["tipoPago"];
         $tipoPago = $_SESSION["tipoPago"];
-        $insertarCompra = "call InsertarCompra($idOrden, '$fecha', '$estado', '$totalOrden', '$tipoEntrega', '$tipoPago')";
+        $descuento = $_SESSION["montoDescuento"];
+        $insertarCompra = "call InsertarCompra($idOrden, '$correo', '$fecha', '$estado', '$totalOrden', '$tipoEntrega', '$tipoPago', '$descuento')";
         $abrirCon -> next_result();
         if($abrirCon -> query($insertarCompra))
-        {
+        {   
+            CloseCon($abrirCon);
+            
+            foreach($_SESSION["carrito"] as $keys => $values)
+            {
+                $abrirCon = OpenCon();
+                $idProducto = $values["idProducto"];
+                $cantidad = $values["cantidadProducto"];
+                $insertarCarrito = "call InsertarCarrito($idOrden, $idProducto, $cantidad)";
+                $abrirCon -> next_result();
+                $abrirCon -> query($insertarCarrito);
+                CloseCon($abrirCon);
+            }    
             header('Location: resumen_compra.php?idOrden=' . $idOrden);
         }
         else

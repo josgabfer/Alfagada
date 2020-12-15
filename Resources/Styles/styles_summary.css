@@ -12,6 +12,7 @@
     font-weight: 400;
     font-size: 15px;
     font-family: 'Muli', sans-serif;
+    line-height: .7;
 }
 
 .card.style-2{
@@ -111,6 +112,7 @@ ul.item-groups li{
     align-items: center;
     padding-bottom: 1rem;
 }
+
 
 .confirmation_product {
     display: flex;

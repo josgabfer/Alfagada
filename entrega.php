@@ -42,6 +42,7 @@
     {   
         $_SESSION["tipoEntrega"] = $_POST["formaEntrega"];
         $_SESSION["precioFinal"]= $_POST["nuevoTotal"];
+        $_SESSION["sitioSeleccionado"]= $_POST["sitioSeleccionado"];
         header('Location: pago.php');
     }
 ?>
@@ -100,8 +101,7 @@
                                     <tr>
                                         <td>
                                             <div class="custom-control custom-radio">
-                                             <!-- Llamado a la opcion de sumarCargoEnvio para agregar al precio-->
-                                            <input type="radio" name="shipping" value="1" data-toggle="collapse" href="#delivery" class="custom-control-input" id="radio1" aria-expanded="true" aria-controls="delivery" onclick=sumarCargoEnvio(3000);>
+                                            <input type="radio" value="1" data-toggle="collapse" href="#delivery" class="custom-control-input" id="radio1" aria-expanded="true" aria-controls="delivery" onclick=sumarCargoEnvio(3000);>
                                                 <label class="custom-control-label" for="radio1">
                                                     A domicilio
                                                 </label>
@@ -113,8 +113,7 @@
                                     <tr>
                                         <td>
                                         <div class="custom-control custom-radio">
-                                            <!-- Llamado a la opcion de sumarCargoEnvio para agregar al precio-->
-                                            <input type="radio" name="shipping" value="2" data-toggle="collapse" data-parent="#accordion" href="#onsite" class="custom-control-input" id="radio2" aria-expanded="false" aria-controls="onsite" onclick=sumarCargoEnvio(1500);>
+                                            <input type="radio" value="2" data-toggle="collapse" data-parent="#accordion" href="#onsite" class="custom-control-input" id="radio2" aria-expanded="false" aria-controls="onsite" onclick=sumarCargoEnvio(1500);>
                                                 <label class="custom-control-label" for="radio2" >
                                                     Recoger en sitio
                                                 </label>
@@ -231,9 +230,8 @@
                                         <tr>
                                             <td>
                                                 <div class="custom-control custom-radio">
-                                                    <!-- Radio button para localizacion -->
-                                                <input type="radio" name="branch"  class="custom-control-input" id="heredia1" onclick=" mostrarBoton();">
-                                                    <label class="custom-control-label" for="heredia1">
+                                                <input type="radio" name="heredia"  class="custom-control-input" id="heredia" onclick=" mostrarBoton(1);">
+                                                    <label class="custom-control-label" for="heredia">
                                                         Belén, Heredia
                                                     </label>
                                                 </div>
@@ -242,9 +240,8 @@
                                         <tr>
                                             <td>
                                                 <div class="custom-control custom-radio">
-                                                    <!-- Radio button para localizacion -->
-                                                <input type="radio" name="branch" class="custom-control-input" id="rohrmoser2" onclick=" mostrarBoton();">
-                                                    <label class="custom-control-label" for="rohrmoser2">
+                                                <input type="radio" name="rohrmoser" class="custom-control-input" id="rohrmoser" onclick=" mostrarBoton(2);">
+                                                    <label class="custom-control-label" for="rohrmoser">
                                                         Rohrmoser, San José
                                                     </label>
                                                 </div>
@@ -311,6 +308,7 @@
                     </div>
                     <input type=hidden id ="nuevoTotal" name="nuevoTotal" value="" />
                     <input type=hidden id ="formaEntrega" name="formaEntrega" value="" />
+                    <input type=hidden id ="sitioSeleccionado" name="sitioSeleccionado" value="" />
                     <button class='btn btn-block-dark mb-2' hidden type='submit' id='continuarPago' name='continuarPago' >Continuar con el Pago</button>
                 </div>
                 </form>
@@ -368,13 +366,19 @@
             }
             
         }
-        //Asignacion del atributo hidden al boton de continuarPago
-        function mostrarBoton()
+        function mostrarBoton(x)
         {
             document.getElementById("continuarPago").removeAttribute("hidden");
-
+            if (x ==1)
+            {
+                document.getElementById("sitioSeleccionado").value = "Heredia";
+            }
+            else
+            {
+                document.getElementById("sitioSeleccionado").value = "Rohrmoser";
+            }
         }
-     
+
 
     </script>
 </form>

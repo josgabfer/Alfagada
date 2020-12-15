@@ -17,7 +17,8 @@
                 'precioProducto'		=>  $values["precioProducto"],
                 'cantidadProducto'		=>	$_POST["cantidadProducto" . $values["idProducto"]],
                 'imagenProducto'        =>  $values["imagenProducto"],
-                'descProducto'          =>  $values["descProducto"]
+                'descProducto'          =>  $values["descProducto"],
+                'categoriaProducto'     =>  $values["categoriaProducto"]
                 
             );
             $_SESSION["carrito"][$keys] = $arregloProductos;

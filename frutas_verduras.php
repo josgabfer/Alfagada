@@ -1,7 +1,7 @@
 <?php
 
     include 'Resources/Scripts/conexionBD.php';
-    $consulta = "Frutas_Verduras";
+    $consulta = "Frutas y Verduras";
     include 'Resources/Scripts/consultaProductos.php';
 
 ?>
@@ -13,9 +13,11 @@
     <?php include 'Resources/Sections/head.php';?> 
 </head>
 <body>
+    <form action="" method="post"> 
     <div>
         <?php include 'Resources/Sections/topBar.php';?> 
     </div>
+    </form>
     <div>
         <?php include 'Resources/Sections/menuBar.php';?> 
     </div>
@@ -103,6 +105,7 @@
                                           <input type="hidden" name="hidden_precio<?php echo $row["id"]?>" value="<?php echo $row["precio_unitario"];?>" />
                                           <input type="hidden" name="hidden_imagen<?php echo $row["id"]?>" value="<?php echo $row["imagen"];?>" />
                                           <input type="hidden" name="hidden_desc<?php echo $row["id"]?>" value="<?php echo $row["descripcion"];?>" />
+                                          <input type="hidden" name="hidden_categoria<?php echo $row["id"]?>" value="<?php echo $row["categoria"];?>" />
                                           
                                       </div>
                                       <div class="col-lg-8" style="padding: 7.5px">
@@ -175,6 +178,9 @@
                                           <input type="hidden" name="hidden_nombre<?php echo $row["id"]?>" value="<?php echo $row["nombre"];?>"/>
                                           <input type="hidden" name="hidden_precio<?php echo $row["id"]?>" value="<?php echo $row["precio_unitario"];?>" />
                                           <input type="hidden" name="hidden_imagen<?php echo $row["id"]?>" value="<?php echo $row["imagen"];?>" />
+                                          <input type="hidden" name="hidden_desc<?php echo $row["id"]?>" value="<?php echo $row["descripcion"];?>" />
+                                          <input type="hidden" name="hidden_categoria<?php echo $row["id"]?>" value="<?php echo $row["categoria"];?>" />
+                                          
                                       </div>
                                       <div class="col-lg-8" style="padding: 7.5px">
                                           <input type="submit" name="anadirCarrito" class="btn product_add_btn" value="Añadir al Carrito"/>

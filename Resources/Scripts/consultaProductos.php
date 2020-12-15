@@ -8,9 +8,9 @@
 
     $abrirCon = OpenCon();
 
-    $consultarProducto = "call ConsultarProducto('$consulta')";
+    $consultarCategoria = "call ConsultarCategoria('$consulta')";
     $abrirCon -> next_result();
-    $listaProductos = $abrirCon -> query($consultarProducto);
+    $listaProductos = $abrirCon -> query($consultarCategoria);
     if (!isset($total))
     {
       $total = 0;
@@ -31,7 +31,8 @@
             'precioProducto'		=>	$_POST["hidden_precio" . $_GET["id"]],
             'cantidadProducto'		=>	$_POST["cantidad"],
             'imagenProducto'    =>  $_POST["hidden_imagen" . $_GET["id"]],
-            'descProducto'      =>  $_POST["hidden_desc" . $_GET["id"]]
+            'descProducto'      =>  $_POST["hidden_desc" . $_GET["id"]],
+            'categoriaProducto'      =>  $_POST["hidden_categoria" . $_GET["id"]]
 
           );
           $_SESSION["carrito"][$contador] = $arregloProductos;
@@ -49,7 +50,8 @@
           'precioProducto'		=>	$_POST["hidden_precio" . $_GET["id"]],
           'cantidadProducto'		=>	$_POST["cantidad"],
           'imagenProducto'    =>  $_POST["hidden_imagen" . $_GET["id"]],
-          'descProducto'      =>  $_POST["hidden_desc" . $_GET["id"]]
+          'descProducto'      =>  $_POST["hidden_desc" . $_GET["id"]],
+          'categoriaProducto'      =>  $_POST["hidden_categoria" . $_GET["id"]]
         );
         $_SESSION["carrito"][0] = $arregloProductos;
         

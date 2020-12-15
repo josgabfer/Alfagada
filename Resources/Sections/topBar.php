@@ -1,25 +1,12 @@
 <?php
-include 'Resources/Scripts/conexionBD.php';
-
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-  }
-
-if (isset($_POST["btnBuscar"])) {
-    $abrirCon1 = OpenCon();
-    $search = $_POST["busqueda"];
-    $buscarProductos = "call BuscarProducto($search)";
-    echo $search;
-    if($abrirCon1 -> query($buscarProductos)){
-        echo "Hola Mundo";
-        header("Location: resultados.php");
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
     }
 
-    CloseCon($abrirCon1);
-		
-
-}
-
+    if (isset($_POST["btnBuscar"])) {
+        $_SESSION["busquedaRealizada"] = $_POST["busqueda"];
+        header("Location: resultados.php");
+    }
 
 ?>
 

@@ -1,6 +1,5 @@
 <?php
 
-    include 'Resources/Scripts/conexionBD.php';
     $consulta = "Bebidas";
     include 'Resources/Scripts/consultaProductos.php';
 

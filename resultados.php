@@ -1,3 +1,18 @@
+<?php
+    
+    include 'Resources/Scripts/conexionBD.php';
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    $busqueda = $_SESSION["busquedaRealizada"]; 
+    $abrirCon = OpenCon();
+    $buscarProductos = "call BuscarProducto('$busqueda')";
+    $abrirCon -> next_result();
+    $resultadoBusqueda = $abrirCon -> query($buscarProductos);
+    CloseCon($abrirCon);  
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,9 +86,8 @@
         <div class="row" id="rowScroll">
          
       <?php
-            if(mysqli_num_rows($resultadoProductos) > 0)
-            {
-              while($row = mysqli_fetch_array($resultadoProductos))
+            
+              while($row = mysqli_fetch_array($resultadoBusqueda))
               {
                 $sourceImagen = "Resources/imgs/" .   $row["imagen"] . ".jpg";
                 $idProducto = $row["id"];
@@ -131,7 +145,7 @@
 
    <?php
           }
-        }
+        
    ?> 
                       
               </div>
@@ -142,9 +156,9 @@
         <div class="row">
          
       <?php
-            if(mysqli_num_rows($resultadoProductos) > 0)
+            if(mysqli_num_rows($resultadoBusqueda) > 0)
             {
-              while($row = mysqli_fetch_array($resultadoProductos))
+              while($row = mysqli_fetch_array($resultadoBusqueda))
               {
                 $sourceImagen = "Resources/imgs/" .   $row["imagen"] . ".jpg";
                 $idProducto = $row["id"];

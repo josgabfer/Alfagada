@@ -40,9 +40,11 @@
     //Seccion de continuar con el pago, y redireccion a la pagina pago.php
     if (isset($_POST["continuarPago"]))
     {   
+
         $_SESSION["tipoEntrega"] = $_POST["formaEntrega"];
         $_SESSION["precioFinal"]= $_POST["nuevoTotal"];
         $_SESSION["sitioSeleccionado"]= $_POST["sitioSeleccionado"];
+        
         header('Location: pago.php');
     }
 ?>
@@ -101,7 +103,7 @@
                                     <tr>
                                         <td>
                                             <div class="custom-control custom-radio">
-                                            <input type="radio" value="1" data-toggle="collapse" href="#delivery" class="custom-control-input" id="radio1" aria-expanded="true" aria-controls="delivery" onclick=sumarCargoEnvio(3000);>
+                                            <input type="radio" value="1" data-toggle="collapse" href="#delivery" name="radio" class="custom-control-input" id="radio1" aria-expanded="true" aria-controls="delivery" onclick=sumarCargoEnvio(3000);>
                                                 <label class="custom-control-label" for="radio1">
                                                     A domicilio
                                                 </label>
@@ -113,7 +115,7 @@
                                     <tr>
                                         <td>
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" value="2" data-toggle="collapse" data-parent="#accordion" href="#onsite" class="custom-control-input" id="radio2" aria-expanded="false" aria-controls="onsite" onclick=sumarCargoEnvio(1500);>
+                                            <input type="radio" value="2" data-toggle="collapse" data-parent="#accordion" name="radio" href="#onsite" class="custom-control-input" id="radio2" aria-expanded="false" aria-controls="onsite" onclick=sumarCargoEnvio(1500);>
                                                 <label class="custom-control-label" for="radio2" >
                                                     Recoger en sitio
                                                 </label>
@@ -220,6 +222,7 @@
                                 <div class="col-12">
                                     <button class="btn btn-outline-dark" name="anadirDireccion" type="submit">Añadir Dirección</button>
                                 </div>
+                                </form>
                             </div>
                         </div>
                         <div id="onsite" class="collapse" data-parent="#accordion">
@@ -230,8 +233,8 @@
                                         <tr>
                                             <td>
                                                 <div class="custom-control custom-radio">
-                                                <input type="radio" name="heredia"  class="custom-control-input" id="heredia" onclick=" mostrarBoton(1);">
-                                                    <label class="custom-control-label" for="heredia">
+                                                <input type="radio"  class="custom-control-input" name="radio1" id="heredia1" onclick=mostrarBoton(1)>
+                                                    <label class="custom-control-label" for="heredia1">
                                                         Belén, Heredia
                                                     </label>
                                                 </div>
@@ -240,8 +243,8 @@
                                         <tr>
                                             <td>
                                                 <div class="custom-control custom-radio">
-                                                <input type="radio" name="rohrmoser" class="custom-control-input" id="rohrmoser" onclick=" mostrarBoton(2);">
-                                                    <label class="custom-control-label" for="rohrmoser">
+                                                <input type="radio" class="custom-control-input" name="radio1" id="rohrmoser2" onclick=mostrarBoton(2)>
+                                                    <label class="custom-control-label" for="rohrmoser2">
                                                         Rohrmoser, San José
                                                     </label>
                                                 </div>
@@ -331,6 +334,17 @@
                 $("#radio1").attr('checked', true); 
                 $(hash).show();
                 $('html, body').animate({scrollTop: $("#formEnvio").offset().top}, 2000);
+                document.getElementById("continuarPago").removeAttribute("hidden");
+                document.getElementById("envioResumen").innerHTML = "¢3000";
+                <?php
+                //impresion del totalResumen utilizando la variable de sesion precionFinal
+                echo 'document.getElementById("totalResumen").innerHTML = "'.number_format($_SESSION["precioFinal"]).'";';      
+                ?>
+                var totalEnvio = (parseFloat(document.getElementById("totalResumen").innerHTML.replace(",","")) + 3000);
+                totalEnvio = totalEnvio.toLocaleString(undefined, { minimumFractionDigits: 0 });
+                document.getElementById("totalResumen").innerHTML = "¢" + totalEnvio;
+                document.getElementById("nuevoTotal").value = totalEnvio.replace(",","");
+                document.getElementById("formaEntrega").value = "A domicilio";
             }
         }
         $(hash).click(function(){
@@ -352,7 +366,7 @@
             totalEnvio = totalEnvio.toLocaleString(undefined, { minimumFractionDigits: 0 });
             document.getElementById("totalResumen").innerHTML = "¢" + totalEnvio;
             document.getElementById("nuevoTotal").value = totalEnvio.replace(",","");
-            //determinar el tipo de entrega, y la asignacion del atributo hidden.
+            //determinar el tipo de entrega y la remover el atributo hidden.
             if (x==3000)
             {
                 document.getElementById("formaEntrega").value = "A domicilio";
@@ -366,6 +380,7 @@
             }
             
         }
+        
         function mostrarBoton(x)
         {
             document.getElementById("continuarPago").removeAttribute("hidden");
@@ -378,9 +393,8 @@
                 document.getElementById("sitioSeleccionado").value = "Rohrmoser";
             }
         }
-
+     
 
     </script>
-</form>
 </body>
 </html>

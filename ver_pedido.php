@@ -235,25 +235,8 @@
                                     </div>
                                     <?php
                                         }
-                                        else
-                                        {
+                                        
                                     ?>
-                                    <div class="col-12 col-md-6">
-                                        <p class="info_pago font-weight-bold">Dirección del Supermercado:</p>
-                                        <p class="info-pago">
-                                        <?php
-                                                   
-                                                if($_SESSION["sitioSeleccionado"] == "Heredia")
-                                                {
-                                                    echo "200 metros del Palo de Mango<br>San Antonio, Belén<br>Heredia, Costa Rica<br>";
-                                                }
-                                                else
-                                                {
-                                                    echo "150 metros del Palo de Manzanas<br>Geroma, Rohrmoser<br>San José, Costa Rica<br>";
-                                                }
-                                            }
-                                        ?>
-                                    </div>
                                     <div class="col-6 col-md-3">
                                         <p class="info_pago font-weight-bold">Tipo de Entrega:</p>
                                         <p class="info-pago">

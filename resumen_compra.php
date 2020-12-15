@@ -83,7 +83,7 @@
                             <p class="font-size-sm mb-2">Su número de orden es: <span class="font-weight-medium"><?php echo $_GET["idOrden"]; ?></span></p>
                             <p class="font-size-sm mb-2">Recibirá un correo electrónico con la confirmación de la orden.</p>
                             <a class="btn checkout-btn-secondary mt-3 mr-3" href="productos.php">Seguir Comprando</a>
-                            <a class="btn checkout-btn mt-3">Rastrear Orden</a>
+                            <a class="btn checkout-btn mt-3" href="ver_pedido.php?ordenId=<?php echo $_GET["idOrden"]; ?>">Rastrear Orden</a>
                         </div>
                     </div>
                 </div>

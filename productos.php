@@ -124,10 +124,10 @@
                                 <div class="categories_caption">
                                     <div class="categories_bottom_caption">
                                         <div class="categories_title">
-                                            Frutas y Vegetables
+                                            Frutas y Verduras
                                         </div>
                                     </div>
-                                    <a href="frutas_vegetales.php" class="btn categories_btn">Comprar</a>
+                                    <a href="frutas_verduras.php" class="btn categories_btn">Comprar</a>
                                 </div>
                             </div>
                         </div>

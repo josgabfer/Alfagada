@@ -15,7 +15,7 @@
                   <a class="dropdown-item" href="bebidas.php">Bebidas</a>
                   <a class="dropdown-item" href="carnes.php">Carnes</a>
                   <a class="dropdown-item" href="limpieza.php">Limpieza</a>
-                  <a class="dropdown-item" href="frutas_vegetales.php">Frutas y Verduras</a>
+                  <a class="dropdown-item" href="frutas_verduras.php">Frutas y Verduras</a>
                   <a class="dropdown-item" href="lacteos.php">Lácteos</a>
                   <a class="dropdown-item" href="panaderia.php">Panadería y Repostería</a>
                 </ul>

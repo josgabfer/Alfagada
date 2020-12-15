@@ -1,22 +1,15 @@
 <?php
-    
-    include 'Resources/Scripts/conexionBD.php';
-    if (session_status() == PHP_SESSION_NONE) {
-        session_start();
-    }
-    $busqueda = $_SESSION["busquedaRealizada"]; 
-    $abrirCon = OpenCon();
-    $buscarProductos = "call BuscarProducto('$busqueda')";
-    $abrirCon -> next_result();
-    $resultadoBusqueda = $abrirCon -> query($buscarProductos);
-    CloseCon($abrirCon);  
 
+    include 'Resources/Scripts/conexionBD.php';
+    $consulta = "Frutas_Verduras";
+    include 'Resources/Scripts/consultaProductos.php';
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Resultados</title>
+    <title>Productos</title>
     <?php include 'Resources/Sections/head.php';?> 
 </head>
 <body>
@@ -27,14 +20,14 @@
         <?php include 'Resources/Sections/menuBar.php';?> 
     </div>
     <div class="min-banner img-fluid">
-      <img src="Resources/imgs/search.jpeg"  alt="...">
+      <img src="Resources/imgs/frutas_verduras.jpeg"  alt="...">
     </div>
     <div class="checkout_header">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="text-center">
-                        <h2 class="checkout_title">Resultados de Busqueda</h2>
+                        <h2 class="checkout_title">Frutas y Verduras</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
@@ -46,7 +39,7 @@
                                     <a href="productos.php">Tienda</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    Resultados
+                                    Frutas y Verduras
                                 </li>
                             </ol>
                         </nav>
@@ -63,8 +56,9 @@
         <div class="row" id="rowScroll">
          
       <?php
-            
-              while($row = mysqli_fetch_array($resultadoBusqueda))
+            if(mysqli_num_rows($listaProductos) > 0)
+            {
+              while($row = mysqli_fetch_array($listaProductos))
               {
                 $sourceImagen = "Resources/imgs/" .   $row["imagen"] . ".jpg";
                 $idProducto = $row["id"];
@@ -73,7 +67,7 @@
                 $descProducto = $row["descripcion"];
       ?>
            <div class="col-lg-3 col-md-4 col-sm-6">
-                  <form method="post" action="carnes.php?action=add&id=<?php echo $row["id"]; ?>">
+                  <form method="post" action="frutas_verduras.php?action=add&id=<?php echo $row["id"]; ?>">
              
                       
                               <div class="product_grid">
@@ -122,7 +116,7 @@
 
    <?php
           }
-        
+        }
    ?> 
                       
               </div>
@@ -133,9 +127,9 @@
         <div class="row">
          
       <?php
-            if(mysqli_num_rows($resultadoBusqueda) > 0)
+            if(mysqli_num_rows($listaProductos) > 0)
             {
-              while($row = mysqli_fetch_array($resultadoBusqueda))
+              while($row = mysqli_fetch_array($listaProductos))
               {
                 $sourceImagen = "Resources/imgs/" .   $row["imagen"] . ".jpg";
                 $idProducto = $row["id"];
@@ -144,7 +138,7 @@
                 $descProducto = $row["descripcion"];
       ?>
            <div class="col-lg-3 col-md-4 col-sm-6">
-                  <form method="post" action="carnes.php?action=add&id=<?php echo $row["id"]; ?>">
+                  <form method="post" action="frutas_verduras.php?action=add&id=<?php echo $row["id"]; ?>">
              
                       
                               <div class="product_grid">

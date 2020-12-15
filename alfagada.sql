@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 15, 2020 at 12:37 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- Host: localhost
+-- Generation Time: Dec 15, 2020 at 05:20 AM
+-- Server version: 10.4.16-MariaDB
+-- PHP Version: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,6 +27,15 @@ DELIMITER $$
 --
 -- Procedures
 --
+CREATE DEFINER=`root`@`localhost` PROCEDURE `BuscarProducto` (IN `pDesc` VARCHAR(30))  NO SQL
+BEGIN
+
+SELECT * 
+FROM productos
+WHERE descripcion LIKE concat('%',pDesc,'%');
+
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ConsultarCompra` (IN `pId` INT)  NO SQL
 BEGIN
 
@@ -130,6 +139,8 @@ INSERT INTO `compras` (`idOrden`, `fechaEntrega`, `estado`, `totalOrden`, `tipoE
 (2193, '2020-12-18', 'Pendiente', '7150', 'Recoger en sitio', 'Efectivo'),
 (2438, '2020-12-18', 'Pendiente', '', '', 'Efectivo'),
 (12077, '2020-12-18', 'Pendiente', '13930', 'Recoger en sitio', 'Efectivo'),
+(34597, '2020-12-19', 'Pendiente', '68602', 'Recoger en sitio', 'Efectivo'),
+(39351, '2020-12-19', 'Pendiente', '68602', 'Recoger en sitio', 'Efectivo'),
 (69033, '2020-12-18', 'Pendiente', '', '', ''),
 (82752, '2020-12-18', 'Pendiente', '7150', 'Recoger en sitio', 'Efectivo'),
 (91578, '2020-12-18', 'Pendiente', '6786', 'A domicilio', 'Efectivo'),
@@ -185,10 +196,10 @@ INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `categoria`, `precio_uni
 (28, 'Irex', 'Desinfectante Aroma Bosque 900ml', 'Limpieza', '660', 'irex'),
 (29, 'Air Wick', 'Desodorante Ambiental Aerosol Acquamarine 400ml', 'Limpieza', '2945', 'airwick'),
 (30, 'Scotch Brite', 'Esponja Doble Uso 2u', 'Limpieza', '1855', 'scotchbrite'),
-(31, 'Alfagada Panaderia', 'Trenza Queso', 'Panaderia', '1070', 'trenza'),
-(32, 'Alfagada Panaderia', 'Pan Frances Simple Medio', 'Panaderia', '350', 'panfrances'),
+(31, 'Alfagada Panadería', 'Trenza Queso', 'Panaderia', '1070', 'trenza'),
+(32, 'Alfagada Panadería', 'Pan Frances Simple Medio', 'Panaderia', '350', 'panfrances'),
 (33, 'Bimbo', 'Pan Blanco Bollito Artesano 390g', 'Panaderia', '1550', 'panartesano'),
-(34, 'Torti Rica', 'Tortillas Maiz Gruesitas 20u 504g', 'Panaderia', '1290', 'tortillas'),
+(34, 'TortiRicas', 'Tortillas Maiz Gruesitas 20u 504g', 'Panaderia', '1290', 'tortillas'),
 (35, 'Flor de Oro', 'Torta Chocofresa Pequeña ', 'Panaderia', '7370', 'queque'),
 (36, 'Flor de Oro', 'Cheesecake Fresa', 'Panaderia', '7000', 'cheesecake'),
 (37, 'Zacapa', 'Ron Añejo 25 Años 750ml', 'Bebidas', '58535', 'ron'),

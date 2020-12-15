@@ -13,9 +13,11 @@
     <?php include 'Resources/Sections/head.php';?> 
 </head>
 <body>
+    <form action="" method="post">  
     <div>
         <?php include 'Resources/Sections/topBar.php';?> 
     </div>
+    </form> 
     <div>
         <?php include 'Resources/Sections/menuBar.php';?> 
     </div>

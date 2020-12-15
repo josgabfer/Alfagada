@@ -20,15 +20,16 @@
         </div>
         <div class="header_search">
             <div class="input-group">
+            
                 <input type="text" class="search-form-control form-control" placeholder="Buscar..." name="busqueda">
                 <span class="input-group-append">
                     <button class="btn search_btn" type="submit" name="btnBuscar" >
                         <i class="fas fa-search w3-medium" ></i>
                     </button>
                 </span>
+             
             </div>   
         </div>
-
 
         <div class="header_login">
             <ul>

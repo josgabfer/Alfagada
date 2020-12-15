@@ -1,11 +1,15 @@
 <?php
-
-    if (session_status() == PHP_SESSION_NONE) 
-    {
+    include 'Resources/Scripts/conexionBD.php';
+    if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
-        
-
+    $abrirCon = OpenCon();
+    $correo = $_SESSION["correoSesion"];
+    $consultarCompras = "call ConsultarCompra('0', '$correo')";
+    $comprasUsuario = $abrirCon -> query($consultarCompras);
+    CloseCon($abrirCon);
+    
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +32,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="text-center">
-                        <h2 class="checkout_title">Mis Ordenes</h2>
+                        <h2 class="checkout_title">Mis Pedidos</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
@@ -40,7 +44,7 @@
                                     <a href="cuenta.php">Mi Cuenta</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    Mis Ordenes
+                                    Mis Pedidos
                                 </li>
                             </ol>
                         </nav>
@@ -57,7 +61,7 @@
                     <nav class="dashboard-nav mb-10 mb-md-0">
                         <div class="list-group list-group-sm list-group-strong list-group-flush-x account_menu">
                             <a class="list-group-item list-group-item-action dropright-toggle"  href="cuenta.php">Mi Cuenta</a>
-                            <a class="list-group-item list-group-item-action dropright-toggle active"  href="ordenes.php">Mis Ordenes</a>
+                            <a class="list-group-item list-group-item-action dropright-toggle active"  href="pedidos.php">Mis Pedidos</a>
                             <a class="list-group-item list-group-item-action dropright-toggle" href="logout.php">Cerrar Sesión</a>
                         </div>
                     </nav>
@@ -65,7 +69,7 @@
                 <div class="col-lg-8 col-md-9">
                     <div class="card style-2">
                         <div class="card-header">
-                            <h4 class="mb-0">Mis Ordenes</h4>
+                            <h4 class="mb-0">Mis Pedidos</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -80,32 +84,26 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <?php
+                                        if(mysqli_num_rows($comprasUsuario) > 0)
+                                        {
+                                            while($row = mysqli_fetch_array($comprasUsuario))
+                                            {
+                                               
+                                    ?>
                                         <tr>
-                                            <td>8910563</td>
-                                            <td>18 Dec 2020</td>
-                                            <td>¢15000</td>
-                                            <td>En Proceso</td>
+                                            <td><?php echo $row["idOrden"]; ?></td>
+                                            <td><?php echo $row["fechaEntrega"]; ?></td>
+                                            <td>¢<?php echo number_format($row["totalOrden"]); ?></td>
+                                            <td><?php echo $row["estado"]; ?></td>
                                             <td>
-                                                <a href="miorden.php" class="btn btn-sm btn-order_history">Ver Orden</a>
+                                                <a href="ver_pedido.php?ordenId=<?php echo $row["idOrden"]; ?>" class="btn btn-sm btn-order_history">Ver Pedido</a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>8910563</td>
-                                            <td>18 Dec 2020</td>
-                                            <td>¢15000</td>
-                                            <td>En Proceso</td>
-                                            <td>
-                                                <a href="#" class="btn btn-sm btn-order_history">Ver Orden</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>8910563</td>
-                                            <td>18 Dec 2020</td>
-                                            <td>¢15000</td>
-                                            <td>En Proceso</td>
-                                            <td>
-                                                <a href="#" class="btn btn-sm btn-order_history">Ver Orden</a>
-                                            </td>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
                                         </tr>
                                     </tbody>
                                 </table>

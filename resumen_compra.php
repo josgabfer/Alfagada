@@ -5,7 +5,7 @@
     }
     $abrirCon = OpenCon();
     $idOrden = $_GET["idOrden"];
-    $consultarCompra = "call ConsultarCompra($idOrden)";
+    $consultarCompra = "call ConsultarCompra($idOrden, '0')";
     $compraRegistrada = $abrirCon -> query($consultarCompra);
     $fila = mysqli_fetch_array($compraRegistrada);
     CloseCon($abrirCon);
@@ -28,7 +28,6 @@
     unset($_SESSION["impuesto"]);
     unset($_SESSION["tipoEntrega"]);
     unset($_SESSION["montoDescuento"]);
-    
 ?>
 
 <!DOCTYPE html>
@@ -151,7 +150,7 @@
                                             <span><?php echo $values["descProducto"];?></span>
                                         </p>
                                         <div class="font-size-sm text-muted-thin">
-                                            <h5>Categoría: Abarrotes</h5>
+                                            <h5>Categoría: <?php echo $values["categoriaProducto"];?></h5>
                                         </div>
                                     </div>
                                     <div class="col-2">
@@ -268,7 +267,7 @@
                                             {
                                         ?>
                                             <div class="col-12 col-md-6">
-                                                <p class="info_pago font-weight-bold">Dirección del Sitio:</p>
+                                                <p class="info_pago font-weight-bold">Dirección del Supermercado:</p>
                                                 <p class="info-pago">
                                             <?php
                                                    
@@ -278,7 +277,7 @@
                                                 }
                                                 else
                                                 {
-                                                    echo "200 metros del Palo de Mango<br>San Antonio, Belén<br>Heredia, Costa Rica<br>";
+                                                    echo "150 metros del Palo de Manzanas<br>Geroma, Rohrmoser<br>San José, Costa Rica<br>";
                                                 }
                                             }
                                             ?>

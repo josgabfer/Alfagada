@@ -1,16 +1,40 @@
 <?php
 
-    if (session_status() == PHP_SESSION_NONE) 
-    {
+    include 'Resources/Scripts/conexionBD.php';
+    if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
-        
+    $abrirCon = OpenCon();
+    $idOrden = $_GET["ordenId"];
+    $consultarCompras = "call ConsultarCompra($idOrden, '0')";
+    $comprasUsuario = $abrirCon -> query($consultarCompras);
+    $row = mysqli_fetch_array($comprasUsuario);
+    if ($row["tipoEntrega"] == "A domicilio")
+    {
+        $costoEntrega = "3000";
+    }
+    else
+    {
+        $costoEntrega = "1500";
+    }
+    CloseCon($abrirCon);
+    $abrirCon = OpenCon();
+    $consultarCarrito = "call ConsultarCarrito($idOrden)";
+    $carritoCompra = $abrirCon -> query($consultarCarrito);
+    CloseCon($abrirCon);
 
+    $abrirCon = OpenCon();
+    $correo = $_SESSION["correoSesion"];
+    $consultarDireccion = "call ConsultarDireccion('$correo')";
+    $direccionRegistrada = $abrirCon -> query($consultarDireccion);
+    CloseCon($abrirCon);
+    
+        
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Resumen Compra</title>
+    <title>Ver Pedido</title>
     <?php include 'Resources/Sections/head.php';?> 
 </head>
 <body>
@@ -28,7 +52,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="text-center">
-                        <h2 class="checkout_title">Mis Ordenes</h2>
+                        <h2 class="checkout_title">Ver Pedido</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
@@ -40,7 +64,7 @@
                                     <a href="cuenta.php">Mi Cuenta</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    Mis Ordenes
+                                    Ver Pedido
                                 </li>
                             </ol>
                         </nav>
@@ -57,7 +81,7 @@
                     <nav class="dashboard-nav mb-10 mb-md-0">
                         <div class="list-group list-group-sm list-group-strong list-group-flush-x account_menu">
                             <a class="list-group-item list-group-item-action dropright-toggle"  href="cuenta.php">Mi Cuenta</a>
-                            <a class="list-group-item list-group-item-action dropright-toggle active"  href="ordenes.php">Mis Ordenes</a>
+                            <a class="list-group-item list-group-item-action dropright-toggle active"  href="pedidos.php">Mis Pedidos</a>
                             <a class="list-group-item list-group-item-action dropright-toggle" href="logout.php">Cerrar Sesión</a>
                         </div>
                     </nav>
@@ -68,97 +92,77 @@
                             <div class="row">
                                 <div class="col-6 col-lg-3">
                                     <h6 class="text-muted mb-1">Número de Orden:</h6>
-                                    <p class="mb-lg-0 font-size-sm ch-text-bold">1234564</p>
+                                    <p class="mb-lg-0 font-size-sm ch-text-bold"><?php echo $idOrden; ?></p>
                                 </div>
                                 <div class="col-6 col-lg-3">
                                     <h6 class="text-muted mb-1">Fecha de Entrega:</h6>
-                                    <p class="mb-lg-0 font-size-sm ch-text-bold">12/12/12</p>
+                                    <p class="mb-lg-0 font-size-sm ch-text-bold"><?php echo $row["fechaEntrega"]; ?></p>
                                 </div>
                                 <div class="col-6 col-lg-3">
                                     <h6 class="text-muted mb-1">Estado:</h6>
-                                    <p class="mb-lg-0 font-size-sm ch-text-bold">En proceso</p>
+                                    <p class="mb-lg-0 font-size-sm ch-text-bold"><?php echo $row["estado"]; ?></p>
                                 </div>
                                 <div class="col-6 col-lg-3">
                                     <h6 class="text-muted mb-1">Total de Orden:</h6>
-                                    <p class="mb-lg-0 font-size-sm ch-text-bold">¢15000</p>
+                                    <p class="mb-lg-0 font-size-sm ch-text-bold">¢<?php echo number_format($row["totalOrden"]); ?></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <br>
-                    <div class="card style-2 mb-4">
-                        <div class="card-header">
+                    <div class="card style-2 mb-4 col">
+                    <div class="row">
+                        <div class="card-header col-9">
                             <h4 class="mb-0">Productos</h4>
+                        </div>
+                        <div class="card-header col-3">
+                            <h4 class="mb-0">Cantidad</h4>
                         </div>
                         <div class="card-body">
                             <ul class="item-groups">
+                            <?php
+                                while($rowCarrito = mysqli_fetch_array($carritoCompra))
+                                {
+                                    
+                                    $idProducto = $rowCarrito["idProducto"];
+                                    $cantidadProducto = $rowCarrito["cantidad"];
+                                    $abrirCon = OpenCon();
+                                    $consultarProductoCarrito = "call ConsultarCarritoProducto($idProducto)";
+                                    $productoCarrito = $abrirCon -> query($consultarProductoCarrito);
+                                    CloseCon($abrirCon);
+                                    while($rowProducto = mysqli_fetch_array($productoCarrito))
+                                    {
+                            ?>
                                 <li>
                                     <div class="row align-items-center">
                                         <div class="col-4 col-md-4 col-xl-4">
                                             <a class="confirmation_product_thumb" href="#">
-                                                <img src="Resources/imgs/vanish.jpg"  class="confirmation_product_thumb" alt="">
+                                                <img src="<?php echo 'Resources/imgs/' .   $rowProducto["imagen"] . '.jpg'; ?>" class="confirmation_product_thumb" alt="">
                                             </a>
                                         </div>
                                         <div class="col-8 col-md-8 col-xl-">
                                             <p class="font-size-sm c-product">
-                                                <a href="#">Vanish</a>
+                                                <a href="#"><?php echo $rowProducto["nombre"]; ?></a>
                                                 <br>
-                                                <span>¢2685</span>
+                                                <span>¢<?php echo number_format($rowProducto["precio_unitario"]);?></span>
                                             </p>
                                             <div class="font-size-sm text-muted-thin">
-                                                <h5>Quitamanchas Polvo Color 450g</h5>
+                                                <h5><?php echo $rowProducto["descripcion"];?></h5>
                                             </div>
                                             <div class="font-size-sm text-muted-thin">
-                                                <h5>Categoría: Limpieza</h5>
+                                                <h5>Categoría: <?php echo $rowProducto["categoria"];?></h5>
+                                            </div>
+                                            <div class="col-2">
+                                                <h3><?php echo $cantidadProducto; ?></h3>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="row align-items-center">
-                                        <div class="col-4 col-md-4 col-xl-4">
-                                            <a class="confirmation_product_thumb" href="#">
-                                                <img src="Resources/imgs/vanish.jpg"  class="confirmation_product_thumb" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="col-8 col-md-8 col-xl-">
-                                            <p class="font-size-sm c-product">
-                                                <a href="#">Vanish</a>
-                                                <br>
-                                                <span>¢2685</span>
-                                            </p>
-                                            <div class="font-size-sm text-muted-thin">
-                                                <h5>Quitamanchas Polvo Color 450g</h5>
-                                            </div>
-                                            <div class="font-size-sm text-muted-thin">
-                                                <h5>Categoría: Limpieza</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="row align-items-center">
-                                        <div class="col-4 col-md-4 col-xl-4">
-                                            <a class="confirmation_product_thumb" href="#">
-                                                <img src="Resources/imgs/vanish.jpg"  class="confirmation_product_thumb" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="col-8 col-md-8 col-xl-">
-                                            <p class="font-size-sm c-product">
-                                                <a href="#">Vanish</a>
-                                                <br>
-                                                <span>¢2685</span>
-                                            </p>
-                                            <div class="font-size-sm text-muted-thin">
-                                                <h5>Quitamanchas Polvo Color 450g</h5>
-                                            </div>
-                                            <div class="font-size-sm text-muted-thin">
-                                                <h5>Categoría: Limpieza</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                                <?php
+                                    }
+                                }
+                                ?>
+                            </div>
                         </div>
                     </div>
                     <div class="card style-2 mb-4">
@@ -170,23 +174,27 @@
                                 <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
                                     <li class="list-group-item d-flex">
                                         <span>Subtotal</span>
-                                        <span class="ml-auto">¢15000</span>
+                                        <span class="ml-auto">¢<?php echo number_format(($row["totalOrden"] + $row["descuento"] - $costoEntrega)/1.13); ?></span>
                                     </li>
                                     <li class="list-group-item d-flex">
                                         <span>Impuestos</span>
-                                        <span class="ml-auto">¢300</span>
-                                    </li>
-                                    <li class="list-group-item d-flex">
-                                        <span>Envío</span>
-                                        <span class="ml-auto">¢1500</span>
+                                        <span class="ml-auto">¢<?php echo number_format(($row["totalOrden"] + $row["descuento"] - $costoEntrega)/1.13*0.13); ?></span>
                                     </li>
                                     <li class="list-group-item d-flex">
                                         <span>Descuento</span>
-                                        <span class="ml-auto">¢150</span>
+                                        <span class="ml-auto">¢<?php echo number_format($row["descuento"]); ?></span>
+                                    </li>
+                                    <li class="list-group-item d-flex">
+                                        <span>Envío</span>
+                                        <span class="ml-auto">¢
+                                        <?php 
+                                            echo number_format($costoEntrega);
+                                        ?>
+                                        </span>
                                     </li>
                                     <li class="list-group-item d-flex font-weight-bold">
                                         <span>Total</span>
-                                        <span class="ml-auto">¢16950</span>
+                                        <span class="ml-auto">¢<?php echo number_format($row["totalOrden"]); ?></span>
                                     </li>
                                 </ul>
                             </div>
@@ -199,6 +207,12 @@
                             </div>
                             <div class="card-body price-card-body">
                                 <div class="row">
+                                
+                                <?php
+                                    if ($row["tipoEntrega"] == "A domicilio")
+                                    {
+                                ?>
+                                
                                     <div class="col-12 col-md-6">
                                         <p class="info_pago font-weight-bold">Dirección de Entrega:</p>
                                         <p class="info-pago">
@@ -222,14 +236,35 @@
                                         ?>
                                         </p>
                                     </div>
+                                    <?php
+                                        }
+                                        else
+                                        {
+                                    ?>
+                                    <div class="col-12 col-md-6">
+                                        <p class="info_pago font-weight-bold">Dirección del Supermercado:</p>
+                                        <p class="info-pago">
+                                        <?php
+                                                   
+                                                if($_SESSION["sitioSeleccionado"] == "Heredia")
+                                                {
+                                                    echo "200 metros del Palo de Mango<br>San Antonio, Belén<br>Heredia, Costa Rica<br>";
+                                                }
+                                                else
+                                                {
+                                                    echo "150 metros del Palo de Manzanas<br>Geroma, Rohrmoser<br>San José, Costa Rica<br>";
+                                                }
+                                            }
+                                        ?>
+                                    </div>
                                     <div class="col-12 col-md-6">
                                         <p class="info_pago font-weight-bold">Tipo de Entrega:</p>
                                         <p class="info-pago">
-                                            <?php echo $fila["tipoEntrega"]; ?>
+                                            <?php echo $row["tipoEntrega"]; ?>
                                         </p>
                                         <p class="info_pago font-weight-bold">Tipo de Pago:</p>
                                         <p class="info-pago">
-                                            <?php echo $fila["tipoPago"]; ?>
+                                            <?php echo $row["tipoPago"]; ?>
                                         </p>
                                     </div>
                                 </div>

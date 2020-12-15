@@ -1,12 +1,14 @@
 <?php
-
+//Inicio de sesion
     include 'Resources/Scripts/conexionBD.php';
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
     $abrirCon = OpenCon();
+    //idOrden se envia para consultarCompra
     $idOrden = $_GET["ordenId"];
     $consultarCompras = "call ConsultarCompra($idOrden, '0')";
+    //consultarCompras es guardado comprasUsuario
     $comprasUsuario = $abrirCon -> query($consultarCompras);
     $row = mysqli_fetch_array($comprasUsuario);
     if ($row["tipoEntrega"] == "A domicilio")
@@ -22,6 +24,7 @@
     $consultarCarrito = "call ConsultarCarrito($idOrden)";
     $carritoCompra = $abrirCon -> query($consultarCarrito);
     CloseCon($abrirCon);
+    //consulta del correo, informacion de la direccion es guardada en direccionRegistrada
 
     $abrirCon = OpenCon();
     $correo = $_SESSION["correoSesion"];
@@ -120,6 +123,8 @@
                             <?php
                                 while($rowCarrito = mysqli_fetch_array($carritoCompra))
                                 {
+                                    //informacion de la variable de carritoCompra, es utilizada para la consulta de productos,
+                                    //Esta informacion esguardada en rowProducto, para su visualizacion en las secciones
                                     
                                     $idProducto = $rowCarrito["idProducto"];
                                     $cantidadProducto = $rowCarrito["cantidad"];

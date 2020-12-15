@@ -1,8 +1,11 @@
 <?php
+
+//Inicio de sesion
     include 'Resources/Scripts/conexionBD.php';
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
+    //consulta de compra a la base de datos, consulta compra, informacion es guardada en fila
     $abrirCon = OpenCon();
     $idOrden = $_GET["idOrden"];
     $consultarCompra = "call ConsultarCompra($idOrden, '0')";
@@ -10,6 +13,7 @@
     $fila = mysqli_fetch_array($compraRegistrada);
     CloseCon($abrirCon);
     $abrirCon = OpenCon();
+    //consulta a la base de datos, informacion es guardada en direccionRegistrada
     $correo = $_SESSION["correoSesion"];
     $consultarDireccion = "call ConsultarDireccion('$correo')";
     $direccionRegistrada = $abrirCon -> query($consultarDireccion);
@@ -242,7 +246,7 @@
                                                 <p class="info_pago font-weight-bold">Dirección de Entrega:</p>
                                                 <p class="info-pago">
                                                 <?php
-                                                    
+                                                    //direccionRegistrada es guardada en las diferentes variables para la direccion
                                                     if(mysqli_num_rows($direccionRegistrada) > 0)
                                                     {
                                                         $filaDireccion = mysqli_fetch_array($direccionRegistrada);

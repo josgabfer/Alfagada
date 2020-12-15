@@ -1,9 +1,10 @@
 <?php
-    
+//Conexion a la base de datos     
     include 'Resources/Scripts/conexionBD.php';
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
+    //datos de busqueda es guardada para la busqueda buscarProducto
     $busqueda = $_SESSION["busquedaRealizada"]; 
     $abrirCon = OpenCon();
     $buscarProductos = "call BuscarProducto('$busqueda')";
@@ -65,7 +66,7 @@
         <div class="row" id="rowScroll">
          
       <?php
-            
+            //los resultados de la busqueda son guardados dentro row, para ser desplegados 
               while($row = mysqli_fetch_array($resultadoBusqueda))
               {
                 $sourceImagen = "Resources/imgs/" .   $row["imagen"] . ".jpg";
@@ -134,8 +135,10 @@
       <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="row">
-         
+     
       <?php
+        //los resultados de la busqueda son guardados dentro row, para ser desplegados 
+
             if(mysqli_num_rows($resultadoBusqueda) > 0)
             {
               while($row = mysqli_fetch_array($resultadoBusqueda))

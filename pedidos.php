@@ -1,4 +1,5 @@
 <?php
+//Conexion a la base de datos 
     include 'Resources/Scripts/conexionBD.php';
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
@@ -85,6 +86,7 @@
                                     </thead>
                                     <tbody>
                                     <?php
+                                    //recorrido de las compras para visualizar el historial
                                         if(mysqli_num_rows($comprasUsuario) > 0)
                                         {
                                             while($row = mysqli_fetch_array($comprasUsuario))

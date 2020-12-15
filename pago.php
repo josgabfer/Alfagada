@@ -1,8 +1,11 @@
 <?php
+//Inicio de sesion
+
     include 'Resources/Scripts/conexionBD.php';
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
+    //opcion de finalizar compra, los valores son recolectados para la asignacion de la consulta a la base de datos de insercion
     if (isset($_POST["finalizarCompra"]))
     {   
         $abrirCon = OpenCon();
@@ -21,7 +24,7 @@
         if($abrirCon -> query($insertarCompra))
         {   
             CloseCon($abrirCon);
-            
+            //cargar variables de sesion de carrito dentro de values.
             foreach($_SESSION["carrito"] as $keys => $values)
             {
                 $abrirCon = OpenCon();
@@ -31,7 +34,8 @@
                 $abrirCon -> next_result();
                 $abrirCon -> query($insertarCarrito);
                 CloseCon($abrirCon);
-            }    
+            }  
+            //Redireccion hacia el resumen de la compra  
             header('Location: resumen_compra.php?idOrden=' . $idOrden);
         }
         else
@@ -242,6 +246,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+        //opcion de refrescar precio, esta seccion cambia el estado del boton finalizarCompra a hidden
         var refrescarPrecio;
         if (refrescarPrecio ==true)
         {

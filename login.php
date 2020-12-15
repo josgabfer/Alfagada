@@ -1,10 +1,10 @@
 <?php
-//Sesion: iniciar si  es == none
+
     include 'Resources/Scripts/conexionBD.php';
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
-    //opcion para registrar una nueva cuenta, utilizando el procedimiento InsertarUsuario
+
     if(isset($_POST['btnRegistrar']))
     {
         $abrirCon = OpenCon();
@@ -17,7 +17,7 @@
         $abrirCon -> next_result();
 
         if($abrirCon -> query($insertarUsuario))
-        {//Impresion del resultado exitoso/fallido de insercion para script
+        {
             echo "<script> registroExitoso=true </script>";
         }
         else
@@ -25,7 +25,7 @@
             echo "<script> registroExitoso=false </script>";
         }
     }
-    //opcion ingresar para introducir credenciales de perfil de usuario
+
     if(isset($_POST['btnIngresar']))
     {
         $abrirCon = OpenCon();
@@ -35,9 +35,9 @@
         $listaUsuarios = $abrirCon -> query($consultarUsuario);
         $row = mysqli_fetch_array($listaUsuarios);
         if(empty($row))
-        {//loginInvalido=tru en caso de que los credenciales no sean los correctos
+        {
           echo "<script> loginInvalido=true </script>";
-        }//Se asignan las variables de sesion en caso que el login sea correcto
+        }
         else 
         {
             $_SESSION["NombreUsuario"] = $row["nombre"];
@@ -158,7 +158,6 @@
                             </div>
                     </div>
                 </div>
-                <!--Seccion de creacion de cuenta nueva -->
                 <div class="col-lg-6 col-md-12 col-sm-12">
                     <div class="login_signup">
                         <h3 class="login_sec_title">Crear Cuenta</h3>
@@ -201,7 +200,7 @@
                                     </div>
                                     <div class="login_flex2">
                                         <div class="form-group mb-0">
-                                            <button class="btn btn-md btn-theme" name= "btnRegistrar" onclick="validarRegistro()" data-toggle="modal" data-target="#myModal">Registrarse</button>
+                                            <button class="btn btn-md btn-theme" name= "btnRegistrar" onclick="validarRegistro()" data-toggle="modal" data-target="#registroExitoso">Registrarse</button>
                                         </div>
                                     </div>
                                 </div>
@@ -236,8 +235,6 @@
         {
             document.getElementById('errorLogin').removeAttribute("hidden");
         }
-
-        //Validar registro determnia si la clave es igual a la contenida en la base de datos.
         function validarRegistro()
         {  
             if($("#regNombre").val() == "")
@@ -265,7 +262,6 @@
                 boton = true;
             }
         }
-        //Funcion de validar el ingresao, ingresando los credenciales de la cuenta
         function validarIngreso()
         {
             if($("#loginCorreo").val() == "")

@@ -112,11 +112,8 @@
                     <br>
                     <div class="card style-2 mb-4 col">
                     <div class="row">
-                        <div class="card-header col-9">
+                        <div class="card-header col-12">
                             <h4 class="mb-0">Productos</h4>
-                        </div>
-                        <div class="card-header col-3">
-                            <h4 class="mb-0">Cantidad</h4>
                         </div>
                         <div class="card-body">
                             <ul class="item-groups">
@@ -127,8 +124,8 @@
                                     $idProducto = $rowCarrito["idProducto"];
                                     $cantidadProducto = $rowCarrito["cantidad"];
                                     $abrirCon = OpenCon();
-                                    $consultarProductoCarrito = "call ConsultarCarritoProducto($idProducto)";
-                                    $productoCarrito = $abrirCon -> query($consultarProductoCarrito);
+                                    $consultarProducto = "call ConsultarProducto($idProducto)";
+                                    $productoCarrito = $abrirCon -> query($consultarProducto);
                                     CloseCon($abrirCon);
                                     while($rowProducto = mysqli_fetch_array($productoCarrito))
                                     {
@@ -152,8 +149,8 @@
                                             <div class="font-size-sm text-muted-thin">
                                                 <h5>Categoría: <?php echo $rowProducto["categoria"];?></h5>
                                             </div>
-                                            <div class="col-2">
-                                                <h3><?php echo $cantidadProducto; ?></h3>
+                                            <div class="font-size-sm text-muted-thin">
+                                                <h5>Cantidad: <?php echo $cantidadProducto; ?></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -257,7 +254,7 @@
                                             }
                                         ?>
                                     </div>
-                                    <div class="col-12 col-md-6">
+                                    <div class="col-6 col-md-3">
                                         <p class="info_pago font-weight-bold">Tipo de Entrega:</p>
                                         <p class="info-pago">
                                             <?php echo $row["tipoEntrega"]; ?>

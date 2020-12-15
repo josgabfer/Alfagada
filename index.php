@@ -2,26 +2,18 @@
 <html lang="en">
 <head>
     <title>ALFAGADA</title>
-
-    <!-- Incluir elementos de head -->
     <?php include 'Resources/Sections/head.php';?> 
 </head>
 <body>
   <form action="" method="post">
   <div>
-        <!-- Incluir elementos de top bar -->
-
       <?php include 'Resources/Sections/topBar.php';?> 
   </div>
   </form>
   <div>
-            <!-- Incluir elementos de menu bar -->
-
       <?php include 'Resources/Sections/menuBar.php';?> 
   </div>
 
-
-          <!-- Elemento de Carrusel -->
 
   <div id="slide" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -50,101 +42,146 @@
     </a>
   </div>
 
-          <!-- Contenido de productos -->
-
   <section style="background: #f4f5f7">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-          <div class="home-sec-heading pl-2 pr-2">
-            <div class="home-sec-heading-one">
-              <h2>Abarrotes</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="categories_item">
+                                <div class="categories_item_thumb">
+                                    <div class="categories_overlay">
+                                        <img src="Resources/imgs/abarrotes_cat.jpeg" alt="">
+                                    </div>
+                                </div>
+                                <div class="categories_caption">
+                                    <div class="categories_bottom_caption">
+                                        <div class="categories_title">
+                                            Abarrotes
+                                        </div>
+                                    </div>
+                                    <a href="abarrotes.php" class="btn categories_btn">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="categories_item">
+                                <div class="categories_item_thumb">
+                                    <div class="categories_overlay">
+                                        <img src="Resources/imgs/bebidas_cat.jpeg" alt="">
+                                    </div>
+                                </div>
+                                <div class="categories_caption">
+                                    <div class="categories_bottom_caption">
+                                        <div class="categories_title">
+                                            Bebidas
+                                        </div>
+                                    </div>
+                                    <a href="bebidas.php" class="btn categories_btn">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="categories_item">
+                                <div class="categories_item_thumb">
+                                    <div class="categories_overlay">
+                                        <img src="Resources/imgs/meat_cat.jpeg" alt="">
+                                    </div>
+                                </div>
+                                <div class="categories_caption">
+                                    <div class="categories_bottom_caption">
+                                        <div class="categories_title">
+                                            Carnes
+                                        </div>
+                                    </div>
+                                    <a href="carnes.php" class="btn categories_btn">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="categories_item">
+                                <div class="categories_item_thumb">
+                                    <div class="categories_overlay">
+                                        <img src="Resources/imgs/clean_cat.jpeg" alt="">
+                                    </div>
+                                </div>
+                                <div class="categories_caption">
+                                    <div class="categories_bottom_caption">
+                                        <div class="categories_title">
+                                            Limpieza
+                                        </div>
+                                    </div>
+                                    <a href="limpieza.php" class="btn categories_btn">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="categories_item">
+                                <div class="categories_item_thumb">
+                                    <div class="categories_overlay">
+                                        <img src="Resources/imgs/fruits_cat.jpeg" alt="">
+                                    </div>
+                                </div>
+                                <div class="categories_caption">
+                                    <div class="categories_bottom_caption">
+                                        <div class="categories_title">
+                                            Frutas y Verduras
+                                        </div>
+                                    </div>
+                                    <a href="frutas_verduras.php" class="btn categories_btn">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="categories_item">
+                                <div class="categories_item_thumb">
+                                    <div class="categories_overlay">
+                                        <img src="Resources/imgs/lacteos_cat.jpeg" alt="">
+                                    </div>
+                                </div>
+                                <div class="categories_caption">
+                                    <div class="categories_bottom_caption">
+                                        <div class="categories_title">
+                                            Lacteos
+                                        </div>
+                                    </div>
+                                    <a href="lacteos.php" class="btn categories_btn">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-6">
+                            <div class="categories_item">
+                                <div class="categories_item_thumb">
+                                    <div class="categories_overlay">
+                                        <img src="Resources/imgs/panaderia_cat.jpeg" alt="">
+                                    </div>
+                                </div>
+                                <div class="categories_caption">
+                                    <div class="categories_bottom_caption">
+                                        <div class="categories_title">
+                                            Panadería y Repostería
+                                        </div>
+                                    </div>
+                                    <a href="panaderia.php" class="btn categories_btn">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3"></div>
+                    </div>
+                </div>
             </div>
-            <div class="home-sec-heading-last">
-              <a href="abarrotes.php" class="btn product_add_btn">Ver Más
-                <i class="ti-arrow-right ml-2"></i>
-              </a>
-            </div>
-          </div>
         </div>
-      </div>
-      <div class="row"> 
-        <div class="col-lg-12 col-md-12 col-sm-12">
-          <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6">
-              <div class="product_grid">
-                <div class="product_thumb">
-                    <img src="Resources/imgs/aceiteoliva.jpg" alt="">
-                </div>
-                <div class="product_caption">
-                    <div class="product_title">
-                        <h4 class="product_pro_title">
-                            <a href="#">SALAT</a>
-                        </h4>
-                    </div>
-                </div>
-                <div class="product_caption">
-                    <div class="product_description">
-                        <h5>Aceite Oliva Virgen 500ml</h5>
-                    </div>
-                </div>
-                <div class="product_price">
-                    <h6>¢3000</h6>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-              <div class="product_grid">
-                <div class="product_thumb">
-                    <img src="Resources/imgs/azucar.jpg" alt="">
-                </div>
-                <div class="product_caption">
-                    <div class="product_title">
-                        <h4 class="product_pro_title">
-                            <a href="#">DOÑA MARIA</a>
-                        </h4>
-                    </div>
-                </div>
-                <div class="product_caption">
-                    <div class="product_description">
-                        <h5>Azúcar Blanco 2kg</h5>
-                    </div>
-                </div>
-                <div class="product_price">
-                    <h6>¢1350</h6>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-              <div class="product_grid">
-                <div class="product_thumb">
-                    <img src="Resources/imgs/frijoles_tiopelon.jpg" alt="">
-                </div>
-                <div class="product_caption">
-                    <div class="product_title">
-                        <h4 class="product_pro_title">
-                            <a href="#">TIO PELON</a>
-                        </h4>
-                    </div>
-                </div>
-                <div class="product_caption">
-                    <div class="product_description">
-                        <h5>Frijoles Rojos 800g</h5>
-                    </div>
-                </div>
-                <div class="product_price">
-                    <h6>¢1315</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-          <!-- Incluir elementos de footer -->
-
+    </section>
 
   <footer class="dark-footer skin-dark-footer">
       <?php include('Resources/Sections/footer.php');?>

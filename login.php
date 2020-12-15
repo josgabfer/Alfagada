@@ -43,7 +43,7 @@
             $_SESSION["NombreUsuario"] = $row["nombre"];
             $_SESSION["ApellidoUsuario"] = $row["apellido"];
             $_SESSION["correoSesion"] = $correo;
-            $_SESSION['claveSesion'] = $clave;
+            $_SESSION["claveSesion"] = $clave;
             header('Location: index.php');
 
         }
@@ -174,6 +174,7 @@
                 </div>
             </div>
         </div>
+
     </section>
     <footer class="dark-footer skin-dark-footer">
       <?php include('Resources/Sections/footer.php');?>

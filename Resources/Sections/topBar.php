@@ -18,7 +18,6 @@
                 <img src="Resources/imgs/ALFAGADA.png" class="logo" alt>
             </a>
         </div>
-        <form action() method="post">
         <div class="header_search">
             <div class="input-group">
                 <input type="text" class="search-form-control form-control" placeholder="Buscar..." name="busqueda">
@@ -30,7 +29,6 @@
             </div>   
         </div>
 
-        </form>
 
         <div class="header_login">
             <ul>
@@ -79,7 +77,7 @@
                             echo "0";
                         }
                         ?>
-                </span></span>
+                </span>
             </div>
         </div>
     </div>

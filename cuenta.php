@@ -57,7 +57,7 @@
                             <a class="list-group-item list-group-item-action dropright-toggle" href="#">Mi Orden</a>
                             <a class="list-group-item list-group-item-action dropright-toggle" href="#">Historial de Ordenes</a>
                             <a class="list-group-item list-group-item-action dropright-toggle" href="#">Rastreo de Orden</a>
-                            <a class="list-group-item list-group-item-action dropright-toggle" href="login.php">Cerrar Sesión</a>
+                            <a class="list-group-item list-group-item-action dropright-toggle" href="logout.php">Cerrar Sesión</a>
                         </div>
                     </nav>
                 </div>

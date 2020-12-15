@@ -14,6 +14,21 @@
     $consultarDireccion = "call ConsultarDireccion('$correo')";
     $direccionRegistrada = $abrirCon -> query($consultarDireccion);
     CloseCon($abrirCon);
+    $totalResumen = $_SESSION["precioTotal"];
+    $carrito = $_SESSION["carrito"];
+    $impuesto = $_SESSION["impuesto"];
+    $tipoEntrega = $_SESSION["tipoEntrega"];
+    $montoDescuento = $_SESSION["montoDescuento"];
+    unset($_SESSION["precioFinal"]);
+    unset($_SESSION["descuento"]);
+    unset($_SESSION["descuentoAplicado"]);
+    unset($_SESSION["precioTotal"]);
+    unset($_SESSION["carrito"]);
+    unset($_SESSION["impuesto"]);
+    unset($_SESSION["tipoEntrega"]);
+    unset($_SESSION["montoDescuento"]);
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -119,7 +134,7 @@
                         </div>
                         <div class="card-body">
                         <?php
-                            foreach($_SESSION["carrito"] as $keys => $values)
+                            foreach($carrito as $keys => $values)
                             {
                         ?>                    
                             <ul class="item-groups">
@@ -151,7 +166,8 @@
                                 </li>
                             </ul>
                             <?php   
-                            }
+                            }                            
+
                             ?>  
                         </div>
                         <div class="">
@@ -169,17 +185,17 @@
                                     <ul class="list-group list-group-sm list-group-flush-y list-group-flush-x">
                                         <li class="list-group-item d-flex">
                                             <span>Subtotal</span>
-                                            <span class="ml-auto">¢<?php echo number_format($_SESSION["precioTotal"]); ?></span>
+                                            <span class="ml-auto">¢<?php echo number_format($totalResumen); ?></span>
                                         </li>
                                         <li class="list-group-item d-flex">
                                             <span>Impuestos</span>
-                                            <span class="ml-auto">¢<?php echo number_format($_SESSION["impuesto"]); ?></span>
+                                            <span class="ml-auto">¢<?php echo number_format($impuesto); ?></span>
                                         </li>
                                         <li class="list-group-item d-flex">
                                             <span>Envío</span>
                                             <span class="ml-auto">¢
                                             <?php 
-                                                if ($_SESSION["tipoEntrega"] == "A domicilio")
+                                                if ($tipoEntrega == "A domicilio")
                                                 {
                                                     echo "3,000"; 
                                                 }
@@ -192,7 +208,7 @@
                                         </li>
                                         <li class="list-group-item d-flex">
                                             <span>Descuento</span>
-                                            <span class="ml-auto">¢<?php echo number_format($_SESSION["montoDescuento"]);?></span>
+                                            <span class="ml-auto">¢<?php echo number_format($montoDescuento);?></span>
                                         </li>
                                         <li class="list-group-item d-flex font-weight-bold">
                                             <span>Total</span>

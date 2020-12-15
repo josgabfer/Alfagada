@@ -1,3 +1,29 @@
+<?php
+include 'Resources/Scripts/conexionBD.php';
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
+
+if (isset($_POST["btnBuscar"])) {
+    $abrirCon1 = OpenCon();
+    $search = $_POST["busqueda"];
+    $buscarProductos = "call BuscarProducto($search)";
+    echo $search;
+    if($abrirCon1 -> query($buscarProductos)){
+        echo "Hola Mundo";
+        header("Location: resultados.php");
+    }
+
+    CloseCon($abrirCon1);
+		
+
+}
+
+
+?>
+
+
 <div class="header">
     <div class="container">
         <div class="header_logo">
@@ -5,16 +31,20 @@
                 <img src="Resources/imgs/ALFAGADA.png" class="logo" alt>
             </a>
         </div>
+        <form action() method="post">
         <div class="header_search">
             <div class="input-group">
-                <input type="text" class="search-form-control form-control" placeholder="Buscar...">
+                <input type="text" class="search-form-control form-control" placeholder="Buscar..." name="busqueda">
                 <span class="input-group-append">
-                    <button class="btn search_btn" type="button" >
+                    <button class="btn search_btn" type="submit" name="btnBuscar" >
                         <i class="fas fa-search w3-medium" ></i>
                     </button>
                 </span>
             </div>   
         </div>
+
+        </form>
+
         <div class="header_login">
             <ul>
                 <?php

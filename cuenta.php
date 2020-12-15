@@ -55,7 +55,6 @@
                         <div class="list-group list-group-sm list-group-strong list-group-flush-x account_menu">
                             <a class="list-group-item list-group-item-action dropright-toggle active"  href="cuenta.php">Mi Cuenta</a>
                             <a class="list-group-item list-group-item-action dropright-toggle" href="ordenes.php">Mis Ordenes</a>
-                            <a class="list-group-item list-group-item-action dropright-toggle" href="#">Rastreo de Orden</a>
                             <a class="list-group-item list-group-item-action dropright-toggle" href="logout.php">Cerrar Sesión</a>
                         </div>
                     </nav>

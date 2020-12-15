@@ -113,10 +113,6 @@ ul.item-groups li{
     padding-bottom: 1rem;
 }
 
-ul.item-groups li:last-child {
-    border-bottom: none;
-    padding: 0;
-}
 
 .confirmation_product {
     display: flex;

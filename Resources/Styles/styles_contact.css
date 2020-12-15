@@ -78,3 +78,32 @@ nav.dashboard-nav {
     padding: .5rem .75rem;
     border: 1px solid #e6eaf3;
 }
+
+table.order_history tr th{
+    font-size: 15px;
+    color: #495057;
+    font-weight: 600;
+}
+
+table.order_history tr td{
+    font-size: 15px;
+    color: #2D3954;
+    font-weight: 500;
+}
+
+.btn-order_history{
+    background: #5dbf13;
+    border-color: #5dbf13;
+    color: #fff;
+    transition: all ease .4s;
+}
+
+.btn-sm {
+    padding: .25rem .5rem;
+    font-size: 12px;
+}
+
+.img-fluids {
+    max-width: 100%;
+    height: auto;
+}

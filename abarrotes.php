@@ -1,5 +1,6 @@
 <?php
 
+    //Conexion a base de datos y scripts para consulta de productos
     include 'Resources/Scripts/conexionBD.php';
     $consulta = "Abarrotes";
     include 'Resources/Scripts/consultaProductos.php';
@@ -10,15 +11,25 @@
 <html lang="en">
 <head>
     <title>Productos</title>
+
+        <!-- Incluir elementos de head -->
+
     <?php include 'Resources/Sections/head.php';?> 
 </head>
 <body>
     <div>
+        <!-- Incluir elementos de top bar -->
+
         <?php include 'Resources/Sections/topBar.php';?> 
     </div>
     <div>
+        <!-- Incluir elementos de top bar -->
+
         <?php include 'Resources/Sections/menuBar.php';?> 
     </div>
+
+     <!-- Imagen de producto y breadcrumbs-->
+
     <div class="min-banner img-fluid">
       <img src="Resources/imgs/abarrotes.jpg"  alt="...">
     </div>
@@ -49,12 +60,14 @@
         </div>
     </div>
 
+    <!-- Contenido Principal -->
+
 <section style="background: #f4f5f7">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="row" id="rowScroll">
-         
+        <!-- recorrido de la tabla de productos (abarrotes)-->
       <?php
             if(mysqli_num_rows($listaProductos) > 0)
             {
@@ -67,6 +80,8 @@
                 $descProducto = $row["descripcion"];
       ?>
            <div class="col-lg-3 col-md-4 col-sm-6">
+                    <!-- Formulario de productos -->
+
                   <form method="post" action="abarrotes.php?action=add&id=<?php echo $row["id"]; ?>">
              
                       
@@ -122,10 +137,13 @@
               </div>
           </div>
       </div>
+              <!-- termina recorrido de la tabla de productos (abarrotes)-->
+
       <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="row">
-         
+        <!-- recorrido de la tabla de productos (abarrotes)-->
+       
       <?php
             if(mysqli_num_rows($listaProductos) > 0)
             {
@@ -185,10 +203,13 @@
           }
         }
    ?> 
+
                       
               </div>
           </div>
       </div>
+        <!-- recorrido de la tabla de productos (abarrotes)-->
+
    </div>
  </section>
 

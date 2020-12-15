@@ -1,4 +1,5 @@
 <?php
+    //Conexion a base de datos y scripts para consulta de productos
     include 'Resources/Scripts/conexionBD.php';
     $consulta = "Bebidas";
     include 'Resources/Scripts/consultaProductos.php';
@@ -9,17 +10,26 @@
 <html lang="en">
 <head>
     <title>Bebidas</title>
+    <!-- Incluir elementos de head -->
+
     <?php include 'Resources/Sections/head.php';?> 
 </head>
 <body>
     <form action="" method="post">  
     <div>
+        <!-- Incluir elementos de top bar -->
+
         <?php include 'Resources/Sections/topBar.php';?> 
     </div>
     </form> 
     <div>
+        <!-- Incluir elementos de menu bar -->
+
         <?php include 'Resources/Sections/menuBar.php';?> 
     </div>
+
+    <!-- Imagen de producto y breadcrumbs-->
+
     <div class="min-banner img-fluid">
       <img src="Resources/imgs/bebidas.jpeg"  alt="...">
     </div>
@@ -49,12 +59,15 @@
             </div>
         </div>
     </div>
+    <!-- Contenido Principal -->
 
 <section style="background: #f4f5f7">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="row" id="rowScroll">
+
+        <!-- recorrido de la tabla de productos (bebidas)-->
          
       <?php
             if(mysqli_num_rows($listaProductos) > 0)
@@ -69,7 +82,8 @@
       ?>
            <div class="col-lg-3 col-md-4 col-sm-6">
                   <form method="post" action="bebidas.php?action=add&id=<?php echo $row["id"]; ?>">
-             
+                            <!-- Formulario de productos -->
+
                       
                               <div class="product_grid">
                                   <div class="product_thumb">
@@ -123,9 +137,13 @@
               </div>
           </div>
       </div>
+            <!-- termina recorrido de la tabla de productos-->
+
       <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="row">
+           <!-- recorrido de la tabla de productos-->
+
          
       <?php
             if(mysqli_num_rows($listaProductos) > 0)
@@ -190,6 +208,9 @@
               </div>
           </div>
       </div>
+
+        <!-- termina recorrido de la tabla de productos-->
+
    </div>
  </section>
 

@@ -50,13 +50,14 @@
             </div>
         </div>
     </div>
-
+<!-- Contenido Principal -->
 <section style="background: #f4f5f7">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="row" id="rowScroll">
-         
+         <!-- recorrido de la tabla de productos-->
+
       <?php
             if(mysqli_num_rows($listaProductos) > 0)
             {
@@ -124,10 +125,11 @@
               </div>
           </div>
       </div>
+      <!-- termina recorrido de la tabla de productos-->
       <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="row">
-         
+    <!-- recorrido de la tabla de productos-->     
       <?php
             if(mysqli_num_rows($listaProductos) > 0)
             {
@@ -192,6 +194,7 @@
           </div>
       </div>
    </div>
+   <!-- termina recorrido de la tabla de productos-->
  </section>
 
 

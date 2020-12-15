@@ -1,11 +1,14 @@
 <?php
+//Sesion: iniciar si  es == none
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
+    //actualizarCarrito: establecer valores del carrito para totales
      if (isset($_POST["actualizarCarrito"]))
      {
         $_SESSION["precioTotal"] = $_POST["hidden_precioProducto"];
-        
+        //recorrido de los valores del carrito 
+        //carrito --> variable de sesion que contiene los productos escogidos para la compra
         foreach($_SESSION["carrito"] as $keys => $values)
         {
             $arregloProductos = array(
@@ -25,6 +28,8 @@
             }
         }
      }
+
+     //Seccion de borrado de elementos del carrito
      if(isset($_GET["action"]))
      {
          if($_GET["action"] == "delete")
@@ -48,6 +53,10 @@
         }
         header("Location:carrito.php");
     }
+    //Termina seccion de borrado de elementos del carrito
+
+
+    //Seccion de validacion de codigo de promocion
      if (isset($_POST["aplicarCodigo"]))
      {
         if ($_POST["hidden_codigo"] !="")
@@ -69,6 +78,9 @@
             }
         }
      }
+    //Termina seccion de validacion codigo de promocion
+
+    //Seccion de aplicacion del codigo de promocion
      if (!isset($_SESSION["descuentoAplicado"]))
      {
         $_SESSION["descuentoAplicado"] = 0;
@@ -78,6 +90,8 @@
         $_SESSION["descuento"] = 0;
         $_SESSION["descuentoAplicado"] = 0;
      }
+     //Termina seccion de aplicacion del codigo de promocion
+
 ?>      
 <!DOCTYPE html>
 <html lang="en">
@@ -85,9 +99,12 @@
     <title>Mi Carrito</title>
     <?php include 'Resources/Sections/head.php';?> 
 </head>
+<!--Cargar total a pagar (JS) -->
 <body onload="calcularTotal()">
 
 <form action="" method="post">
+    <!--Incluir paginas comunes topbar y menubar  -->
+
     <div  id = "topBar">
         <?php include 'Resources/Sections/topBar.php';?> 
     </div>
@@ -134,14 +151,15 @@
                                     <th scope="col">Total</th>
                                 </tr>
                             </thead>
-                            <tbody> 
+                            <tbody>
                                 <?php
-                                    
+                                //Referenciar datos de carrito en values para tabla.    
                                     if(!empty($_SESSION["carrito"]))
                                     {
                                         foreach($_SESSION["carrito"] as $keys => $values)
                                         {
                                 ?>
+                                <!--Datos de tabla cargados utilizando $values  -->
                                 <tr>
                                     <td>
                                         <div class="tbl_cart_product">
@@ -183,11 +201,15 @@
                                 <input type="hidden" id ="hidden_precioProducto" name = "hidden_precioProducto" value ="">
                             </tbody>
                         </table>
+                        <!--Temrina datos de tabla cargados utilizando $values  -->
+
                     </div>
                     <div class="row align-items-end justify-content-between mb-10 mb-md-0">
                         <div class="col-12 col-md-7">
                             <form class="mb-7 mb-md-0">
                                 <div class="col">
+                                    <!--creacion de elemento label en cada caso de que descuentoAplicado es != 1 o no  -->
+
                                     <?php
                                         if ($_SESSION["descuentoAplicado"] != 1)
                                         {
@@ -201,6 +223,8 @@
                                 </div>
                                 <div class="row form-row">
                                     <div class="col">
+                                    <!--Elemento input en caso de que descuentoAplicado es != 1 o no   -->
+
                                     <?php
                                         if ($_SESSION["descuentoAplicado"] != 1)
                                         {
@@ -213,6 +237,7 @@
                                     ?>
                                         <input name= "hidden_codigo" id = "hidden_codigo" type="hidden" value="">
                                         <?php
+                                        //Validacion del cupon
                                             if (isset($_POST["hidden_codigo"]) && $_POST["hidden_codigo"] == "invalido")
                                             {
                                                 echo "<p style='color: red;'>Código inválido</p>";
@@ -221,7 +246,7 @@
                                     </div>
                                     <div class="col-auto">
                                             <?php
-
+                                            //Boton de aplicar descuento para
                                             if ($_SESSION["descuentoAplicado"] != 1)
                                             {
                                                 echo "<button class='btn btn-dark' name = 'aplicarCodigo' type='submit' onclick = 'aplicarDescuento()'>Aplicar</button>";
@@ -248,6 +273,7 @@
                                     <span class="order_sum_light">Subtotal</span>
                                     <span class="ml-auto order_sum_light"> ¢
                                     <?php
+                                    //Impresion del precio total de la compra utilizando variable de sesion precioTotal para dar un subtotal.
                                         if (isset($_SESSION["precioTotal"]))
                                         {
                                             echo number_format($_SESSION["precioTotal"]);
@@ -263,6 +289,8 @@
                                     <span class="order_sum_light">Impuestos</span>
                                     <span class="ml-auto order_sum_light">¢
                                     <?php
+                                     //Impresion del precio total de la compra utilizando variable de sesion precioTotal.
+
                                         if (isset($_SESSION["precioTotal"]))
                                         {
                                             $_SESSION["impuesto"] = $_SESSION["precioTotal"]*.13;
@@ -280,6 +308,7 @@
                                     <span class="order_sum_light">Descuento</span>
                                     <span class="ml-auto order_sum_light">¢
                                     <?php
+                                    //Seccion de aplicacion del descuento (monto = preciototal + impuesto * descuento)
                                         if (isset($_SESSION["precioTotal"]))
                                         {
                                             if (!isset($_SESSION["descuento"]))
@@ -300,6 +329,7 @@
                                     <span class="order_sum_light font-weight-bold">Total</span>
                                     <span class="ml-auto order_sum_light font-weight-bold">¢
                                     <?php
+                                     //Asignacion de la variable precioTotal.
                                         if (isset($_SESSION["precioTotal"]))
                                         {
 
@@ -319,6 +349,7 @@
                         </div>
                     </div>
                     <?php
+                    //Seccion de inicio de sesion en caso de que la sesion no haya sido iniciada
                         if(!empty($_SESSION["carrito"])){
                             if (!isset($_SESSION["correoSesion"]))
                             {
@@ -357,15 +388,17 @@
         $("#topBar").load("Resources/Sections/topBar.php");
         }
         
-
+        //Funcion para calcular el precio
         function calcularPrecio(id)
-        {
+        {   //Operacion: Cantidad de productos * el precio del producto
             var cantidadServidor = document.getElementById("cantidadProducto" + id).defaultValue;
             var precioProducto = document.getElementById("precioProducto" + id).innerText;
             precioProducto = precioProducto.slice(1);
             var totalProducto = parseFloat(document.getElementById("cantidadProducto" + id).value) * parseFloat(precioProducto);
+
             document.getElementById("totalProducto" + id).innerText = "¢" + totalProducto;
             document.getElementById("hidden_totalProducto" + id).value = totalProducto;
+            //If en caso de que la cantidad del producto sea modificada, para habilitar el boton de actualizar carrito
             if (cantidadServidor != document.getElementById("cantidadProducto" + id).value)
             {
                 
@@ -377,6 +410,8 @@
             }
             
         }
+        //Funcion para calcular el precio total de la compra.
+        //total_precio mantiene cada uno de los productos adquiridos
         function calcularTotal()
         {
             var precio_unitario = document.getElementsByClassName("total_precio");
@@ -389,6 +424,8 @@
             }
             document.getElementById("hidden_precioProducto").value = precioTotal;
         }
+        //Funcion para calcular el descuento
+        //Los codigos determinan el porcentaje de descuento
         function aplicarDescuento()
         {
             var codigo = document.getElementById("codigo").value;
@@ -405,6 +442,7 @@
                 document.getElementById("hidden_codigo").value = "invalido";
             }
         }
+        //Funcion para remover el codigo de descuento
         function removerDescuento()
         {
             document.getElementById("hidden_codigo").value = "0";

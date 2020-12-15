@@ -4,10 +4,6 @@
         session_start();
     }
 
-    $abrirCon = OpenCon();
-    $idOrden = $_GET["idOrden"];
-    $consultarCompra = "call ConsultarCompra($idOrden)";
-    $compraRegistrada = $abrirCon -> query($consultarCompra);
     $fila = mysqli_fetch_array($compraRegistrada);
     CloseCon($abrirCon);
 

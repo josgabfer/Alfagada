@@ -1,14 +1,17 @@
 <?php
+    //Conexion a la base de datos
     include 'Resources/Scripts/conexionBD.php';
+    //Sesion: iniciar si  es == none
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
     $abrirCon = OpenCon();
     $correo = $_SESSION["correoSesion"];
-    $consultarDireccion = "call ConsultarDireccion('$correo')";
+    $consultarDireccion = "call ConsultarDireccion('$correo')";// Llamar al proceso ConsultarDireccion, este recibe $correo como parametro
     $direccionRegistrada = $abrirCon -> query($consultarDireccion);
     CloseCon($abrirCon);
 
+    //Seccion de anadir direccion para la entrega, se crean diferentes variables de sesion mediante el uso de los campos del formulario
     if (isset($_POST["anadirDireccion"]))
     {
         $abrirCon = OpenCon();
@@ -21,10 +24,11 @@
         $provincia = $_POST["checkoutProvincia"];
         $codPostal = $_POST["checkoutCodigoPostal"];
         $telefono = $_POST["checkoutNumero"];
+        //Segunda llamada a la base de datos para la insercion/actualizacion de la base de datos
         $insertarDireccion = "call InsertarDireccion('$correo', '$direccion', '$direccionAdicional', '$pais', '$provincia', '$canton', '$distrito', $codPostal, $telefono)";
         $abrirCon -> next_result();
         if($abrirCon -> query($insertarDireccion))
-        {
+        {//Llamada a la pagina de entrega
             header('Location: entrega.php#delivery');
         }
         else
@@ -33,6 +37,7 @@
         }
         CloseCon($abrirCon);
     }
+    //Seccion de continuar con el pago, y redireccion a la pagina pago.php
     if (isset($_POST["continuarPago"]))
     {   
         $_SESSION["tipoEntrega"] = $_POST["formaEntrega"];
@@ -95,6 +100,7 @@
                                     <tr>
                                         <td>
                                             <div class="custom-control custom-radio">
+                                             <!-- Llamado a la opcion de sumarCargoEnvio para agregar al precio-->
                                             <input type="radio" name="shipping" value="1" data-toggle="collapse" href="#delivery" class="custom-control-input" id="radio1" aria-expanded="true" aria-controls="delivery" onclick=sumarCargoEnvio(3000);>
                                                 <label class="custom-control-label" for="radio1">
                                                     A domicilio
@@ -107,6 +113,7 @@
                                     <tr>
                                         <td>
                                         <div class="custom-control custom-radio">
+                                            <!-- Llamado a la opcion de sumarCargoEnvio para agregar al precio-->
                                             <input type="radio" name="shipping" value="2" data-toggle="collapse" data-parent="#accordion" href="#onsite" class="custom-control-input" id="radio2" aria-expanded="false" aria-controls="onsite" onclick=sumarCargoEnvio(1500);>
                                                 <label class="custom-control-label" for="radio2" >
                                                     Recoger en sitio
@@ -130,8 +137,10 @@
                                     </div>
                                 </div>
                                 <?php
+                                //Seccion de anhadir la direccion registrada 
                                     if(mysqli_num_rows($direccionRegistrada) > 0)
                                     {
+                                        //Datos de fila son tomados como los resultados de direccionRegistrada
                                         $fila = mysqli_fetch_array($direccionRegistrada);
                                         
                                         $direccion = $fila["direccion"];
@@ -143,6 +152,7 @@
                                         $codPostal = $fila["codigo_postal"];
                                         $telefono = $fila["telefono"];
 
+                                        //Se crean los campos necesarios con la informacion tomada de fila
                                         echo '<div class="a-column">
                                         <div class="address-box existing-address">
                                             <h5>'.$direccion.'</h5>
@@ -221,6 +231,7 @@
                                         <tr>
                                             <td>
                                                 <div class="custom-control custom-radio">
+                                                    <!-- Radio button para localizacion -->
                                                 <input type="radio" name="branch"  class="custom-control-input" id="heredia1" onclick=" mostrarBoton();">
                                                     <label class="custom-control-label" for="heredia1">
                                                         Belén, Heredia
@@ -231,6 +242,7 @@
                                         <tr>
                                             <td>
                                                 <div class="custom-control custom-radio">
+                                                    <!-- Radio button para localizacion -->
                                                 <input type="radio" name="branch" class="custom-control-input" id="rohrmoser2" onclick=" mostrarBoton();">
                                                     <label class="custom-control-label" for="rohrmoser2">
                                                         Rohrmoser, San José
@@ -255,6 +267,7 @@
                                     <span class="order_sum_light">Subtotal</span>
                                     <span class="ml-auto order_sum_light"> ¢
                                     <?php
+                                    //Impresion de la variable precio total (Sesion)
                                         echo number_format($_SESSION["precioTotal"]);
                                     ?>
                                     </span>
@@ -263,6 +276,8 @@
                                     <span class="order_sum_light">Impuestos</span>
                                     <span class="ml-auto order_sum_light">¢
                                     <?php
+                                         //Impresion de la variable de impuesto (Sesion)
+
                                         echo number_format($_SESSION["impuesto"]);
                                     ?>
                                     </span>
@@ -271,6 +286,7 @@
                                     <span class="order_sum_light">Descuento</span>
                                     <span class="ml-auto order_sum_light">¢
                                     <?php
+                                     //Impresion de la variable de descuento (Sesion)
                                         echo number_format($_SESSION["montoDescuento"]);
                                     ?>
                                     </span>
@@ -285,6 +301,7 @@
                                     <span class="order_sum_light font-weight-bold">Total</span>
                                     <span class="ml-auto order_sum_light font-weight-bold" id="totalResumen">¢
                                     <?php
+                                     //Impresion de la variable de precio final (Sesion)
                                          echo number_format($_SESSION["precioFinal"]);
                                     ?>
                                     </span>
@@ -308,6 +325,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+        //Animacion del panel de agregar una nueva direccion, en caso de ser escogida se muestra la opcion de agregar una nueva direccion
         var hash = window.location.hash;
         if (hash) {
             var requestedPanel = $(hash);
@@ -320,23 +338,23 @@
         $(hash).click(function(){
             $(hash).hide();
         });
-
+        //Funcion de agregar el cargo del envio al precio final.
         function sumarCargoEnvio(x)
         {
   
             var valorEnvio = x.toLocaleString(undefined, { minimumFractionDigits: 0 });
             document.getElementById("envioResumen").innerHTML = "¢ " + valorEnvio;
             <?php
-                
+                //impresion del totalResumen utilizando la variable de sesion precionFinal
                 echo 'document.getElementById("totalResumen").innerHTML = "'.number_format($_SESSION["precioFinal"]).'";';
                         
             ?>
+            //Anhadir informacion del total al precio total
             var totalEnvio = (parseFloat(document.getElementById("totalResumen").innerHTML.replace(",","")) + x);
-
             totalEnvio = totalEnvio.toLocaleString(undefined, { minimumFractionDigits: 0 });
             document.getElementById("totalResumen").innerHTML = "¢" + totalEnvio;
             document.getElementById("nuevoTotal").value = totalEnvio.replace(",","");
-
+            //determinar el tipo de entrega, y la asignacion del atributo hidden.
             if (x==3000)
             {
                 document.getElementById("formaEntrega").value = "A domicilio";
@@ -350,6 +368,7 @@
             }
             
         }
+        //Asignacion del atributo hidden al boton de continuarPago
         function mostrarBoton()
         {
             document.getElementById("continuarPago").removeAttribute("hidden");

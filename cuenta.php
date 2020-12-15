@@ -1,4 +1,5 @@
 <?php
+//Sesion: iniciar si  es == none
 
     if (session_status() == PHP_SESSION_NONE) 
     {
@@ -67,6 +68,7 @@
                             <h4 class=mb-0>Detalles de Cuenta</h4>
                         </div> 
                         <div class="card-body">
+                            <!-- Seccion del formulario y resumen del perfil, se utilizan las variables de sesion de usuario para agregar la informacion actual del usuario -->
                             <form action="">
                                 <div class="row">
                                     <div class="col-12 col-md-6">

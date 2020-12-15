@@ -2,18 +2,26 @@
 <html lang="en">
 <head>
     <title>ALFAGADA</title>
+
+    <!-- Incluir elementos de head -->
     <?php include 'Resources/Sections/head.php';?> 
 </head>
 <body>
   <form action="" method="post">
   <div>
+        <!-- Incluir elementos de top bar -->
+
       <?php include 'Resources/Sections/topBar.php';?> 
   </div>
   </form>
   <div>
+            <!-- Incluir elementos de menu bar -->
+
       <?php include 'Resources/Sections/menuBar.php';?> 
   </div>
 
+
+          <!-- Elemento de Carrusel -->
 
   <div id="slide" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -41,6 +49,8 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
+
+          <!-- Contenido de productos -->
 
   <section style="background: #f4f5f7">
     <div class="container">
@@ -132,6 +142,9 @@
       </div>
     </div>
   </section>
+
+          <!-- Incluir elementos de footer -->
+
 
   <footer class="dark-footer skin-dark-footer">
       <?php include('Resources/Sections/footer.php');?>

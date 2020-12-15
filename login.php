@@ -92,6 +92,44 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="registroExitoso" >
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Registro Exitoso</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    Registro completado correctamente. 
+                <br>
+                    Por favor ingrese con los nuevos credenciales.
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-modal-close"  data-dismiss="modal">Cerrar</button>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="errorRegistro" >
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Correo Ya Registrado</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    El correo eléctronico ya existe en el sistema.
+                <br>
+                    Por favor utilice otra dirección de correo.
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-modal-close"  data-dismiss="modal">Cerrar</button>
+                </div>
+    
+            </div>
+        </div>
+    </div>
     <section>
         <div class="container">
             <div class="row">
@@ -123,8 +161,6 @@
                 <div class="col-lg-6 col-md-12 col-sm-12">
                     <div class="login_signup">
                         <h3 class="login_sec_title">Crear Cuenta</h3>
-                        <p hidden id = "registroExitoso" style="color: black;">Registro completado correctamente. Por favor ingrese con los nuevos credenciales.</p>
-                        <p hidden id = "errorRegistro" style="color: red;">Hubo en error durante el registro. Por favor intentar nuevamente mas tarde.</p>
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
@@ -164,7 +200,7 @@
                                     </div>
                                     <div class="login_flex2">
                                         <div class="form-group mb-0">
-                                            <input type="submit" id = "btnRegistrar" name = "btnRegistrar" class="btn btn-md btn-theme" value = "Registrarse" onclick="validarRegistro()" data-toggle="modal" data-target="#myModal">
+                                            <button class="btn btn-md btn-theme" name= "btnRegistrar" onclick="validarRegistro()" data-toggle="modal" data-target="#myModal">Registrarse</button>
                                         </div>
                                     </div>
                                 </div>
@@ -174,44 +210,26 @@
                 </div>
             </div>
         </div>
-
     </section>
+    
     <footer class="dark-footer skin-dark-footer">
       <?php include('Resources/Sections/footer.php');?>
     </footer>
-
-    <div class="modal fade" id="myModal">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Registro Exitoso</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-        Registro completado correctamente. 
-        <br>
-        Por favor ingrese con los nuevos credenciales.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-modal-close" data-dismiss="modal">Cerrar</button>
-        </div>
-        
-      </div>
-    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
+
         var boton;
         var registroExitoso;
         var loginInvalido;
         if(registroExitoso==true)
         {
-            document.getElementById('registroExitoso').removeAttribute("hidden");
+            $("#registroExitoso").modal('show');
         }
         else if(registroExitoso==false)
         {
-            document.getElementById('errorRegistro').removeAttribute("hidden");
+            $("#errorRegistro").modal('show');
         }
         if(loginInvalido==true)
         {

@@ -19,6 +19,7 @@
     $impuesto = $_SESSION["impuesto"];
     $tipoEntrega = $_SESSION["tipoEntrega"];
     $montoDescuento = $_SESSION["montoDescuento"];
+    $sitio = $_SESSION["sitioSeleccionado"];
     unset($_SESSION["precioFinal"]);
     unset($_SESSION["descuento"]);
     unset($_SESSION["descuentoAplicado"]);
@@ -28,7 +29,6 @@
     unset($_SESSION["tipoEntrega"]);
     unset($_SESSION["montoDescuento"]);
     
-
 ?>
 
 <!DOCTYPE html>
@@ -226,6 +226,20 @@
                                     <div class="card-body price-card-body">
                                         <div class="row">
                                             <div class="col-12 col-md-6">
+                                                <p class="info_pago font-weight-bold">Tipo de Entrega:</p>
+                                                <p class="info-pago">
+                                                    <?php echo $fila["tipoEntrega"]; ?>
+                                                </p>
+                                                <p class="info_pago font-weight-bold">Tipo de Pago:</p>
+                                                <p class="info-pago">
+                                                    <?php echo $fila["tipoPago"]; ?>
+                                                </p>
+                                            </div>
+                                        <?php
+                                            if ($tipoEntrega == "A domicilio")
+                                            {
+                                        ?>
+                                            <div class="col-12 col-md-6">
                                                 <p class="info_pago font-weight-bold">Dirección de Entrega:</p>
                                                 <p class="info-pago">
                                                 <?php
@@ -248,14 +262,26 @@
                                                 ?>
                                                 </p>
                                             </div>
+                                        <?php
+                                            }
+                                            else
+                                            {
+                                        ?>
                                             <div class="col-12 col-md-6">
-                                                <p class="info_pago font-weight-bold">Tipo de Entrega:</p>
+                                                <p class="info_pago font-weight-bold">Dirección del Sitio:</p>
                                                 <p class="info-pago">
-                                                    <?php echo $fila["tipoEntrega"]; ?>
-                                                </p>
-                                                <p class="info_pago font-weight-bold">Tipo de Pago:</p>
-                                                <p class="info-pago">
-                                                    <?php echo $fila["tipoPago"]; ?>
+                                            <?php
+                                                   
+                                                if($sitio == "Heredia")
+                                                {
+                                                    echo "200 metros del Palo de Mango<br>San Antonio, Belén<br>Heredia, Costa Rica<br>";
+                                                }
+                                                else
+                                                {
+                                                    echo "200 metros del Palo de Mango<br>San Antonio, Belén<br>Heredia, Costa Rica<br>";
+                                                }
+                                            }
+                                            ?>
                                                 </p>
                                             </div>
                                         </div>

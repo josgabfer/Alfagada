@@ -136,27 +136,30 @@
                                     {
                             ?>
                                 <li>
-                                    <div class="row align-items-center">
-                                        <div class="col-4 col-md-4 col-xl-4">
-                                            <a class="confirmation_product_thumb" href="#">
-                                                <img src="<?php echo 'Resources/imgs/' .   $rowProducto["imagen"] . '.jpg'; ?>" class="confirmation_product_thumb" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="col-8 col-md-8 col-xl-">
-                                            <p class="font-size-sm c-product">
-                                                <a href="#"><?php echo $rowProducto["nombre"]; ?></a>
-                                                <br>
-                                                <span>¢<?php echo number_format($rowProducto["precio_unitario"]);?></span>
-                                            </p>
-                                            <div class="font-size-sm text-muted-thin">
-                                                <h5><?php echo $rowProducto["descripcion"];?></h5>
+                                <div class="col-12">
+                                        <div class="row align-items-center">
+                                            <div class="col-3 col-md-3 col-xl-3">
+                                                <a class="confirmation_product_thumb" href="#">
+                                                    <img src="<?php echo 'Resources/imgs/' .   $rowProducto["imagen"] . '.jpg'; ?>" class="confirmation_product_thumb" alt="">
+                                                </a>
                                             </div>
-                                            <div class="font-size-sm text-muted-thin">
-                                                <h5>Categoría: <?php echo $rowProducto["categoria"];?></h5>
+                                            <div class="col-6 col-md-6 col-xl-6">
+                                                <p class="font-size-sm c-product">
+                                                    <a href="#"><?php echo $rowProducto["nombre"]; ?></a>
+                                                    <br>
+                                                    <span>¢<?php echo number_format($rowProducto["precio_unitario"]);?></span>
+                                                </p>
+                                                <div class="font-size-sm text-muted-thin">
+                                                    <h5><?php echo $rowProducto["descripcion"];?></h5>
+                                                </div>
+                                                <div class="font-size-sm text-muted-thin">
+                                                    <h5>Categoría: <?php echo $rowProducto["categoria"];?></h5>
+                                                </div>
+                                                <div class="font-size-sm text-muted-thin">
+                                                    <h5>Cantidad: <?php echo $cantidadProducto; ?></h5>
+                                                </div>
                                             </div>
-                                            <div class="font-size-sm text-muted-thin">
-                                                <h5>Cantidad: <?php echo $cantidadProducto; ?></h5>
-                                            </div>
+                                            <div class="col-3"></div>
                                         </div>
                                     </div>
                                 </li>

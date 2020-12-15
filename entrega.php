@@ -25,7 +25,7 @@
         $abrirCon -> next_result();
         if($abrirCon -> query($insertarDireccion))
         {
-            header('Location: checkout.php#delivery');
+            header('Location: entrega.php#delivery');
         }
         else
         {
@@ -37,14 +37,14 @@
     {   
         $_SESSION["tipoEntrega"] = $_POST["formaEntrega"];
         $_SESSION["precioFinal"]= $_POST["nuevoTotal"];
-        header('Location: payment.php');
+        header('Location: pago.php');
     }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Head</title>
+    <title>Entrega</title>
     <?php include 'Resources/Sections/head.php';?> 
 </head>
 <body>
@@ -71,7 +71,7 @@
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="categorias.php">Tienda</a>
+                                    <a href="productos.php">Tienda</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Información de Entrega
@@ -107,7 +107,7 @@
                                     <tr>
                                         <td>
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" name="shipping" value="2" data-toggle="collapse" data-parent="#accordion" href="#onsite" class="custom-control-input" id="radio2" aria-expanded="false" aria-controls="onsite" onclick=sumarCargoEnvio(1500)>
+                                            <input type="radio" name="shipping" value="2" data-toggle="collapse" data-parent="#accordion" href="#onsite" class="custom-control-input" id="radio2" aria-expanded="false" aria-controls="onsite" onclick=sumarCargoEnvio(1500);>
                                                 <label class="custom-control-label" for="radio2" >
                                                     Recoger en sitio
                                                 </label>
@@ -221,7 +221,7 @@
                                         <tr>
                                             <td>
                                                 <div class="custom-control custom-radio">
-                                                <input type="radio" name="branch"  class="custom-control-input" id="heredia1">
+                                                <input type="radio" name="branch"  class="custom-control-input" id="heredia1" onclick=" mostrarBoton();">
                                                     <label class="custom-control-label" for="heredia1">
                                                         Belén, Heredia
                                                     </label>
@@ -231,7 +231,7 @@
                                         <tr>
                                             <td>
                                                 <div class="custom-control custom-radio">
-                                                <input type="radio" name="branch" class="custom-control-input" id="rohrmoser2">
+                                                <input type="radio" name="branch" class="custom-control-input" id="rohrmoser2" onclick=" mostrarBoton();">
                                                     <label class="custom-control-label" for="rohrmoser2">
                                                         Rohrmoser, San José
                                                     </label>
@@ -294,7 +294,7 @@
                     </div>
                     <input type=hidden id ="nuevoTotal" name="nuevoTotal" value="" />
                     <input type=hidden id ="formaEntrega" name="formaEntrega" value="" />
-                    <button class='btn btn-block-dark mb-2' type='submit' name='continuarPago' >Continuar con el Pago</button>
+                    <button class='btn btn-block-dark mb-2' hidden type='submit' id='continuarPago' name='continuarPago' >Continuar con el Pago</button>
                 </div>
                 </form>
             </div>
@@ -340,11 +340,20 @@
             if (x==3000)
             {
                 document.getElementById("formaEntrega").value = "A domicilio";
+                document.getElementById("continuarPago").removeAttribute("hidden");
             }
             else
             {
                 document.getElementById("formaEntrega").value = "Recoger en sitio";
+                document.getElementById("continuarPago").hidden= true;
+                
             }
+            
+        }
+        function mostrarBoton()
+        {
+            document.getElementById("continuarPago").removeAttribute("hidden");
+
         }
      
 

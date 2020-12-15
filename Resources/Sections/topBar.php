@@ -27,7 +27,7 @@
                     }
                     else
                     {
-                        echo "<li><a href='logout.php'>" . $_SESSION["NombreUsuario"] ."&nbsp" . $_SESSION["ApellidoUsuario"] . "</a>";
+                        echo "<li><a href='cuenta.php'>" . $_SESSION["NombreUsuario"] ."&nbsp" . $_SESSION["ApellidoUsuario"] . "</a>";
                     }
                 ?>
             </ul>

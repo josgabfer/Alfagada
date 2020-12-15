@@ -68,7 +68,7 @@
                             <p class="font-size-sm mb-2">Su orden va a ser procesada lo antes posible.</p>
                             <p class="font-size-sm mb-2">Su número de orden es: <span class="font-weight-medium"><?php echo $_GET["idOrden"]; ?></span></p>
                             <p class="font-size-sm mb-2">Recibirá un correo electrónico con la confirmación de la orden.</p>
-                            <a class="btn checkout-btn-secondary mt-3 mr-3" href="categorias.php">Seguir Comprando</a>
+                            <a class="btn checkout-btn-secondary mt-3 mr-3" href="productos.php">Seguir Comprando</a>
                             <a class="btn checkout-btn mt-3">Rastrear Orden</a>
                         </div>
                     </div>
@@ -186,7 +186,9 @@
                                                 else 
                                                 {
                                                     echo "1,500"; 
-                                                }    ?></span>
+                                                }    
+                                            ?>
+                                            </span>
                                         </li>
                                         <li class="list-group-item d-flex">
                                             <span>Descuento</span>

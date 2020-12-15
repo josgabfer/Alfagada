@@ -82,7 +82,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Carrito</title>
+    <title>Mi Carrito</title>
     <?php include 'Resources/Sections/head.php';?> 
 </head>
 <body onload="calcularTotal()">
@@ -108,7 +108,7 @@
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="categorias.php">Tienda</a>
+                                    <a href="productos.php">Tienda</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Carrito de Compras
@@ -326,13 +326,13 @@
                             }
                             else
                             {
-                                echo "<a class='btn btn-block-dark mb-2' href='checkout.php'>Proceder con la Compra</a>";
+                                echo "<a class='btn btn-block-dark mb-2' href='entrega.php'>Proceder con la Compra</a>";
                             }
                            
                         }
                         else
                         {
-                            echo " </br>";
+                            echo "</br>";
                         }
                     ?>
                     <a class="px-0 text-body" href="abarrotes.php">

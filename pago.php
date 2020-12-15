@@ -18,7 +18,7 @@
         $abrirCon -> next_result();
         if($abrirCon -> query($insertarCompra))
         {
-            header('Location: order_summary.php?idOrden=' . $idOrden);
+            header('Location: resumen_compra.php?idOrden=' . $idOrden);
         }
         else
         {
@@ -31,7 +31,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Head</title>
+    <title>Pago</title>
     <?php include 'Resources/Sections/head.php';?> 
 </head>
 <body>
@@ -58,7 +58,7 @@
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="categorias.php">Tienda</a>
+                                    <a href="productos.php">Tienda</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Información de Pago
@@ -189,7 +189,18 @@
                                 </li>
                                 <li class="list-group-item d-flex">
                                     <span class="order_sum_light">Envío</span>
-                                    <span class="ml-auto order_sum_light" id="envioResumen">¢ 0</span>
+                                    <span class="ml-auto order_sum_light" id="envioResumen">¢ 
+                                    <?php 
+                                        if ($_SESSION["tipoEntrega"] == "A domicilio")
+                                        {
+                                            echo "3,000"; 
+                                        }
+                                        else 
+                                        {
+                                            echo "1,500"; 
+                                        }    
+                                    ?>
+                                    </span>
                                 </li>
                                 <li class="list-group-item d-flex font-size-lg">   
                                     <span class="order_sum_light font-weight-bold">Total</span>
@@ -202,7 +213,7 @@
                             </ul>
                         </div>
                     </div>
-                    <button class='btn btn-block-dark mb-2' type='submit' name='finalizarCompra'>Finalizar Compra</button>
+                    <button class='btn btn-block-dark mb-2' type='submit' id='finalizarCompra' name='finalizarCompra' hidden>Finalizar Compra</button>
                     <input type="hidden" value="" id="tipoPago" name="tipoPago"/>
                 </div>
             </div>
@@ -232,8 +243,8 @@
             {
                 document.getElementById("tipoPago").value = "Efectivo";
             }
-        }
-        
+            document.getElementById("finalizarCompra").removeAttribute("hidden");
+        }        
     </script>
 </body>
 </html>

@@ -9,7 +9,7 @@
               <a class="nav-link" href="index.php">Inicio</a>
             </li>
             <li class="nav-item active dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Categorías</a>
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Productos</a>
                 <ul class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="abarrotes.php">Abarrotes</a>
                   <a class="dropdown-item" href="bebidas.php">Bebidas</a>
@@ -17,7 +17,7 @@
                   <a class="dropdown-item" href="limpieza.php">Limpieza</a>
                   <a class="dropdown-item" href="frutas_vegetales.php">Frutas y Verduras</a>
                   <a class="dropdown-item" href="lacteos.php">Lácteos</a>
-                  <a class="dropdown-item" href="panaderia.php">Panaderia y reposteria</a>
+                  <a class="dropdown-item" href="panaderia.php">Panadería y Repostería</a>
                 </ul>
             </li>
             <li class="nav-item active dropdown">
@@ -30,7 +30,7 @@
                 </ul>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">Ubicación</a>
+              <a class="nav-link" href="ubicacion.php">Ubicación</a>
             </li>
             
           </ul>

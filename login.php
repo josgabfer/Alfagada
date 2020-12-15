@@ -43,6 +43,7 @@
             $_SESSION["NombreUsuario"] = $row["nombre"];
             $_SESSION["ApellidoUsuario"] = $row["apellido"];
             $_SESSION["correoSesion"] = $correo;
+            $_SESSION['claveSesion'] = $clave;
             header('Location: index.php');
 
         }

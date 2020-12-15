@@ -1,3 +1,14 @@
+<?php
+
+    if (session_status() == PHP_SESSION_NONE) 
+    {
+        session_start();
+    }
+        
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,19 +74,19 @@
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Nombre *</label>
-                                            <input class="contact_form form-control" type="text" placeholder="Nombre *" value="Roberto" required>
+                                            <input class="contact_form form-control" type="text" placeholder="Nombre *" value="<?php echo $_SESSION["NombreUsuario"] ?>" required>
                                         </div>
                                     </div> 
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Apellido *</label>
-                                            <input class="contact_form form-control" type="text" placeholder="Apellido *" value="Perez" required>
+                                            <input class="contact_form form-control" type="text" placeholder="Apellido *" value="<?php echo $_SESSION["ApellidoUsuario"] ?>" required>
                                         </div>
                                     </div>  
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label>Correo Electrónico *</label>
-                                            <input class="contact_form form-control" type="text" placeholder="Correo Electrónico *" value="rp@gmail.com" required>
+                                            <input class="contact_form form-control" type="text" placeholder="Correo Electrónico *" value="<?php echo $_SESSION["correoSesion"] ?>" required>
                                         </div>
                                     </div>  
                                     <div class="col-12 col-md-6">

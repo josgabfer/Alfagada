@@ -3,9 +3,9 @@
     function OpenCon()
     {
         
-        $servidor = "localhost:3306";
+        $servidor = "127.0.0.1:8888";
         $usuario = "root";
-        $password = "bitnami";
+        $password = "D49WKj3LRneh";
         $baseDatos = "alfagada";
         
         $conn = new mysqli($servidor,$usuario,$password,$baseDatos) or die("Connect failed:" . $conn -> error);

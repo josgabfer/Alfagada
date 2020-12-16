@@ -3,7 +3,7 @@
     function OpenCon()
     {
         
-        $servidor = "localhost:8888";
+        $servidor = "localhost";
         $usuario = "root";
         $password = "bitnami";
         $baseDatos = "alfagada";

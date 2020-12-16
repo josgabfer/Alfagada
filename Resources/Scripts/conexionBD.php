@@ -9,6 +9,7 @@
         $baseDatos = "alfagada";
         
         $conn = new mysqli($servidor,$usuario,$password,$baseDatos) or die("Connect failed:" . $conn -> error);
+        echo $conn;
         return $conn;
     }
     

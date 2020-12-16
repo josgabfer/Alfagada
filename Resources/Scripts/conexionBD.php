@@ -5,7 +5,7 @@
         
         $servidor = "localhost:8888";
         $usuario = "root";
-        $password = "D49WKj3LRneh";
+        $password = "bitnami";
         $baseDatos = "alfagada";
         
         $conn = new mysqli($servidor,$usuario,$password,$baseDatos) or die("Connect failed:" . $conn -> error);

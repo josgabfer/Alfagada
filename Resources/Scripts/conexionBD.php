@@ -3,7 +3,7 @@
     function OpenCon()
     {
         
-        $servidor = "localhost:80";
+        $servidor = "localhost";
         $usuario = "root";
         $password = "D49WKj3LRneh";
         $baseDatos = "alfagada";

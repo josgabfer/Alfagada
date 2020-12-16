@@ -3,7 +3,7 @@
     function OpenCon()
     {
         
-        $servidor = "127.0.0.1:8888";
+        $servidor = "127.0.0.1:3306";
         $usuario = "root";
         $password = "D49WKj3LRneh";
         $baseDatos = "alfagada";

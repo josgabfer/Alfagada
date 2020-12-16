@@ -2,11 +2,21 @@
 
     function OpenCon()
     {
-        $servidor = "127.0.0.1:57337";
-        $usuario = "azure";
-        $password = "6#vWHD_$";
-        $baseDatos = "alfagada";
+        $connectstr_dbhost = '';
+        $connectstr_dbname = '';
+        $connectstr_dbusername = '';
+        $connectstr_dbpassword = '';
 
+        foreach ($_SERVER as $key => $value) {
+            if (strpos($key, "MYSQLCONNSTR_localdb") !== 0) {
+                continue;
+            }
+            $servidor = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
+            $usuario = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
+            $password = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
+            $baseDatos = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
+}
+        
         /*$servidor = "localhost";
         $usuario = "root";
         $password = "";

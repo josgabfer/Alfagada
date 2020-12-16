@@ -16,6 +16,7 @@
             $password = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
             $baseDatos = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
 }
+        echo $usuario . ' '. $password;
         
         /*$servidor = "localhost";
         $usuario = "root";
